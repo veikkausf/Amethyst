@@ -1,76 +1,88 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { RootStackParamList } from '../Types';
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import Button from '@/components/Button';
-
-export default function HomeScreen() {
+interface HomeScreenProps {
+  navigation: HomeScreenNavigationProp;
+}
+//Log in screen ensimmäinen näkymä
+function LoginScreen({ navigation }: HomeScreenProps) {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Amethyst</ThemedText>
-        <Button title="Custom Button Text" />
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{' '}
-          to see changes. Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this
-          starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>{' '}
-          to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText>{' '}
-          directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Log in" onPress={() => navigation.navigate('Menu')} />
+    </View>
+  );
+}
+//main manu Täältä pääset kaikkeen menu contenttiin aka pää sivu
+function MenuScreen({ navigation }: HomeScreenProps) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Tarot" onPress={() => navigation.navigate('Tarot')} />
+      <Button
+        title="Minerals"
+        onPress={() => navigation.navigate('Minerals')}
+      />
+      <Button
+        title="Horoscope"
+        onPress={() => navigation.navigate('Horoscope')}
+      />
+      <Button
+        title="Meditate"
+        onPress={() => navigation.navigate('Meditate')}
+      />
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+function TarotScreen({ navigation }: HomeScreenProps) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> Täällä on tarot kortteja</Text>
+    </View>
+  );
+}
+
+function MineralsScreen({ navigation }: HomeScreenProps) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> Täällä on mineraaleja</Text>
+    </View>
+  );
+}
+function HoroscopeScreen({ navigation }: HomeScreenProps) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> Täällä on Horoskooppeja</Text>
+    </View>
+  );
+}
+function MeditateScreen({ navigation }: HomeScreenProps) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text> Täällä Voit meditoida</Text>
+    </View>
+  );
+}
+
+const Stack = createStackNavigator();
+
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Menu" component={MenuScreen} />
+      <Stack.Screen name="Tarot" component={TarotScreen} />
+      <Stack.Screen name="Minerals" component={MineralsScreen} />
+      <Stack.Screen name="Horoscope" component={HoroscopeScreen} />
+      <Stack.Screen name="Meditate" component={MeditateScreen} />
+    </Stack.Navigator>
+  );
+}
+
+export default function App() {
+  return <MyStack />;
+}
