@@ -11,6 +11,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Nappi from '@/components/Button';
+import Teksti from '@/components/Textbox';
+
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 interface HomeScreenProps {
@@ -55,7 +57,9 @@ function MenuScreen({ navigation }: HomeScreenProps) {
 function TarotScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text> Täällä on tarot kortteja</Text>
+      <Teksti>
+        <Text> Täällä on tarot kortteja</Text>
+      </Teksti>
     </View>
   );
 }
@@ -63,21 +67,27 @@ function TarotScreen({ navigation }: HomeScreenProps) {
 function MineralsScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text> Täällä on mineraaleja</Text>
+      <Teksti>
+        <Text> Täällä on mineraaleja</Text>
+      </Teksti>
     </View>
   );
 }
 function HoroscopeScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text> Täällä on Horoskooppeja</Text>
+      <Teksti>
+        <Text> Täällä on Horoskooppeja</Text>
+      </Teksti>
     </View>
   );
 }
 function MeditateScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text> Täällä Voit meditoida</Text>
+      <Teksti>
+        <Text> Täällä Voit meditoida</Text>
+      </Teksti>
     </View>
   );
 }
