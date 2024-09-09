@@ -1,7 +1,13 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import {
+  Button,
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  StyleSheet,
+} from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -12,15 +18,21 @@ interface HomeScreenProps {
 //Log in screen ensimmäinen näkymä
 function LoginScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Log in" onPress={() => navigation.navigate('Menu')} />
-    </View>
+    <ImageBackground
+      source={require('../../assets/images/background.jpg')} // Relative path to the background image
+      style={styles.background}
+      resizeMode="cover" // Adjusts how the image is resized to fit the background (options: cover, contain, stretch, etc.)
+    >
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button title="Log in" onPress={() => navigation.navigate('Menu')} />
+      </View>
+    </ImageBackground>
   );
 }
 //main manu Täältä pääset kaikkeen menu contenttiin aka pää sivu
 function MenuScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Button title="Tarot" onPress={() => navigation.navigate('Tarot')} />
       <Button
         title="Minerals"
@@ -40,7 +52,7 @@ function MenuScreen({ navigation }: HomeScreenProps) {
 
 function TarotScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text> Täällä on tarot kortteja</Text>
     </View>
   );
@@ -48,21 +60,21 @@ function TarotScreen({ navigation }: HomeScreenProps) {
 
 function MineralsScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text> Täällä on mineraaleja</Text>
     </View>
   );
 }
 function HoroscopeScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text> Täällä on Horoskooppeja</Text>
     </View>
   );
 }
 function MeditateScreen({ navigation }: HomeScreenProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text> Täällä Voit meditoida</Text>
     </View>
   );
@@ -86,3 +98,16 @@ function MyStack() {
 export default function App() {
   return <MyStack />;
 }
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    backgroundColor: '#3F3154',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
