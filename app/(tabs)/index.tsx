@@ -12,6 +12,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Nappi from '@/components/Button';
 import Teksti from '@/components/Textbox';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -27,8 +28,7 @@ function LoginScreen({ navigation }: HomeScreenProps) {
       resizeMode="cover" // Adjusts how the image is resized to fit the background (options: cover, contain, stretch, etc.)
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Log in" onPress={() => navigation.navigate('Menu')} />
-        <Nappi title="Testi"></Nappi>
+        <Nappi title="Log in" onPress={() => navigation.navigate('Menu')} />
       </View>
     </ImageBackground>
   );
@@ -96,7 +96,15 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTransparent: true,
+        headerTitle: '',
+        headerBackImage: () => (
+          <FontAwesome5 name="arrow-alt-circle-left" size={24} color="ff5733" />
+        ),
+      }}
+    >
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Menu" component={MenuScreen} />
       <Stack.Screen name="Tarot" component={TarotScreen} />

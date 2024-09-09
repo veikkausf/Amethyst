@@ -7,13 +7,16 @@ Laatikoiden pohjaväri liila: #918998
 Laatikon reunojen sävy vaalea liila: #ACA3AF
 */
 
+// Tyyppi-määrittely (propsit)
 interface NappiProps {
   title: string;
+  onPress: () => void;
 }
 
-const Nappi: React.FC<NappiProps> = ({ title }) => {
+const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
   return (
-    <Pressable style={styles.button} onPress={() => alert('Button Pressed!')}>
+    // Tyylit ja onPress event määritelty napille
+    <Pressable style={styles.button} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );
