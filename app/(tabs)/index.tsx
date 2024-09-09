@@ -10,6 +10,7 @@ import {
 import { StackNavigationProp } from '@react-navigation/stack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
+import Nappi from '@/components/Button';
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 interface HomeScreenProps {
@@ -25,6 +26,7 @@ function LoginScreen({ navigation }: HomeScreenProps) {
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button title="Log in" onPress={() => navigation.navigate('Menu')} />
+        <Nappi title="Testi"></Nappi>
       </View>
     </ImageBackground>
   );
