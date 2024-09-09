@@ -101,7 +101,10 @@ function MyStack() {
         headerTransparent: true,
         headerTitle: '',
         headerBackImage: () => (
-          <FontAwesome5 name="arrow-alt-circle-left" size={24} color="ff5733" />
+          <Image
+            source={require('../../assets/images/backbt.png')}
+            style={{ width: 75, height: 75 }}
+          />
         ),
       }}
     >
