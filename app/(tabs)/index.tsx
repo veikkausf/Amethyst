@@ -13,6 +13,9 @@ import { RootStackParamList } from '../Types';
 import Nappi from '@/components/Button';
 import Teksti from '@/components/Textbox';
 import Horoscope from './horoscope';
+import Tarot from './tarot';
+import Meditate from './meditate';
+import Minerals from './minerals';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -56,35 +59,16 @@ function MenuScreen({ navigation }: HomeScreenProps) {
 }
 
 function TarotScreen({ navigation }: HomeScreenProps) {
-  return (
-    <View style={styles.container}>
-      <Teksti>
-        <Text> Täällä on tarot kortteja</Text>
-      </Teksti>
-    </View>
-  );
+  return <Tarot />;
 }
-
 function MineralsScreen({ navigation }: HomeScreenProps) {
-  return (
-    <View style={styles.container}>
-      <Teksti>
-        <Text> Täällä on mineraaleja</Text>
-      </Teksti>
-    </View>
-  );
+  return <Minerals />;
 }
 function HoroscopeScreen({ navigation }: HomeScreenProps) {
   return <Horoscope />;
 }
 function MeditateScreen({ navigation }: HomeScreenProps) {
-  return (
-    <View style={styles.container}>
-      <Teksti>
-        <Text> Täällä Voit meditoida</Text>
-      </Teksti>
-    </View>
-  );
+  return <Meditate />;
 }
 
 const Stack = createStackNavigator();
