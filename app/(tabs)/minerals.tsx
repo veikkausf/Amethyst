@@ -29,14 +29,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   regularText: {
-    fontFamily: 'Kadwa-Regular',
+    fontFamily: 'Kadwa_400Regular',
     fontSize: 20,
-    fontWeight: 'normal',
   },
   boldText: {
-    fontFamily: 'Kadwa-Bold',
+    fontFamily: 'Kadwa_700Bold',
     fontSize: 20,
-    fontWeight: 'bold',
   },
 });
 export default Minerals;
