@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     backgroundColor: '#918998',
     width: 300,
-    height: 60,
-    marginTop: 550,
+    height: 70,
+    marginTop: 600,
   },
   text: {
     color: '#ffffff',
