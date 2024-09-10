@@ -6,7 +6,11 @@ const Minerals: React.FC = () => {
   return (
     <View style={styles.container}>
       <Teksti>
-        <Text> Täällä on mineraaleja</Text>
+        <Text style={styles.regularText}>
+          Täällä on mineraaleja kadwa regular
+        </Text>
+        <Text style={styles.boldText}>Täällä on mineraaleja kadwa bold</Text>
+        <Text>Täällä on mineraaleja normaali</Text>
       </Teksti>
     </View>
   );
@@ -24,6 +28,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  regularText: {
+    fontFamily: 'Kadwa-Regular',
+    fontSize: 20,
+    fontWeight: 'normal',
+  },
+  boldText: {
+    fontFamily: 'Kadwa-Bold',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
-
 export default Minerals;

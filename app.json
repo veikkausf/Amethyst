@@ -26,7 +26,18 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": ["expo-router", "expo-font"],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "assets": [
+            "./assets/fonts/Kadwa-Regular.ttf",
+            "./assets/fonts/Kadwa-Bold.ttf"
+          ]
+        }
+      ]
+    ],
     "experiments": {
       "typedRoutes": true
     }
