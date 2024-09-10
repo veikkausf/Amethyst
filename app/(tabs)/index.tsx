@@ -11,12 +11,10 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Nappi from '@/components/Button';
-import Teksti from '@/components/Textbox';
 import Horoscope from './horoscope';
 import Tarot from './tarot';
 import Meditate from './meditate';
 import Minerals from './minerals';
-import { FontAwesome5 } from '@expo/vector-icons';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -32,7 +30,7 @@ function LoginScreen({ navigation }: HomeScreenProps) {
       resizeMode="cover" // Adjusts how the image is resized to fit the background (options: cover, contain, stretch, etc.)
     >
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Nappi title="Log in" onPress={() => navigation.navigate('Menu')} />
+        <Nappi title="Login" onPress={() => navigation.navigate('Menu')} />
       </View>
     </ImageBackground>
   );
@@ -58,16 +56,16 @@ function MenuScreen({ navigation }: HomeScreenProps) {
   );
 }
 
-function TarotScreen({ navigation }: HomeScreenProps) {
+function TarotScreen({}: HomeScreenProps) {
   return <Tarot />;
 }
-function MineralsScreen({ navigation }: HomeScreenProps) {
+function MineralsScreen({}: HomeScreenProps) {
   return <Minerals />;
 }
-function HoroscopeScreen({ navigation }: HomeScreenProps) {
+function HoroscopeScreen({}: HomeScreenProps) {
   return <Horoscope />;
 }
-function MeditateScreen({ navigation }: HomeScreenProps) {
+function MeditateScreen({}: HomeScreenProps) {
   return <Meditate />;
 }
 
