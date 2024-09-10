@@ -1,24 +1,8 @@
-import {
-  Button,
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  StyleSheet,
-} from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { createStackNavigator } from '@react-navigation/stack';
-import { RootStackParamList } from '../Types';
-import Nappi from '@/components/Button';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import Teksti from '@/components/Textbox';
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
-
-interface HomeScreenProps {
-  navigation: HomeScreenNavigationProp;
-}
-
-function HoroscopeScreen({ navigation }: HomeScreenProps) {
+const Horoscope: React.FC = () => {
   return (
     <View style={styles.container}>
       <Teksti>
@@ -26,7 +10,7 @@ function HoroscopeScreen({ navigation }: HomeScreenProps) {
       </Teksti>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   background: {
@@ -41,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default Horoscope;

@@ -12,6 +12,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Nappi from '@/components/Button';
 import Teksti from '@/components/Textbox';
+import Horoscope from './horoscope';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -74,13 +75,7 @@ function MineralsScreen({ navigation }: HomeScreenProps) {
   );
 }
 function HoroscopeScreen({ navigation }: HomeScreenProps) {
-  return (
-    <View style={styles.container}>
-      <Teksti>
-        <Text> Täällä on Horoskooppeja</Text>
-      </Teksti>
-    </View>
-  );
+  return <Horoscope />;
 }
 function MeditateScreen({ navigation }: HomeScreenProps) {
   return (
@@ -93,7 +88,7 @@ function MeditateScreen({ navigation }: HomeScreenProps) {
 }
 
 const Stack = createStackNavigator();
-
+//Header
 function MyStack() {
   return (
     <Stack.Navigator
