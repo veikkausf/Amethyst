@@ -15,6 +15,7 @@ import Horoscope from './horoscope';
 import Tarot from './tarot';
 import Meditate from './meditate';
 import Minerals from './minerals';
+import MenuButton from '@/components/MenuButton';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -39,16 +40,16 @@ function LoginScreen({ navigation }: HomeScreenProps) {
 function MenuScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Button title="Tarot" onPress={() => navigation.navigate('Tarot')} />
-      <Button
+      <MenuButton title="Tarot" onPress={() => navigation.navigate('Tarot')} />
+      <MenuButton
         title="Minerals"
         onPress={() => navigation.navigate('Minerals')}
       />
-      <Button
+      <MenuButton
         title="Horoscope"
         onPress={() => navigation.navigate('Horoscope')}
       />
-      <Button
+      <MenuButton
         title="Meditate"
         onPress={() => navigation.navigate('Meditate')}
       />
