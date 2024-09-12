@@ -6,4 +6,5 @@ export type RootStackParamList = {
   Horoscope: undefined;
   Meditate: undefined;
   Login: undefined;
+  HoroscopeData: undefined;
 };
