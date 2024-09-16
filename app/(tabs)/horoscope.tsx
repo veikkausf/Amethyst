@@ -8,20 +8,23 @@ type BoxItem = {
 };
 
 const data: BoxItem[] = [
-  { id: 'Capricorn', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Aquarius', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Pisces', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Aries', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Taurus', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Gemini', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Cancer', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Leo', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Virgo', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Libra', image: require('../../assets/images/amethyst_icon.png') },
-  { id: 'Scorpion', image: require('../../assets/images/amethyst_icon.png') },
+  {
+    id: 'Capricorn',
+    image: require('../../assets/images/capricorn.png'),
+  },
+  { id: 'Aquarius', image: require('../../assets/images/aquarius.png') },
+  { id: 'Pisces', image: require('../../assets/images/pisces.png') },
+  { id: 'Aries', image: require('../../assets/images/aries.png') },
+  { id: 'Taurus', image: require('../../assets/images/taurus.png') },
+  { id: 'Gemini', image: require('../../assets/images/gemini.png') },
+  { id: 'Cancer', image: require('../../assets/images/cancer.png') },
+  { id: 'Leo', image: require('../../assets/images/leo.png') },
+  { id: 'Virgo', image: require('../../assets/images/virgo.png') },
+  { id: 'Libra', image: require('../../assets/images/libra.png') },
+  { id: 'Scorpio', image: require('../../assets/images/scorpio.png') },
   {
     id: 'Sagittarius',
-    image: require('../../assets/images/amethyst_icon.png'),
+    image: require('../../assets/images/sagittarius.png'),
   },
   // Add more items up to 12
 ];
@@ -29,7 +32,7 @@ const data: BoxItem[] = [
 function Horoscopes({ navigation }: { navigation: any }) {
   return (
     <View style={styles.background}>
-      <Text style={styles.header}>FIND a suitable crystal for your mood</Text>
+      <Text style={styles.header}>WHAT'S your sun sign?</Text>
       <ScrollView contentContainerStyle={styles.grid}>
         {data.map((item) => (
           <HoroscopeButton

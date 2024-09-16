@@ -14,34 +14,42 @@ const HoroscopeButton: React.FC<HoroscopeButtonProps> = ({
   return (
     <Pressable style={styles.button} onPress={onPress}>
       <View style={styles.content}>
-        <Image source={img} style={styles.image}></Image>
         <Text style={styles.text}>{title}</Text>
+        <Image source={img} style={styles.image}></Image>
       </View>
     </Pressable>
   );
 };
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 35,
-    width: '30%',
+    flexDirection: 'row',
+    borderRadius: 20,
+    width: '85%',
     height: 100,
     marginVertical: 10,
-    borderColor: 'red',
+    borderColor: '#ACA3AF',
     borderWidth: 2,
     fontFamily: 'Kadwa_400Regular',
+    justifyContent: 'space-between',
   },
   text: {
-    color: 'black',
+    color: 'white',
+    position: 'absolute',
+    left: 50,
     fontSize: 20,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
   image: {
-    width: 50,
-    height: 50,
+    position: 'absolute',
+    width: 35,
+    height: 35,
+    // scam
+    left: 250,
   },
   content: {
     alignItems: 'center',
+    flexDirection: 'row',
   },
 });
 export default HoroscopeButton;
