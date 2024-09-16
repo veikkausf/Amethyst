@@ -49,7 +49,9 @@ function Minerals({ navigation }: { navigation: any }) {
               key={item.id}
               title={item.id}
               img={item.image}
-              onPress={() => navigation.navigate('MineralData')}
+              onPress={() =>
+                navigation.navigate('MineralData', { itemID: item.id })
+              }
             />
           ))}
         </ScrollView>

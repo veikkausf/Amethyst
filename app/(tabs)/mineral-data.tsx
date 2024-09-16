@@ -1,16 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Teksti from '@/components/Textbox';
+import { RouteProp } from '@react-navigation/native';
 
-const MineralData: React.FC = () => {
+// Define the param list for the MineralData screen
+type RootStackParamList = {
+  MineralData: { itemId: string };
+};
+
+type MineralDataRouteProp = RouteProp<RootStackParamList, 'MineralData'>;
+
+interface Props {
+  route: MineralDataRouteProp;
+}
+
+const MineralData: React.FC<Props> = ({ route }) => {
+  const { itemId } = route.params; // Access the passed itemId
+
   return (
-    <View style={styles.container}>
-      <Teksti>
-        <Text> Mineral data</Text>
-      </Teksti>
+    <View style={styles.background}>
+      <Text>Mineral ID: {itemId}</Text>
     </View>
   );
 };
+
+export default MineralData;
 
 const styles = StyleSheet.create({
   background: {
@@ -25,5 +38,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default MineralData;
