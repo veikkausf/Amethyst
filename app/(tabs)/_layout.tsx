@@ -18,7 +18,10 @@ function MyStack() {
     <Stack.Navigator
       initialRouteName="Login"
       screenOptions={{
-        headerTransparent: true,
+        headerStyle: {
+          backgroundColor: '#3F3154',
+          shadowColor: 'transparent',
+        },
         headerTitle: '',
         headerBackImage: () => (
           <Image
@@ -28,7 +31,11 @@ function MyStack() {
         ),
       }}
     >
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="Menu" component={MenuScreen} />
       <Stack.Screen name="Tarot" component={Tarot} />
       <Stack.Screen name="Minerals" component={Minerals} />

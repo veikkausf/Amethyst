@@ -32,8 +32,8 @@ const data: BoxItem[] = [
 function Horoscopes({ navigation }: { navigation: any }) {
   return (
     <View style={styles.background}>
-      <Text style={styles.header}>WHAT'S your sun sign?</Text>
       <ScrollView contentContainerStyle={styles.grid}>
+        <Text style={styles.header}>WHAT'S your sun sign?</Text>
         {data.map((item) => (
           <HoroscopeButton
             key={item.id}
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
-    height: '20%',
   },
 });
 
