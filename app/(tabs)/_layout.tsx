@@ -9,6 +9,7 @@ import Minerals from './minerals';
 import LoginScreen from './Login';
 import MenuScreen from './menu';
 import HoroscopeData from './horoscope-data';
+import MineralData from './mineral-data';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -34,6 +35,7 @@ function MyStack() {
       <Stack.Screen name="Horoscope" component={Horoscope} />
       <Stack.Screen name="HoroscopeData" component={HoroscopeData} />
       <Stack.Screen name="Meditate" component={Meditate} />
+      <Stack.Screen name="MineralData" component={MineralData} />
     </Stack.Navigator>
   );
 }
