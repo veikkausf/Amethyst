@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
+import HoroscopeButton from '@/components/HoroscopeButton';
 
 type BoxItem = {
   id: string;
@@ -32,57 +26,54 @@ const data: BoxItem[] = [
   // Add more items up to 12
 ];
 
-const BoxButton: React.FC<{ item: BoxItem }> = ({ item }) => {
+function Horoscopes({ navigation }: { navigation: any }) {
   return (
-    <TouchableOpacity
-      style={styles.box}
-      onPress={() => console.log(`Pressed ${item.id}`)}
-    >
-      <Image source={item.image} style={styles.image} />
-      <Text style={styles.boxText}>{item.id}</Text>
-    </TouchableOpacity>
+    <View style={styles.background}>
+      <Text style={styles.header}>FIND a suitable crystal for your mood</Text>
+      <ScrollView contentContainerStyle={styles.grid}>
+        {data.map((item) => (
+          <HoroscopeButton
+            key={item.id}
+            title={item.id}
+            img={item.image}
+            onPress={() =>
+              navigation.navigate('HoroscopeData', { itemId: item.id })
+            }
+          />
+        ))}
+      </ScrollView>
+    </View>
   );
-};
-
-const TaurusList = () => {
-  return (
-    <FlatList
-      data={data}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <BoxButton item={item} />}
-      numColumns={1} // Display boxes in rows of 3
-      contentContainerStyle={styles.flatListContainer}
-    />
-  );
-};
+}
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 10,
-    paddingVertical: 20,
+  background: {
+    backgroundColor: '#3F3154',
     flex: 1,
-  },
-  flatListContainer: {
-    flexGrow: 1,
-  },
-  box: {
-    flex: 1,
-    margin: 10,
-    height: 100,
-    backgroundColor: '#f0f0f0',
-    justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+    justifyContent: 'center',
   },
-  image: {
-    width: 50,
-    height: 50,
-    marginBottom: 10,
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    width: '100%',
+    padding: 10,
   },
-  boxText: {
-    fontSize: 14,
-    color: '#333',
+  stonebox: {
+    backgroundColor: '#918998',
+    borderColor: '#ACA3AF',
+    borderWidth: 4,
+    height: '60%',
+    width: '80%',
+  },
+  header: {
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+    marginHorizontal: 40,
+    height: '20%',
   },
 });
 
-export default TaurusList;
+export default Horoscopes;
