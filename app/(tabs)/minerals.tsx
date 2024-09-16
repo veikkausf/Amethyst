@@ -50,7 +50,7 @@ function Minerals({ navigation }: { navigation: any }) {
               title={item.id}
               img={item.image}
               onPress={() =>
-                navigation.navigate('MineralData', { itemID: item.id })
+                navigation.navigate('MineralData', { itemId: item.id })
               }
             />
           ))}

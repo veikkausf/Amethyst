@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 
-// Define the param list for the MineralData screen
+// Parametri-lista tälle komponentille
 type RootStackParamList = {
   MineralData: { itemId: string };
 };
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const MineralData: React.FC<Props> = ({ route }) => {
-  const { itemId } = route.params; // Access the passed itemId
+  const { itemId } = route.params; // Tuotu ID
 
   return (
     <View style={styles.background}>
@@ -22,8 +22,6 @@ const MineralData: React.FC<Props> = ({ route }) => {
     </View>
   );
 };
-
-export default MineralData;
 
 const styles = StyleSheet.create({
   background: {
@@ -38,3 +36,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default MineralData;
