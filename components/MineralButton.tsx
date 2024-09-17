@@ -23,22 +23,22 @@ const MineralButton: React.FC<MineralButtonProps> = ({
 const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
-    width: '30%',
+    width: '33%',
     height: 100,
     marginVertical: 10,
-    borderColor: 'red',
-    borderWidth: 2,
+
     fontFamily: 'Kadwa_400Regular',
   },
   text: {
     color: 'black',
-    fontSize: 11,
+    fontSize: 12,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
+    borderRadius: 10,
   },
   content: {
     alignItems: 'center',

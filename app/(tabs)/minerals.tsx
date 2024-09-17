@@ -123,8 +123,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#918998',
     borderColor: '#ACA3AF',
     borderWidth: 4,
-    height: '75%',
-    width: '80%',
+    height: '65%',
+    width: '90%',
     margin: 15,
   },
   header: {
