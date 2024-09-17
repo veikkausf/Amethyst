@@ -97,9 +97,11 @@ const styles = StyleSheet.create({
   },
   box: {
     margin: 15,
-    marginTop: 20,
+    bottom: 40,
   },
-  image: {},
+  image: {
+    bottom: 75,
+  },
 });
 
 export default HoroscopeData;
