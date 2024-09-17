@@ -40,7 +40,10 @@ function Horoscopes({ navigation }: { navigation: any }) {
             title={item.id}
             img={item.image}
             onPress={() =>
-              navigation.navigate('HoroscopeData', { itemId: item.id })
+              navigation.navigate('HoroscopeData', {
+                itemId: item.id,
+                itemImage: item.image,
+              })
             }
           />
         ))}

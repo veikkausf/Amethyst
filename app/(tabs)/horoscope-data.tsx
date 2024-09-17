@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Image, Text, ActivityIndicator } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 
 // Parametri-lista tälle komponentille
 type RootStackParamList = {
-  HoroscopeData: { itemId: string };
+  HoroscopeData: { itemId: string; itemImage: any };
 };
 
 type HoroscopeDataRouteProp = RouteProp<RootStackParamList, 'HoroscopeData'>;
@@ -21,6 +21,7 @@ interface HoroscopeDataProps {
 
 const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   const { itemId } = route.params; // Tuotu ID
+  const { itemImage } = route.params;
   const [data, setData] = useState<HoroscopeDataResponse | null>(null); // Use the interface here
   const [loading, setLoading] = useState(true);
 
@@ -55,6 +56,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
     <View style={{ padding: 20 }}>
       {data && (
         <>
+          <Image source={itemImage}></Image>
           <Text>{itemId}</Text>
           <Text>Date: {data.date}</Text>
           <Text>Horoscope: {data.horoscope_data}</Text>
