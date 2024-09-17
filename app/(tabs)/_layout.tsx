@@ -42,7 +42,11 @@ function MyStack() {
       <Stack.Screen name="Horoscope" component={Horoscope} />
       <Stack.Screen name="HoroscopeData" component={HoroscopeData} />
       <Stack.Screen name="Meditate" component={Meditate} />
-      <Stack.Screen name="MineralData" component={MineralData} />
+      <Stack.Screen
+        name="MineralData"
+        component={MineralData}
+        options={{ headerTransparent: true }}
+      />
     </Stack.Navigator>
   );
 }
