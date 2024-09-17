@@ -9,15 +9,19 @@ type RootStackParamList = {
 
 type HoroscopeDataRouteProp = RouteProp<RootStackParamList, 'HoroscopeData'>;
 
-interface HoroscopeDataType {
+// Interface for the horoscope data received from the API
+interface HoroscopeDataResponse {
   date: string;
   horoscope_data: string;
+}
+
+interface HoroscopeDataProps {
   route: HoroscopeDataRouteProp;
 }
 
-const HoroscopeData: React.FC<HoroscopeDataType> = ({ route }) => {
+const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   const { itemId } = route.params; // Tuotu ID
-  const [data, setData] = useState<HoroscopeDataType | null>(null); // Use the interface here
+  const [data, setData] = useState<HoroscopeDataResponse | null>(null); // Use the interface here
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
