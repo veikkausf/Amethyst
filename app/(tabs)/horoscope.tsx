@@ -33,7 +33,9 @@ function Horoscopes({ navigation }: { navigation: any }) {
   return (
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
-        <Text style={styles.header}>WHAT'S your sun sign?</Text>
+        <Text style={styles.header}>
+          What's <Text style={styles.normalFont}>your sun sign?</Text>
+        </Text>
         {data.map((item) => (
           <HoroscopeButton
             key={item.id}
@@ -78,6 +80,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
+  },
+  normalFont: {
+    fontFamily: 'Kadwa_400Regular',
   },
 });
 

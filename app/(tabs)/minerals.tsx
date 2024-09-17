@@ -86,7 +86,10 @@ const data: MineralData[] = [
 function Minerals({ navigation }: { navigation: any }) {
   return (
     <View style={styles.background}>
-      <Text style={styles.header}>FIND a suitable crystal for your mood</Text>
+      <Text style={styles.header}>
+        Find
+        <Text style={styles.normalFont}> a suitable crystal for your mood</Text>
+      </Text>
       <Teksti style={styles.stonebox}>
         <ScrollView contentContainerStyle={styles.grid}>
           {data.map((item) => (
@@ -133,6 +136,9 @@ const styles = StyleSheet.create({
     color: 'white',
     marginHorizontal: 40,
     height: '20%',
+  },
+  normalFont: {
+    fontFamily: 'Kadwa_400Regular',
   },
 });
 
