@@ -10,32 +10,77 @@ type MineralData = {
 
 const data: MineralData[] = [
   {
-    id: 'asdfasdf',
+    id: 'Obsidian',
     image: require('../../assets/images/placeholdermineral.jpg'),
   },
   {
-    id: 'fhjnhjkrtnhj',
+    id: 'Onyx',
     image: require('../../assets/images/placeholdermineral.jpg'),
   },
   {
-    id: 'Pisces',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  { id: 'Aries', image: require('../../assets/images/placeholdermineral.jpg') },
-  {
-    id: 'Taurus',
+    id: 'Moonstone',
     image: require('../../assets/images/placeholdermineral.jpg'),
   },
   {
-    id: 'Gemini',
+    id: 'Carnelian',
     image: require('../../assets/images/placeholdermineral.jpg'),
   },
   {
-    id: 'Cancer',
+    id: 'Malachite',
     image: require('../../assets/images/placeholdermineral.jpg'),
   },
-  { id: 'Leo', image: require('../../assets/images/placeholdermineral.jpg') },
-  { id: 'Virgo', image: require('../../assets/images/placeholdermineral.jpg') },
+  {
+    id: 'Lepidolite',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Fluorite',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Yellow Jasper',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Hematite',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Aventurine',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Labradorite',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Citrine',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Smoky Quartz',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Selenite',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Clear Quartz',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Rose Quartz',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Amethyst',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
+  {
+    id: 'Jade',
+    image: require('../../assets/images/placeholdermineral.jpg'),
+  },
 ];
 
 function Minerals({ navigation }: { navigation: any }) {
@@ -80,6 +125,7 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     height: '75%',
     width: '80%',
+    margin: 15,
   },
   header: {
     fontSize: 30,

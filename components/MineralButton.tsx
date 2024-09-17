@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 11,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
