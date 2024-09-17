@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, Text, ActivityIndicator } from 'react-native';
+import { View, Image, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
+import Teksti from '@/components/Textbox';
 
 // Parametri-lista tälle komponentille
 type RootStackParamList = {
@@ -53,17 +54,52 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   }
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={styles.background}>
       {data && (
         <>
-          <Image source={itemImage}></Image>
-          <Text>{itemId}</Text>
-          <Text>Date: {data.date}</Text>
-          <Text>Horoscope: {data.horoscope_data}</Text>
+          <Text style={styles.header}>{itemId}</Text>
+          <Image source={itemImage} style={styles.image}></Image>
+          <Teksti style={styles.box}>
+            <Text style={styles.header}>{data.date}</Text>
+            <Text style={styles.text}>{data.horoscope_data}</Text>
+          </Teksti>
         </>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: '#3F3154',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container: {
+    backgroundColor: '#3F3154',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+    marginHorizontal: 40,
+    height: '20%',
+  },
+  text: {
+    color: 'white',
+    fontSize: 15,
+    fontFamily: 'Kadwa_400Regular',
+    textAlign: 'center',
+  },
+  box: {
+    margin: 15,
+    marginTop: 20,
+  },
+  image: {},
+});
 
 export default HoroscopeData;

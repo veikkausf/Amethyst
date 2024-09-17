@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
   box: {
     padding: 20, // Default padding
     borderWidth: 2, // Default border width
-    borderColor: 'gray', // Default border color
+    borderColor: '#ACA3AF', // Default border color
     borderRadius: 10, // Default rounded corners
-    backgroundColor: 'white', // Default background color
+    backgroundColor: '#918998', // Default background color
     alignItems: 'center', // Center the content horizontally
   },
 });
