@@ -32,7 +32,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     <Pressable style={[styles.button, style]} onPress={onPress}>
       <Teksti style={styles.content}>
         {/* Conditionally render image based on alignment */}
-        {isAlignLeft && img && <Image source={img} style={styles.image} />}
+        {isAlignLeft && img && <Image source={img} style={styles.imageleft} />}
         <View>
           <Text style={[styles.header, textAlignStyle]}>{title}</Text>
           {text ? (
@@ -81,6 +81,15 @@ const styles = StyleSheet.create({
     borderColor: '#3F3154',
     borderWidth: 5,
     borderRadius: 30,
+    left: 20,
+  },
+  imageleft: {
+    width: 60,
+    height: 60,
+    borderColor: '#3F3154',
+    borderWidth: 5,
+    borderRadius: 30,
+    right: 50,
   },
 });
 
