@@ -32,14 +32,22 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     <Pressable style={[styles.button, style]} onPress={onPress}>
       <Teksti style={styles.content}>
         {/* Conditionally render image based on alignment */}
-        {isAlignLeft && img && <Image source={img} style={styles.imageleft} />}
+        {isAlignLeft && img && (
+          <View style={styles.borderleft}>
+            <Image source={img} style={styles.imageleft} />
+          </View>
+        )}
         <View>
           <Text style={[styles.header, textAlignStyle]}>{title}</Text>
           {text ? (
             <Text style={[styles.text, textAlignStyle]}>{text}</Text>
           ) : null}
         </View>
-        {!isAlignLeft && img && <Image source={img} style={styles.image} />}
+        {!isAlignLeft && img && (
+          <View style={styles.borderright}>
+            <Image source={img} style={styles.imageright} />
+          </View>
+        )}
       </Teksti>
     </Pressable>
   );
@@ -63,13 +71,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
     marginBottom: 5,
-    right: 10,
+    right: 18,
   },
   header: {
     color: '#ffffff',
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
-    right: 10,
+    right: 18,
   },
   alignLeftText: {
     textAlign: 'right',
@@ -77,21 +85,31 @@ const styles = StyleSheet.create({
   alignRightText: {
     textAlign: 'left',
   },
-  image: {
+  imageright: {
     width: 60,
     height: 60,
-    borderColor: '#3F3154',
-    borderWidth: 5,
+    borderColor: '#ACA3AF',
+    borderWidth: 3,
     borderRadius: 30,
-    left: 20,
   },
   imageleft: {
     width: 60,
     height: 60,
+    borderColor: '#ACA3AF',
+    borderWidth: 3,
+    borderRadius: 30,
+  },
+  borderleft: {
     borderColor: '#3F3154',
     borderWidth: 5,
-    borderRadius: 30,
+    borderRadius: 40,
     right: 50,
+  },
+  borderright: {
+    borderColor: '#3F3154',
+    borderWidth: 5,
+    borderRadius: 40,
+    left: 20,
   },
 });
 
