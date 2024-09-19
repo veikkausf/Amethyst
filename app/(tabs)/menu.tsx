@@ -10,29 +10,32 @@ interface HomeScreenProps {
 function MenuScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Menu</Text>
+      <Text style={styles.header}>
+        <Text style={styles.headerbold}>Choose</Text> a way to calm your mind...
+      </Text>
       <MenuButton
-        title="Tarot"
-        text="test"
+        title="Daily Tarot"
+        text="Get your daily guidance"
         onPress={() => navigation.navigate('Tarot')}
         style={styles.right}
       />
+
       <MenuButton
-        title="Minerals"
-        text="test"
-        onPress={() => navigation.navigate('Minerals')}
+        title="Today's horoscope"
+        text="Whats in the air today"
+        onPress={() => navigation.navigate('Horoscope')}
         style={styles.left}
       />
       <MenuButton
-        title="Horoscope"
-        text="test"
-        onPress={() => navigation.navigate('Horoscope')}
+        title="Meditation lessons"
+        text="Clear your mind and relax"
+        onPress={() => navigation.navigate('Meditate')}
         style={styles.right}
       />
       <MenuButton
-        title="Meditate"
-        text="test"
-        onPress={() => navigation.navigate('Meditate')}
+        title="Crystal guide"
+        text="Learn about crystal energies"
+        onPress={() => navigation.navigate('Minerals')}
         style={styles.left}
       />
     </View>
@@ -64,7 +67,12 @@ const styles = StyleSheet.create({
   },
   header: {
     color: '#ffffff',
-    fontSize: 25,
+    fontSize: 30,
     fontFamily: 'Kadwa_400Regular',
+  },
+  headerbold: {
+    color: '#ffffff',
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
   },
 });
