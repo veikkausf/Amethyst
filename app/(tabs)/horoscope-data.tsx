@@ -10,7 +10,7 @@ type RootStackParamList = {
 
 type HoroscopeDataRouteProp = RouteProp<RootStackParamList, 'HoroscopeData'>;
 
-// Interface for the horoscope data received from the API
+// Rajapintaluokka api:sta saapuvaa dataa varten
 interface HoroscopeDataResponse {
   date: string;
   horoscope_data: string;
@@ -21,18 +21,20 @@ interface HoroscopeDataProps {
 }
 
 const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
-  const { itemId } = route.params; // Tuotu ID
+  const { itemId } = route.params; // Tuotu ID propsina
   const { itemImage } = route.params;
-  const [data, setData] = useState<HoroscopeDataResponse | null>(null); // Use the interface here
+  const [data, setData] = useState<HoroscopeDataResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchHoroscope();
   }, []);
 
+  // Haetaan API:sta propsin avulla dataa, tarkalleen ottaen horoskooppi kuvaukset tai "ennustukset"
   const fetchHoroscope = async () => {
     try {
       const response = await fetch(
+        // Käytetään tuotua id-propsia api-fetchin kanssa
         `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${itemId}&day=TODAY`,
         {
           headers: {
@@ -41,7 +43,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
         }
       );
       const result = await response.json();
-      setData(result.data); // Set the data in state
+      setData(result.data); // Otetaan data talteen
     } catch (error) {
       console.error('Error fetching horoscope:', error);
     } finally {

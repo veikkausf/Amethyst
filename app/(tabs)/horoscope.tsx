@@ -2,11 +2,13 @@ import React from 'react';
 import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
 import HoroscopeButton from '@/components/HoroscopeButton';
 
+// Tyyppi horoskooppi-itemeitä varten
 type BoxItem = {
   id: string;
   image: any;
 };
 
+// Nimet ja kuvat horoskooppi nappuloita varten
 const data: BoxItem[] = [
   {
     id: 'Capricorn',
@@ -26,7 +28,6 @@ const data: BoxItem[] = [
     id: 'Sagittarius',
     image: require('../../assets/images/sagittarius.png'),
   },
-  // Add more items up to 12
 ];
 
 function Horoscopes({ navigation }: { navigation: any }) {
@@ -38,9 +39,10 @@ function Horoscopes({ navigation }: { navigation: any }) {
         </Text>
         {data.map((item) => (
           <HoroscopeButton
-            key={item.id}
-            title={item.id}
-            img={item.image}
+            key={item.id} // horoskooppi-itemin avain
+            title={item.id} // horoskooppi-itemin id eli nimi
+            img={item.image} // horoskooppi-itemin kuva tai ikoni
+            // Nappia painaessa avaa HoroscopeData-komponentin tai toisin sanoen navigoi sinne
             onPress={() =>
               navigation.navigate('HoroscopeData', {
                 itemId: item.id,
