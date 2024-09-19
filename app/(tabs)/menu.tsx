@@ -14,7 +14,7 @@ function MenuScreen({ navigation }: HomeScreenProps) {
         <Text style={styles.headerbold}>Choose</Text> a way to calm your mind...
       </Text>
       <MenuButton
-        title="Daily Tarot"
+        title="Daily Tarot                 "
         text="Get your daily guidance"
         onPress={() => navigation.navigate('Tarot')}
         style={styles.right}

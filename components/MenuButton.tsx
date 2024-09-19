@@ -63,11 +63,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
     marginBottom: 5,
+    right: 10,
   },
   header: {
     color: '#ffffff',
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
+    right: 10,
   },
   alignLeftText: {
     textAlign: 'right',
