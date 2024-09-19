@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import MenuButton from '@/components/MenuButton';
 
 interface HomeScreenProps {
@@ -10,18 +10,30 @@ interface HomeScreenProps {
 function MenuScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
-      <MenuButton title="Tarot" onPress={() => navigation.navigate('Tarot')} />
+      <Text style={styles.header}>Menu</Text>
+      <MenuButton
+        title="Tarot"
+        text="test"
+        onPress={() => navigation.navigate('Tarot')}
+        style={styles.right}
+      />
       <MenuButton
         title="Minerals"
+        text="test"
         onPress={() => navigation.navigate('Minerals')}
+        style={styles.left}
       />
       <MenuButton
         title="Horoscope"
+        text="test"
         onPress={() => navigation.navigate('Horoscope')}
+        style={styles.right}
       />
       <MenuButton
         title="Meditate"
+        text="test"
         onPress={() => navigation.navigate('Meditate')}
+        style={styles.left}
       />
     </View>
   );
@@ -40,5 +52,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+  },
+  left: {
+    justifyContent: 'flex-start',
+    left: 40,
+  },
+  right: {
+    justifyContent: 'flex-start',
+    right: 40,
+  },
+  header: {
+    color: '#ffffff',
+    fontSize: 25,
+    fontFamily: 'Kadwa_400Regular',
   },
 });

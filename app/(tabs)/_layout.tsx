@@ -36,7 +36,11 @@ function MyStack() {
         component={LoginScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Menu" component={MenuScreen} />
+      <Stack.Screen
+        name="Menu"
+        component={MenuScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="Tarot" component={Tarot} />
       <Stack.Screen name="Minerals" component={Minerals} />
       <Stack.Screen name="Horoscope" component={Horoscope} />
