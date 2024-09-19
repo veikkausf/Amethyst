@@ -18,12 +18,14 @@ function MenuScreen({ navigation }: HomeScreenProps) {
         text="Get your daily guidance"
         onPress={() => navigation.navigate('Tarot')}
         style={styles.right}
+        img={require('../../assets/images/menu-tarot.png')}
       />
 
       <MenuButton
         title="Today's horoscope"
         text="Whats in the air today"
         onPress={() => navigation.navigate('Horoscope')}
+        img={require('../../assets/images/menu-horo.png')}
         style={styles.left}
       />
       <MenuButton
@@ -31,12 +33,14 @@ function MenuScreen({ navigation }: HomeScreenProps) {
         text="Clear your mind and relax"
         onPress={() => navigation.navigate('Meditate')}
         style={styles.right}
+        img={require('../../assets/images/menu-meditation.png')}
       />
       <MenuButton
         title="Crystal guide"
         text="Learn about crystal energies"
         onPress={() => navigation.navigate('Minerals')}
         style={styles.left}
+        img={require('../../assets/images/menu-mineral.png')}
       />
     </View>
   );

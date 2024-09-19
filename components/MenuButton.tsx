@@ -1,10 +1,11 @@
-import { StyleSheet, Pressable, Text, ViewStyle } from 'react-native';
+import { StyleSheet, Pressable, Text, ViewStyle, Image } from 'react-native';
 import Teksti from './Textbox';
 interface MenuButtonProps {
   title: string;
   text: string;
   onPress: () => void;
   style?: ViewStyle;
+  img?: any;
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({
@@ -12,6 +13,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   text,
   onPress,
   style,
+  img,
 }) => {
   const textAlignStyle =
     style?.left !== undefined ? styles.alignLeft : styles.alignRight;
@@ -22,6 +24,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
         {text ? (
           <Text style={[styles.text, textAlignStyle]}>{text}</Text>
         ) : null}
+        <Image source={img} style={styles.image}></Image>
       </Teksti>
     </Pressable>
   );
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
     width: 300,
-    height: 70,
+    height: 99,
     margin: 30,
     justifyContent: 'center',
   },
@@ -38,6 +41,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
+    marginBottom: 45,
   },
   header: {
     color: '#ffffff',
@@ -45,12 +49,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_400Regular',
   },
   alignLeft: {
-    textAlign: 'right', // Aligns text to the left
+    // Aligns text to the left
     alignItems: 'flex-end', // Aligns container items to the start (left)
   },
   alignRight: {
-    textAlign: 'left', // Aligns text to the right
+    // Aligns text to the right
     alignItems: 'flex-start', // Aligns container items to the end (right)
+  },
+  image: {
+    position: 'absolute',
+    width: 35,
+    height: 35,
+    // scam
+    left: 250,
   },
 });
 export default MenuButton;
