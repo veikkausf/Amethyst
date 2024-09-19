@@ -17,7 +17,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     style?.left !== undefined ? styles.alignLeft : styles.alignRight;
   return (
     <Pressable style={[styles.button, style]} onPress={onPress}>
-      <Teksti style={[styles.box, textAlignStyle]}>
+      <Teksti style={textAlignStyle}>
         <Text style={[styles.header, textAlignStyle]}>{title}</Text>
         {text ? (
           <Text style={[styles.text, textAlignStyle]}>{text}</Text>
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
   },
-  box: { alignItems: 'center' },
   alignLeft: {
     textAlign: 'right', // Aligns text to the left
     alignItems: 'flex-end', // Aligns container items to the start (left)
