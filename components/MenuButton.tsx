@@ -76,10 +76,11 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   image: {
-    width: 30,
-    height: 30,
-    marginLeft: 10,
-    marginRight: 10,
+    width: 60,
+    height: 60,
+    borderColor: '#3F3154',
+    borderWidth: 5,
+    borderRadius: 30,
   },
 });
 
