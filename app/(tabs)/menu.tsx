@@ -25,8 +25,8 @@ function MenuScreen({ navigation }: HomeScreenProps) {
         title="Today's horoscope"
         text="Whats in the air today"
         onPress={() => navigation.navigate('Horoscope')}
-        img={require('../../assets/images/menu-horo.png')}
         style={styles.left}
+        img={require('../../assets/images/menu-horo.png')}
       />
       <MenuButton
         title="Meditation lessons"

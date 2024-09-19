@@ -1,5 +1,13 @@
-import { StyleSheet, Pressable, Text, ViewStyle, Image } from 'react-native';
+import {
+  StyleSheet,
+  Pressable,
+  Text,
+  ViewStyle,
+  Image,
+  View,
+} from 'react-native';
 import Teksti from './Textbox';
+
 interface MenuButtonProps {
   title: string;
   text: string;
@@ -15,20 +23,28 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   style,
   img,
 }) => {
-  const textAlignStyle =
-    style?.left !== undefined ? styles.alignLeft : styles.alignRight;
+  const isAlignLeft = style?.left !== undefined;
+  const textAlignStyle = isAlignLeft
+    ? styles.alignLeftText
+    : styles.alignRightText;
+
   return (
     <Pressable style={[styles.button, style]} onPress={onPress}>
-      <Teksti style={textAlignStyle}>
-        <Text style={[styles.header, textAlignStyle]}>{title}</Text>
-        {text ? (
-          <Text style={[styles.text, textAlignStyle]}>{text}</Text>
-        ) : null}
-        <Image source={img} style={styles.image}></Image>
+      <Teksti style={styles.content}>
+        {/* Conditionally render image based on alignment */}
+        {isAlignLeft && img && <Image source={img} style={styles.image} />}
+        <View>
+          <Text style={[styles.header, textAlignStyle]}>{title}</Text>
+          {text ? (
+            <Text style={[styles.text, textAlignStyle]}>{text}</Text>
+          ) : null}
+        </View>
+        {!isAlignLeft && img && <Image source={img} style={styles.image} />}
       </Teksti>
     </Pressable>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
@@ -37,31 +53,34 @@ const styles = StyleSheet.create({
     margin: 30,
     justifyContent: 'center',
   },
+  content: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
   text: {
     color: '#ffffff',
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
-    marginBottom: 45,
+    marginBottom: 5,
   },
   header: {
     color: '#ffffff',
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
   },
-  alignLeft: {
-    // Aligns text to the left
-    alignItems: 'flex-end', // Aligns container items to the start (left)
+  alignLeftText: {
+    textAlign: 'right',
   },
-  alignRight: {
-    // Aligns text to the right
-    alignItems: 'flex-start', // Aligns container items to the end (right)
+  alignRightText: {
+    textAlign: 'left',
   },
   image: {
-    position: 'absolute',
-    width: 35,
-    height: 35,
-    // scam
-    left: 250,
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+    marginRight: 10,
   },
 });
+
 export default MenuButton;
