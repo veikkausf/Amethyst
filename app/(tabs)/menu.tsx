@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MenuButton from '@/components/MenuButton';
+
 interface HomeScreenProps {
   navigation: any;
 }
-
+//Menu painikkeet kutsumalla MenuButton komponenttia
+//onPress() funtio navigointia varten
 function MenuScreen({ navigation }: HomeScreenProps) {
   return (
     <View style={styles.container}>
@@ -26,7 +28,7 @@ function MenuScreen({ navigation }: HomeScreenProps) {
 }
 
 export default MenuScreen;
-
+//tyylit
 const styles = StyleSheet.create({
   background: {
     flex: 1,

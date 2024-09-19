@@ -15,7 +15,7 @@ interface Props {
 }
 
 const MineralData: React.FC<Props> = ({ route }) => {
-  const { itemId } = route.params; // Tuotu ID
+  const { itemId } = route.params; //Mineraaleista tuotu ID
 
   return (
     <View style={styles.background}>
@@ -37,7 +37,7 @@ const MineralData: React.FC<Props> = ({ route }) => {
     </View>
   );
 };
-
+//Tyylit
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#3F3154',

@@ -7,7 +7,7 @@ type MineralData = {
   id: string;
   image: any;
 };
-
+//Nimet ja kuvat Mineraali nappeja varten
 const data: MineralData[] = [
   {
     id: 'Obsidian',
@@ -94,11 +94,11 @@ function Minerals({ navigation }: { navigation: any }) {
         <ScrollView contentContainerStyle={styles.grid}>
           {data.map((item) => (
             <MineralButton
-              key={item.id}
-              title={item.id}
-              img={item.image}
-              onPress={() =>
-                navigation.navigate('MineralData', { itemId: item.id })
+              key={item.id} //Napin avain jokaiselle napille listasta
+              title={item.id} //Napin otsikko teksti
+              img={item.image} //Napin kuva
+              onPress={
+                () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
               }
             />
           ))}
@@ -107,7 +107,7 @@ function Minerals({ navigation }: { navigation: any }) {
     </View>
   );
 }
-
+//Tyylittely
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#3F3154',

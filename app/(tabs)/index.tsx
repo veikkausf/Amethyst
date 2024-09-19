@@ -11,7 +11,7 @@ type LoginScreenNavigationProp = StackNavigationProp<
 interface LoginScreenProps {
   navigation: LoginScreenNavigationProp;
 }
-
+//Ladataan Login sivu aloitus sivuksi
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   return <Login navigation={navigation} />;
 };
