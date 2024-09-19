@@ -13,7 +13,6 @@ Laatikoiden pohjaväri liila: #918998
 Laatikon reunojen sävy vaalea liila: #ACA3AF
 */
 
-// Prevent splash screen from hiding automatically
 SplashScreen.preventAutoHideAsync();
 
 // Tyyppi-määrittely (propsit)
@@ -23,26 +22,25 @@ interface NappiProps {
 }
 
 const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
-  // Load the fonts
+  // Ladataan custom-fontit
   let [fontsLoaded] = useFonts({
     Kadwa_400Regular,
     Kadwa_700Bold,
   });
 
-  // Callback to hide splash screen once fonts are loaded
+  // Splash screen piilotetaan, kun fontit ovat ladattu
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync(); // Hide the splash screen when fonts are loaded
+      await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
-  // If fonts are not loaded, keep the splash screen visible
+  //
   if (!fontsLoaded) {
-    return null; // Render nothing while fonts are loading (splash screen remains)
+    return null;
   }
 
   return (
-    // Call onLayoutRootView to hide splash screen when the component is ready
     <Pressable
       style={styles.button}
       onPress={onPress}
@@ -53,7 +51,7 @@ const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
   );
 };
 
-// Define your styles including the custom font
+// Tyylittelyt
 const styles = StyleSheet.create({
   button: {
     borderRadius: 35,

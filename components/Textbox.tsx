@@ -1,9 +1,11 @@
+// Komponentti, jossa laatikko tekstejä varten
+
 import React from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
 
 type TekstiProps = {
   children: React.ReactNode;
-  style?: ViewStyle; // Allow custom styles to be passed in
+  style?: ViewStyle;
 };
 
 const Teksti = ({ children, style }: TekstiProps) => {
@@ -12,12 +14,12 @@ const Teksti = ({ children, style }: TekstiProps) => {
 
 const styles = StyleSheet.create({
   box: {
-    padding: 20, // Default padding
-    borderWidth: 2, // Default border width
-    borderColor: '#ACA3AF', // Default border color
-    borderRadius: 10, // Default rounded corners
-    backgroundColor: '#918998', // Default background color
-    alignItems: 'center', // Center the content horizontally
+    padding: 20,
+    borderWidth: 2,
+    borderColor: '#ACA3AF',
+    borderRadius: 10,
+    backgroundColor: '#918998',
+    alignItems: 'center',
   },
 });
 

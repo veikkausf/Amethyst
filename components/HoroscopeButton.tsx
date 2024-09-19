@@ -1,3 +1,4 @@
+// Omanlaisensa button horoskooppi listaa varten
 import { StyleSheet, Pressable, Text, Image, View } from 'react-native';
 
 interface HoroscopeButtonProps {
