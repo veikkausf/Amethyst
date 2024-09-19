@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
+    "name": "Amethyst",
+    "slug": "Amethyst",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/amethyst_icon.png",
-    "scheme": "myapp",
+    "scheme": "Amethyst",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/amethyst_splash.png",
@@ -17,14 +17,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/amethyst_icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/amethyst_icon.png"
     },
     "plugins": [
       "expo-router",
