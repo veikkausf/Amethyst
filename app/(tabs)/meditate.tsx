@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Teksti from '@/components/Textbox';
 import MedButton from '@/components/MedButton';
 
 type data = {
@@ -40,22 +39,33 @@ function Meditate({ navigation }: { navigation: any }) {
     <View style={styles.background}>
       <Text style={styles.header}>
         Select
-        <Text style={styles.normalFont}>Your serenity</Text>
+        <Text style={styles.normalFont}> Your serenity</Text>
       </Text>
-      <Teksti style={styles.stonebox}>
-        <ScrollView horizontal={true}>
-          {mediData.map((item) => (
-            <MedButton
-              key={item.id} //Napin avain jokaiselle napille listasta
-              title={item.id} //Napin otsikko teksti
-              img={item.image} //Napin kuva
-              onPress={
-                () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
-              }
-            />
-          ))}
-        </ScrollView>
-      </Teksti>
+
+      <ScrollView horizontal={true}>
+        {mediData.map((item) => (
+          <MedButton
+            key={item.id} //Napin avain jokaiselle napille listasta
+            title={item.id} //Napin otsikko teksti
+            img={item.image} //Napin kuva
+            onPress={
+              () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
+            }
+          />
+        ))}
+      </ScrollView>
+      <ScrollView horizontal={true}>
+        {natData.map((item) => (
+          <MedButton
+            key={item.id} //Napin avain jokaiselle napille listasta
+            title={item.id} //Napin otsikko teksti
+            img={item.image} //Napin kuva
+            onPress={
+              () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
+            }
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -67,21 +77,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: 10,
-  },
-  stonebox: {
-    backgroundColor: '#918998',
-    borderColor: '#ACA3AF',
-    borderWidth: 4,
-    height: '65%',
-    width: '90%',
-    margin: 15,
-  },
+
   header: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',

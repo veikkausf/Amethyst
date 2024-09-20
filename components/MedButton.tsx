@@ -1,4 +1,5 @@
 import { StyleSheet, Pressable, Text, Image, View } from 'react-native';
+import Teksti from './Textbox';
 
 interface MedButtonProps {
   title: string;
@@ -9,9 +10,13 @@ interface MedButtonProps {
 const MedButton: React.FC<MedButtonProps> = ({ title, img, onPress }) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
-      <View style={styles.content}>
-        <Image source={img} style={styles.image}></Image>
-        <Text style={styles.text}>{title}</Text>
+      <View>
+        <Teksti>
+          <Image source={img} style={styles.image}></Image>
+          <Text style={styles.text} numberOfLines={1}>
+            {title}
+          </Text>
+        </Teksti>
       </View>
     </Pressable>
   );
@@ -20,14 +25,14 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
     width: '33%',
-    height: 100,
-    marginVertical: 10,
-
+    padding: 10,
     fontFamily: 'Kadwa_400Regular',
+    borderColor: 'red',
+    borderWidth: 5,
   },
   text: {
     color: 'black',
-    fontSize: 12,
+    fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
@@ -35,9 +40,6 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 10,
-  },
-  content: {
-    alignItems: 'center',
   },
 });
 export default MedButton;
