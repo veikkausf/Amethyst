@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 import { Audio, AVPlaybackStatus } from 'expo-av';
 
-// Define the props type
+// Rajapintaluokka playerin propseille
 interface AudioPlayerProps {
-  audioFile: any; // Change this to the correct type if your file is imported differently
+  audioFile: any;
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
@@ -12,10 +12,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [statusMessage, setStatusMessage] = useState<string>('');
 
-  // Load and play audio
+  // Ladataan ja soitetaan äänitiedosto
   const playSound = async () => {
     try {
-      // Pause if already playing
+      // Pause
       if (isPlaying && sound) {
         await sound.pauseAsync();
         setIsPlaying(false);
@@ -23,7 +23,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
         return;
       }
 
-      // Load and play the sound if not already loaded
       if (!sound) {
         const { sound: newSound } = await Audio.Sound.createAsync(audioFile);
         setSound(newSound);
@@ -31,7 +30,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
         await newSound.playAsync();
         setIsPlaying(true);
       } else {
-        // Play the loaded sound
         await sound.playAsync();
         setIsPlaying(true);
         setStatusMessage('Playing...');
@@ -42,7 +40,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
     }
   };
 
-  // Cleanup when the component is unmounted
+  // Async pois käytöstä ,kun komponentti on unMounted
   useEffect(() => {
     return () => {
       if (sound) {
