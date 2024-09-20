@@ -42,6 +42,7 @@ function Meditate({ navigation }: { navigation: any }) {
         <Text style={styles.normalFont}> Your serenity</Text>
       </Text>
 
+      <Text style={styles.subheader}>Guided meditation lessons</Text>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {mediData.map((item) => (
           <MedButton
@@ -54,6 +55,7 @@ function Meditate({ navigation }: { navigation: any }) {
           />
         ))}
       </ScrollView>
+      <Text style={styles.subheader}>Nature sounds</Text>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {natData.map((item) => (
           <MedButton
@@ -82,6 +84,12 @@ const styles = StyleSheet.create({
     color: 'white',
     marginHorizontal: 40,
     height: '20%',
+  },
+  subheader: {
+    color: 'white',
+    fontFamily: 'Kadwa_700Bold',
+    fontSize: 23,
+    marginHorizontal: 40,
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
