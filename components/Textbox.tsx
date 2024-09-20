@@ -15,7 +15,7 @@ const Teksti = ({ children, style }: TekstiProps) => {
 const styles = StyleSheet.create({
   box: {
     padding: 20,
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: '#ACA3AF',
     borderRadius: 10,
     backgroundColor: '#918998',

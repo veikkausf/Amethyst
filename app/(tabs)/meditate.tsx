@@ -74,8 +74,6 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: '#3F3154',
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 
   header: {
@@ -88,5 +86,6 @@ const styles = StyleSheet.create({
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
   },
+  box: { width: '40%' },
 });
 export default Meditate;

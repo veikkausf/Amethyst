@@ -11,7 +11,7 @@ const MedButton: React.FC<MedButtonProps> = ({ title, img, onPress }) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
       <View>
-        <Teksti>
+        <Teksti style={styles.box}>
           <Image source={img} style={styles.image}></Image>
           <Text style={styles.text} numberOfLines={1}>
             {title}
@@ -24,22 +24,29 @@ const MedButton: React.FC<MedButtonProps> = ({ title, img, onPress }) => {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
-    width: '33%',
-    padding: 10,
+    marginLeft: 20,
     fontFamily: 'Kadwa_400Regular',
     borderColor: 'red',
     borderWidth: 5,
+    height: 200,
+    width: 170,
   },
   text: {
     color: 'black',
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
-    textAlign: 'center',
+    top: 30,
   },
   image: {
     width: 70,
     height: 70,
     borderRadius: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+    top: 20,
+  },
+  box: {
+    height: 190,
   },
 });
 export default MedButton;
