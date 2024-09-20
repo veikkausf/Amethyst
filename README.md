@@ -1,6 +1,5 @@
 # Welcome to your Expo app 👋
 
-https://media1.tenor.com/m/UOSpJu9VhVkAAAAd/reallymad-emoji-shooting.gif
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
