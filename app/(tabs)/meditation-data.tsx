@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import Teksti from '@/components/Textbox';
+import AudioPlayer from '@/components/audioplayer';
 
 // Parametri-lista tälle komponentille
 type RootStackParamList = {
@@ -30,6 +31,7 @@ const MeditationData: React.FC<Props> = ({ route }) => {
         <Image source={itemImage} style={styles.image}></Image>
         <Text style={styles.imgHeader}>{itemId} </Text>
       </Teksti>
+      <AudioPlayer audioFile={require('../../assets/audiotest/test.mp3')} />
     </View>
   );
 };
