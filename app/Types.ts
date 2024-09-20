@@ -8,4 +8,5 @@ export type RootStackParamList = {
   Login: undefined;
   HoroscopeData: { itemId: string; itemImage: any };
   MineralData: { itemId: string };
+  MeditationData: { itemId: string; itemImage: any };
 };

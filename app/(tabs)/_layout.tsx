@@ -10,6 +10,7 @@ import LoginScreen from './Login';
 import MenuScreen from './menu';
 import HoroscopeData from './horoscope-data';
 import MineralData from './mineral-data';
+import MeditationData from './meditation-data';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -55,6 +56,10 @@ function MyStack() {
         component={MineralData}
         options={{ headerTransparent: true }}
       />
+      <Stack.Screen
+        name="MeditationData"
+        component={MeditationData}
+      ></Stack.Screen>
     </Stack.Navigator>
   );
 }

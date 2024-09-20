@@ -50,7 +50,11 @@ function Meditate({ navigation }: { navigation: any }) {
             title={item.id} //Napin otsikko teksti
             img={item.image} //Napin kuva
             onPress={
-              () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
+              () =>
+                navigation.navigate('MeditationData', {
+                  itemId: item.id,
+                  itemImage: item.image,
+                }) //Navigoidaan "MeditationData" sivulle ja viedään sinne samalla ID parametrinä
             }
           />
         ))}
@@ -63,7 +67,11 @@ function Meditate({ navigation }: { navigation: any }) {
             title={item.id} //Napin otsikko teksti
             img={item.image} //Napin kuva
             onPress={
-              () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
+              () =>
+                navigation.navigate('MeditationData', {
+                  itemId: item.id,
+                  itemImage: item.image,
+                }) //Navigoidaan "MeditationData" sivulle ja viedään sinne samalla ID parametrinä
             }
           />
         ))}
