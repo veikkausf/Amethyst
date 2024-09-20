@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 import Teksti from './Textbox';
 
+// Rajapinta, joka määrittelee MenuButton-komponentin propit
 interface MenuButtonProps {
-  title: string;
-  text: string;
+  title: string; //Otsikko
+  text: string; //Sisältö
   onPress: () => void;
-  style?: ViewStyle;
-  img?: any;
+  style?: ViewStyle; //Lisätyyli joka lisätään menu.tsx
+  img?: any; //Kuva
 }
 
 const MenuButton: React.FC<MenuButtonProps> = ({
@@ -23,15 +24,16 @@ const MenuButton: React.FC<MenuButtonProps> = ({
   style,
   img,
 }) => {
+  //Määäritetään onko nappi vasemmalla vai oikealla
   const isAlignLeft = style?.left !== undefined;
   const textAlignStyle = isAlignLeft
-    ? styles.alignLeftText
-    : styles.alignRightText;
+    ? styles.alignLeftText //Tyyli vasemmalla olevalla napilla
+    : styles.alignRightText; //Tyyli oikealla olevalla napilla
 
   return (
+    //Nappi jossa on onPress()-funktio
     <Pressable style={[styles.button, style]} onPress={onPress}>
       <Teksti style={styles.content}>
-        {/* Conditionally render image based on alignment */}
         {isAlignLeft && img && (
           <View style={styles.borderleft}>
             <Image source={img} style={styles.imageleft} />
@@ -52,7 +54,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
     </Pressable>
   );
 };
-
+//tyylit
 const styles = StyleSheet.create({
   button: {
     borderRadius: 35,
@@ -103,13 +105,13 @@ const styles = StyleSheet.create({
     borderColor: '#3F3154',
     borderWidth: 5,
     borderRadius: 40,
-    right: 50,
+    right: 55,
   },
   borderright: {
     borderColor: '#3F3154',
     borderWidth: 5,
     borderRadius: 40,
-    left: 20,
+    left: 16,
   },
 });
 
