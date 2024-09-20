@@ -42,7 +42,7 @@ function Meditate({ navigation }: { navigation: any }) {
         <Text style={styles.normalFont}> Your serenity</Text>
       </Text>
 
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {mediData.map((item) => (
           <MedButton
             key={item.id} //Napin avain jokaiselle napille listasta
@@ -54,7 +54,7 @@ function Meditate({ navigation }: { navigation: any }) {
           />
         ))}
       </ScrollView>
-      <ScrollView horizontal={true}>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {natData.map((item) => (
           <MedButton
             key={item.id} //Napin avain jokaiselle napille listasta

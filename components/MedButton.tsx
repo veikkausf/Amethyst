@@ -23,13 +23,11 @@ const MedButton: React.FC<MedButtonProps> = ({ title, img, onPress }) => {
 };
 const styles = StyleSheet.create({
   button: {
-    borderRadius: 35,
     marginLeft: 20,
     fontFamily: 'Kadwa_400Regular',
-    borderColor: 'red',
-    borderWidth: 5,
     height: 200,
     width: 170,
+    borderRadius: 40,
   },
   text: {
     color: 'black',
@@ -47,6 +45,7 @@ const styles = StyleSheet.create({
   },
   box: {
     height: 190,
+    borderRadius: 40,
   },
 });
 export default MedButton;
