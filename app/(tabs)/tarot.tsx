@@ -1,38 +1,62 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import Teksti from '@/components/Textbox';
 import { ScrollView } from 'react-native-gesture-handler';
-import firestore from '@react-native-firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
+
+type TarotCard = {
+  id: string;
+  Name: string;
+  Desc: string;
+  Money: string;
+  Love: string;
+  Image: string;
+} | null;
 
 const Tarot: React.FC = () => {
+  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // State to hold the fetched document data
+  const [loading, setLoading] = useState(true); // State to manage the loading state
+
+  const fetchTarotCard = async () => {
+    try {
+      const tarotCollection = collection(db, 'Tarot');
+      const q = query(tarotCollection, where('Name', '==', 'The Sun'));
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+        const doc = querySnapshot.docs[0];
+        setTarotCard({ id: doc.id, ...doc.data() } as TarotCard); // Set the document data to state
+      } else {
+        console.log('No matching document found.');
+      }
+    } catch (error) {
+      console.error('Error fetching Tarot card:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTarotCard();
+  }, []);
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>
-        {' '}
-        The Sun... <Text style={styles.normalFont}>Is burning you today</Text>
-      </Text>
+      {loading ? (
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : tarotCard ? (
+        <View>
+          <Text style={styles.header}> {tarotCard.Name} </Text>
 
-      <Image
-        source={require('../../assets/images/tarot.png')}
-        style={styles.image}
-      ></Image>
-      <Text style={styles.normalFont}>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like). tters, as
-        opposed to using 'Content here, content here', making it look like
-        readable English. Many desktop publishing packages and web page editors
-        now use Lorem Ipsum as their default model text, and a search for 'lorem
-        ipsum' will uncover many web sites still in their infancy. Various
-        versions have evolved over the years, sometimes by accident, sometimes
-        on purpose (injected humour and the like).
-      </Text>
+          <Image source={{ uri: tarotCard.Image }} style={styles.image}></Image>
+          <Text style={styles.normalFont}>Desc: {tarotCard.Desc}</Text>
+          <Text style={styles.normalFont}>Money: {tarotCard.Money}</Text>
+          <Text style={styles.normalFont}>Love: {tarotCard.Love}</Text>
+        </View>
+      ) : (
+        <Text>No card found.</Text>
+      )}
     </ScrollView>
   );
 };
