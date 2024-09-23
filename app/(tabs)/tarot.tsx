@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Teksti from '@/components/Textbox';
 import { ScrollView } from 'react-native-gesture-handler';
+import firestore from '@react-native-firebase/firestore';
 
 const Tarot: React.FC = () => {
   return (
