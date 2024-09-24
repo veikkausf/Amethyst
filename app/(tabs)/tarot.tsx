@@ -101,17 +101,25 @@ const Tarot: React.FC = () => {
       {loading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : tarotCard ? (
-        <View>
-          <Text style={styles.header}> {tarotCard.Name} </Text>
+        <View style={styles.view}>
+          <Text style={styles.headertop}> {tarotCard.Name} </Text>
 
           <Image source={{ uri: tarotCard.Image }} style={styles.image}></Image>
-          <Text style={styles.normalFont}>Desc: {tarotCard.Desc}</Text>
-          {tarotCard.Money && (
-            <Text style={styles.normalFont}>Money: {tarotCard.Money}</Text> // money näkyy vain jos sellainen on olemassa
-          )}
-          {tarotCard.Love && (
-            <Text style={styles.normalFont}>Love: {tarotCard.Love}</Text> // loe näkyy vaan jos sellainen on olemassa
-          )}
+          <Teksti style={styles.box}>
+            <Text style={styles.normalFont}>
+              <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
+            </Text>
+            {tarotCard.Money && (
+              <Text style={styles.normalFont}>
+                <Text style={styles.header}>Money:</Text> {tarotCard.Money}
+              </Text> // money näkyy vain jos sellainen on olemassa
+            )}
+            {tarotCard.Love && (
+              <Text style={styles.normalFont}>
+                <Text style={styles.header}>Love:</Text> {tarotCard.Love}
+              </Text> // loe näkyy vaan jos sellainen on olemassa
+            )}
+          </Teksti>
         </View>
       ) : (
         <Text>No card found.</Text>
@@ -129,20 +137,41 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+  },
+  headertop: {
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    textAlign: 'left',
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+    color: 'white',
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
+    color: 'white',
+    fontSize: 14,
   },
   container: {
     backgroundColor: '#3F3154',
-
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  view: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
   },
   image: {
     width: 330,
     height: 650,
     alignContent: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  box: {
+    margin: 15,
+    width: '90%',
   },
 });
 
