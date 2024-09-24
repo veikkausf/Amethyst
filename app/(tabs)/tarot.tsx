@@ -2,9 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import Teksti from '@/components/Textbox';
 import { ScrollView } from 'react-native-gesture-handler';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  onSnapshot,
+} from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// tarot kortin tyylittely
 type TarotCard = {
   id: string;
   Name: string;
@@ -15,67 +23,74 @@ type TarotCard = {
 } | null;
 
 const Tarot: React.FC = () => {
-  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // State to hold the fetched document data
-  const [loading, setLoading] = useState(true); // State to manage the loading state
+  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Store all fetched cards
+  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Store the displayed card
+  const [loading, setLoading] = useState(true);
+
   const getCurrentDate = () => {
     const today = new Date();
-    //näyttää seuraavan päivän kortin
-    /* today.setDate(today.getDate() + 1);*/
     return today.toISOString().split('T')[0]; // Returns YYYY-MM-DD
   };
 
-  const fetchRandomCard = async () => {
-    try {
-      const tarotCollection = collection(db, 'Tarot');
-      const querySnapshot = await getDocs(tarotCollection);
-
-      if (!querySnapshot.empty) {
-        const tarotCards = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as TarotCard[];
-        const randomIndex = Math.floor(Math.random() * tarotCards.length);
-        const randomCard = tarotCards[randomIndex];
-
-        const today = getCurrentDate();
-        AsyncStorage.setItem('tarotCard', JSON.stringify(randomCard));
-        AsyncStorage.setItem('tarotDate', today);
-        setTarotCard(randomCard);
-      } else {
-        console.log('No Tarot cards found.');
-      }
-    } catch (error) {
-      console.error('Error fetching Tarot cards:', error);
-    } finally {
-      setLoading(false);
-    }
+  // Function to store and update the random card index
+  const storeRandomCardIndex = async (randomIndex: number) => {
+    const today = getCurrentDate();
+    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // Store only the index
+    await AsyncStorage.setItem('tarotDate', today); // Store today's date
   };
-  const loadStoredTarotCard = async () => {
+
+  const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
     try {
-      const storedCard = await AsyncStorage.getItem('tarotCard');
+      const storedIndex = await AsyncStorage.getItem('tarotCardIndex');
       const storedDate = await AsyncStorage.getItem('tarotDate');
       const today = getCurrentDate();
 
-      // Check if storedDate is today
-      if (storedCard && storedDate === today) {
-        setTarotCard(JSON.parse(storedCard)); // Parse the stored card and set it
-        setLoading(false); // Stop the loading state
+      if (storedIndex && storedDate === today) {
+        const index = parseInt(storedIndex, 10);
+        setTarotCard(tarotCards[index]); // Use the stored index to display the card
+        setLoading(false);
       } else {
-        fetchRandomCard(); // Fetch a new tarot card if date is different
+        fetchRandomCard(tarotCards); // Fetch a new card if the stored date is not today
       }
     } catch (error) {
       console.error('Error loading stored tarot card:', error);
-      // Fallback to fetching a random tarot card if any error occurs
-      fetchRandomCard();
+      fetchRandomCard(tarotCards); // Fetch a new card if any error occurs
     }
   };
 
+  // Function to select a random card
+  const fetchRandomCard = (tarotCards: TarotCard[]) => {
+    const randomIndex = Math.floor(Math.random() * tarotCards.length);
+    setTarotCard(tarotCards[randomIndex]);
+    storeRandomCardIndex(randomIndex); // Store the random card index
+  };
+
   useEffect(() => {
-    loadStoredTarotCard();
+    const tarotCollection = collection(db, 'Tarot');
+
+    // Listen for real-time updates from Firestore
+    const unsubscribe = onSnapshot(tarotCollection, (querySnapshot) => {
+      if (!querySnapshot.empty) {
+        const cards = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as TarotCard[];
+
+        setTarotCards(cards); // Store the fetched cards
+
+        // Load the stored card or fetch a new random one if the date doesn't match
+        loadStoredTarotCard(cards);
+      } else {
+        console.log('No Tarot cards found.');
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe(); // Clean up the listener when the component unmounts
   }, []);
 
   if (loading) {
-    return;
+    return <p>kakkaa</p>;
   }
 
   return (
