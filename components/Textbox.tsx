@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#ACA3AF',
     borderRadius: 10,
-    backgroundColor: '#918998',
+    backgroundColor: 'rgba(145, 137, 152, 0.4)',
     alignItems: 'center',
   },
 });
