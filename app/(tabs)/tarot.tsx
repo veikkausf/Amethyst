@@ -17,58 +17,61 @@ type TarotCard = {
   id: string;
   Name: string;
   Desc: string;
-  Money: string;
-  Love: string;
+  Money?: string;
+  Love?: string;
   Image: string;
 } | null;
 
 const Tarot: React.FC = () => {
-  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Store all fetched cards
-  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Store the displayed card
-  const [loading, setLoading] = useState(true);
+  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // tallentaa kaikki kortit usestateen
+  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // tallentaa näytetyn kortin
+  const [loading, setLoading] = useState(true); //
 
   const getCurrentDate = () => {
-    const today = new Date();
-    return today.toISOString().split('T')[0]; // Returns YYYY-MM-DD
+    const today = new Date(); // hakee tämän päivän
+    /* today.setDate(today.getDate() + 1); // vaihtaa päivää*/
+    return today.toISOString().split('T')[0]; // Palauttaa päivän muodossa YYYY-MM-DD
   };
 
-  // Function to store and update the random card index
+  // Functio joka tallentaa päivämäärän ja valitsee randomilla idexin ja tallentaa sen
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
-    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // Store only the index
-    await AsyncStorage.setItem('tarotDate', today); // Store today's date
+    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // Tallentaa indexin
+    await AsyncStorage.setItem('tarotDate', today); // Tallentaa Päivän
   };
 
   const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
     try {
-      const storedIndex = await AsyncStorage.getItem('tarotCardIndex');
-      const storedDate = await AsyncStorage.getItem('tarotDate');
-      const today = getCurrentDate();
+      const storedIndex = await AsyncStorage.getItem('tarotCardIndex'); // hakee AsyncStorageen tallennetun indexin
+
+      const storedDate = await AsyncStorage.getItem('tarotDate'); // hakee AsyncStorageen tallenetun päivämäärän
+      const today = getCurrentDate(); // hakee tämän päivän päivän
 
       if (storedIndex && storedDate === today) {
+        // vertaa että onko päivämäärä sama kuin tämäpäivä
         const index = parseInt(storedIndex, 10);
-        setTarotCard(tarotCards[index]); // Use the stored index to display the card
+        setTarotCard(tarotCards[index]); // käyttää tallenettua indexiä näyttämään oikean kortin
         setLoading(false);
       } else {
-        fetchRandomCard(tarotCards); // Fetch a new card if the stored date is not today
+        fetchRandomCard(tarotCards); // Hakee uuden random kortin jos päivämäärä on muuttunut
       }
     } catch (error) {
       console.error('Error loading stored tarot card:', error);
-      fetchRandomCard(tarotCards); // Fetch a new card if any error occurs
+      fetchRandomCard(tarotCards); // Hakee uuden kortin jos tulee joku errori
     }
   };
 
-  // Function to select a random card
+  // Functio joka hakee random kortin
   const fetchRandomCard = (tarotCards: TarotCard[]) => {
-    const randomIndex = Math.floor(Math.random() * tarotCards.length);
+    const randomIndex = Math.floor(Math.random() * tarotCards.length); // valitsee randomilla kortin
     setTarotCard(tarotCards[randomIndex]);
-    storeRandomCardIndex(randomIndex); // Store the random card index
+    storeRandomCardIndex(randomIndex); // Laittaa talteen sen kortin
   };
 
   useEffect(() => {
     const tarotCollection = collection(db, 'Tarot');
 
-    // Listen for real-time updates from Firestore
+    // Saatiedon reaaliajassa muutoksista firebaeen
     const unsubscribe = onSnapshot(tarotCollection, (querySnapshot) => {
       if (!querySnapshot.empty) {
         const cards = querySnapshot.docs.map((doc) => ({
@@ -76,9 +79,9 @@ const Tarot: React.FC = () => {
           ...doc.data(),
         })) as TarotCard[];
 
-        setTarotCards(cards); // Store the fetched cards
+        setTarotCards(cards); // tallentaa päivitetyn tiedon
 
-        // Load the stored card or fetch a new random one if the date doesn't match
+        // lataa päivitetyn kortin uusilla tiedoilla tai valitsee uuden kortin jos päivämmärä on muuttunut
         loadStoredTarotCard(cards);
       } else {
         console.log('No Tarot cards found.');
@@ -90,7 +93,7 @@ const Tarot: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <p>kakkaa</p>;
+    return <ActivityIndicator size={'large'} color={'#0000ff'} />; // kun sovellus lataa tämä näkyy
   }
 
   return (
@@ -103,8 +106,12 @@ const Tarot: React.FC = () => {
 
           <Image source={{ uri: tarotCard.Image }} style={styles.image}></Image>
           <Text style={styles.normalFont}>Desc: {tarotCard.Desc}</Text>
-          <Text style={styles.normalFont}>Money: {tarotCard.Money}</Text>
-          <Text style={styles.normalFont}>Love: {tarotCard.Love}</Text>
+          {tarotCard.Money && (
+            <Text style={styles.normalFont}>Money: {tarotCard.Money}</Text> // money näkyy vain jos sellainen on olemassa
+          )}
+          {tarotCard.Love && (
+            <Text style={styles.normalFont}>Love: {tarotCard.Love}</Text> // loe näkyy vaan jos sellainen on olemassa
+          )}
         </View>
       ) : (
         <Text>No card found.</Text>
