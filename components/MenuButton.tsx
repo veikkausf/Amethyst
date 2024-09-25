@@ -80,6 +80,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
     right: 18,
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 3,
   },
   alignLeftText: {
     textAlign: 'right',

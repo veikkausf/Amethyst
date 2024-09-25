@@ -50,19 +50,22 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
   return (
     <View style={styles.background}>
       {/* Render the mineral's name */}
-      <Text style={styles.header}>{mineral.Name}</Text>
+      <Image source={require('../../assets/images/mineral_icon.png')}></Image>
+      <Text style={styles.headerbig}>{mineral.Name}</Text>
 
       {/* Render the mineral's Description */}
 
       {/* Render the mineral's Chakra */}
-      <Text style={styles.header}>Chakra:</Text>
-      <Text style={styles.normalFont}>{mineral.Chakra}</Text>
+
+      <Text style={styles.header}>Chakra: </Text>
+      <Text style={styles.headertext}>{mineral.Chakra}</Text>
 
       {/* Render the mineral's horoscope */}
-      <Text style={styles.header}>Horoscope:</Text>
-      <Text style={styles.normalFont}>{mineral.Horoscope}</Text>
 
-      <Teksti>
+      <Text style={styles.header}>Horoscope: </Text>
+      <Text style={styles.headertext}>{mineral.Horoscope}</Text>
+
+      <Teksti style={styles.box}>
         <Text style={styles.normalFont}>{mineral.Desc}</Text>
       </Teksti>
     </View>
@@ -78,32 +81,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: 10,
-  },
-  stonebox: {
-    backgroundColor: '#918998',
-    borderColor: '#ACA3AF',
-    borderWidth: 4,
-    height: '65%',
-    width: '90%',
-    margin: 15,
-  },
-  header: {
+  headerbig: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    marginHorizontal: 40,
-    height: '20%',
+    paddingBottom: 40,
+  },
+  header: {
+    fontSize: 25,
+    fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+    alignSelf: 'center',
+  },
+  headertext: {
+    fontSize: 23,
+    fontFamily: 'Kadwa_400Regular',
+    color: 'white',
+    textAlign: 'center',
+    width: '85%',
+    alignSelf: 'center',
+    marginHorizontal: 10,
+    paddingBottom: 30,
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
+    fontSize: 17,
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+    textAlign: 'center',
   },
+  box: { width: '95%' },
 });
 
 export default MineralData;

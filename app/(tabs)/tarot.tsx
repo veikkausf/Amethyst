@@ -151,6 +151,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
     fontSize: 14,
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   container: {
     backgroundColor: '#3F3154',

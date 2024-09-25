@@ -62,7 +62,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
           <Text style={styles.header}>{itemId}</Text>
           <Image source={itemImage} style={styles.image}></Image>
           <Teksti style={styles.box}>
-            <Text style={styles.header}>{data.date}</Text>
+            <Text style={styles.date}>{data.date}</Text>
             <Text style={styles.text}>{data.horoscope_data}</Text>
           </Teksti>
         </>
@@ -91,11 +91,24 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     height: '20%',
   },
+  date: {
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+    marginHorizontal: 40,
+    height: '20%',
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 7,
+  },
   text: {
     color: 'white',
     fontSize: 15,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   box: {
     margin: 15,
