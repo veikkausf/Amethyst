@@ -13,9 +13,9 @@ import { db } from '../../firebaseConfig';
 
 type MineralData = {
   id: string;
-  Name: string | undefined;
-  Image: string;
-} | null;
+  Name: string; // Matching the exact field names from Firestore
+  Image: string; // Image URL string from Firestore
+};
 
 function Minerals({ navigation }: { navigation: any }) {
   const [mineralData, setMineralData] = useState<MineralData[]>([]);
@@ -32,11 +32,14 @@ function Minerals({ navigation }: { navigation: any }) {
         const mineralSnapshot = await getDocs(mineralCollection);
 
         // Map Firestore documents to MineralData type
-        const minerals: MineralData[] = mineralSnapshot.docs.map((doc) => ({
-          id: doc.id, // Document ID
-          name: doc.data().Name, // Name field from Firestore
-          image: doc.data().Image, // Image URL field from Firestore
-        }));
+        const minerals: MineralData[] = mineralSnapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            Name: data.Name ?? 'Unknown Mineral', // Ensure 'Name' is always a string
+            Image: data.Image ?? '', // Ensure 'Image' is always a string
+          };
+        });
 
         // Set state with the fetched mineral data
         setMineralData(minerals);
@@ -55,6 +58,8 @@ function Minerals({ navigation }: { navigation: any }) {
   if (loading) {
     return <ActivityIndicator size="large" color="#00ff00" />;
   }
+
+  // Render the minerals once loading is complete
   return (
     <View style={styles.background}>
       <Text style={styles.header}>
@@ -63,13 +68,13 @@ function Minerals({ navigation }: { navigation: any }) {
       </Text>
       <Teksti style={styles.stonebox}>
         <ScrollView contentContainerStyle={styles.grid}>
-          {mineralData.map((item: MineralData) => (
+          {mineralData.map((item) => (
             <MineralButton
-              key={item?.id} // Unique key for each button
-              title={item?.Name} // Button text
-              img={{ uri: item?.Image }} // Image from Firestore URL
+              key={item.id}
+              title={item.Name} // Access the correct field name
+              img={{ uri: item.Image }} // Provide fallback for image
               onPress={() =>
-                navigation.navigate('MineralData', { itemId: item?.id })
+                navigation.navigate('MineralData', { itemId: item.id })
               } // Navigate to MineralData page with the ID
             />
           ))}
