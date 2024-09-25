@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   stonebox: {
-    backgroundColor: '#918998',
+    backgroundColor: 'rgba(145, 137, 152, 0.5)',
     borderColor: '#ACA3AF',
     borderWidth: 4,
     height: '65%',
