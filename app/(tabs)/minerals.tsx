@@ -1,89 +1,60 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Text,
+  ActivityIndicator,
+} from 'react-native';
 import MineralButton from '@/components/MineralButton';
 import Teksti from '@/components/Textbox';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 type MineralData = {
   id: string;
-  image: any;
-};
-//Nimet ja kuvat Mineraali nappeja varten
-const data: MineralData[] = [
-  {
-    id: 'Obsidian',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Onyx',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Moonstone',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Carnelian',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Malachite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Lepidolite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Fluorite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Yellow Jasper',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Hematite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Aventurine',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Labradorite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Citrine',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Smoky Quartz',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Selenite',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Clear Quartz',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Rose Quartz',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Amethyst',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-  {
-    id: 'Jade',
-    image: require('../../assets/images/placeholdermineral.jpg'),
-  },
-];
+  Name: string | undefined;
+  Image: string;
+} | null;
 
 function Minerals({ navigation }: { navigation: any }) {
+  const [mineralData, setMineralData] = useState<MineralData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Function to fetch mineral data from Firestore
+    const fetchMinerals = async () => {
+      try {
+        // Reference to the 'Mineral' collection in Firestore
+        const mineralCollection = collection(db, 'Mineral');
+
+        // Get all documents from the collection
+        const mineralSnapshot = await getDocs(mineralCollection);
+
+        // Map Firestore documents to MineralData type
+        const minerals: MineralData[] = mineralSnapshot.docs.map((doc) => ({
+          id: doc.id, // Document ID
+          name: doc.data().Name, // Name field from Firestore
+          image: doc.data().Image, // Image URL field from Firestore
+        }));
+
+        // Set state with the fetched mineral data
+        setMineralData(minerals);
+      } catch (error) {
+        console.error('Error fetching minerals:', error);
+      } finally {
+        // Set loading to false after fetching is complete
+        setLoading(false);
+      }
+    };
+
+    fetchMinerals(); // Call the fetch function
+  }, []);
+
+  // Display a loading spinner while data is being fetched
+  if (loading) {
+    return <ActivityIndicator size="large" color="#00ff00" />;
+  }
   return (
     <View style={styles.background}>
       <Text style={styles.header}>
@@ -92,14 +63,14 @@ function Minerals({ navigation }: { navigation: any }) {
       </Text>
       <Teksti style={styles.stonebox}>
         <ScrollView contentContainerStyle={styles.grid}>
-          {data.map((item) => (
+          {mineralData.map((item: MineralData) => (
             <MineralButton
-              key={item.id} //Napin avain jokaiselle napille listasta
-              title={item.id} //Napin otsikko teksti
-              img={item.image} //Napin kuva
-              onPress={
-                () => navigation.navigate('MineralData', { itemId: item.id }) //Navigoidaan "MineralData" sivulle ja viedään sinne samalla ID parametrinä
-              }
+              key={item?.id} // Unique key for each button
+              title={item?.Name} // Button text
+              img={{ uri: item?.Image }} // Image from Firestore URL
+              onPress={() =>
+                navigation.navigate('MineralData', { itemId: item?.id })
+              } // Navigate to MineralData page with the ID
             />
           ))}
         </ScrollView>

@@ -1,7 +1,7 @@
 import { StyleSheet, Pressable, Text, Image, View } from 'react-native';
 
 interface MineralButtonProps {
-  title: string;
+  title?: string;
   img?: any;
   onPress: () => void;
 }
