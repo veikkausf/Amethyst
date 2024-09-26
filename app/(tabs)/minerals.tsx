@@ -10,56 +10,57 @@ import MineralButton from '@/components/MineralButton';
 import Teksti from '@/components/Textbox';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
+import Loader from '@/components/loading';
 
 type MineralData = {
   id: string;
-  Name: string; // Matching the exact field names from Firestore
-  Image: string; // Image URL string from Firestore
+  Name: string;
+  Image: string;
 };
 
 function Minerals({ navigation }: { navigation: any }) {
   const [mineralData, setMineralData] = useState<MineralData[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect noutaa dataa kun komponentti "renderaa"
   useEffect(() => {
-    // Function to fetch mineral data from Firestore
     const fetchMinerals = async () => {
       try {
-        // Reference to the 'Mineral' collection in Firestore
+        // Määritellään kokoelma tietokannasta nimeltään mineral
         const mineralCollection = collection(db, 'Mineral');
 
-        // Get all documents from the collection
+        // Kaikki haetut dokumentit
         const mineralSnapshot = await getDocs(mineralCollection);
 
-        // Map Firestore documents to MineralData type
+        // Mapataan dokumentit MineralData-tyypin mukaisesti
         const minerals: MineralData[] = mineralSnapshot.docs.map((doc) => {
           const data = doc.data();
           return {
             id: doc.id,
-            Name: data.Name ?? 'Unknown Mineral', // Ensure 'Name' is always a string
-            Image: data.Image ?? '', // Ensure 'Image' is always a string
+            Name: data.Name ?? 'Unknown Mineral', // Tarkastetaan, että name on aina merkkijono
+            Image: data.Image ?? '', // Sama imagelle
           };
         });
 
-        // Set state with the fetched mineral data
+        // Laitetaan "state", noudetulle mineral-datalle
         setMineralData(minerals);
       } catch (error) {
         console.error('Error fetching minerals:', error);
       } finally {
-        // Set loading to false after fetching is complete
+        // Kun datan on noudettu, muuttuu loading arvo falseksi
         setLoading(false);
       }
     };
 
-    fetchMinerals(); // Call the fetch function
+    fetchMinerals();
   }, []);
 
-  // Display a loading spinner while data is being fetched
+  // Latausnäkymä
   if (loading) {
-    return <ActivityIndicator size="large" color="#00ff00" />;
+    return <Loader />;
   }
 
-  // Render the minerals once loading is complete
+  // Renderataan mineraalit noutamisen onnistuttua
   return (
     <View style={styles.background}>
       <Text style={styles.header}>
@@ -70,12 +71,13 @@ function Minerals({ navigation }: { navigation: any }) {
         <ScrollView contentContainerStyle={styles.grid}>
           {mineralData.map((item) => (
             <MineralButton
+              // Käytetään noudettua dataa ScrollViewissä
               key={item.id}
-              title={item.Name} // Access the correct field name
-              img={{ uri: item.Image }} // Provide fallback for image
+              title={item.Name}
+              img={{ uri: item.Image }}
               onPress={() =>
                 navigation.navigate('MineralData', { itemId: item.id })
-              } // Navigate to MineralData page with the ID
+              } // Navigoidaan MineralDataan nappia painaessa
             />
           ))}
         </ScrollView>
