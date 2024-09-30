@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Loader from '@/components/loading';
 
 type TarotCard = {
   id: string;
@@ -80,7 +81,7 @@ const Tarot: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <ActivityIndicator size={'large'} color={'#0000ff'} />;
+    return <Loader />;
   }
 
   return (

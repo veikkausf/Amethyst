@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Image, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import Teksti from '@/components/Textbox';
-
+import Loader from '@/components/loading';
 // Parametri-lista tälle komponentille
 type RootStackParamList = {
   HoroscopeData: { itemId: string; itemImage: any };
@@ -52,7 +52,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   };
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
+    return <Loader />;
   }
 
   return (

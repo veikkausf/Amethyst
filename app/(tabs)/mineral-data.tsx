@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ActivityIndicator, Image } from 'react-native';
 import { doc, getDoc } from 'firebase/firestore'; // Firestore importit
 import { db } from '../../firebaseConfig';
 import Teksti from '@/components/Textbox';
+import Loader from '@/components/loading';
 
 function MineralData({ route, navigation }: { route: any; navigation: any }) {
   const { itemId } = route.params;
@@ -37,7 +38,7 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
 
   // Lataus animaatio, lisätään myöhemmin (lottie)
   if (loading) {
-    return <ActivityIndicator size="large" color="#00ff00" />;
+    return <Loader />;
   }
 
   // Jos mineraali on null, ei löydy, näytetään virheteksti
