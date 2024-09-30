@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   header: {
     // Font responsiivisuus tesTI
-    fontSize: RFValue(24, 680),
+    fontSize: RFValue(24, 812),
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
