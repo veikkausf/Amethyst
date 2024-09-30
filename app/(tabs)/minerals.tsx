@@ -11,6 +11,7 @@ import Teksti from '@/components/Textbox';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import Loader from '@/components/loading';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 type MineralData = {
   id: string;
@@ -109,7 +110,8 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   header: {
-    fontSize: 30,
+    // Font responsiivisuus tesTI
+    fontSize: RFValue(24, 680),
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
