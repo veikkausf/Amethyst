@@ -2,17 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import Teksti from '@/components/Textbox';
 import { ScrollView } from 'react-native-gesture-handler';
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  onSnapshot,
-} from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// tarot kortin tyylittely
 type TarotCard = {
   id: string;
   Name: string;
@@ -23,55 +16,50 @@ type TarotCard = {
 } | null;
 
 const Tarot: React.FC = () => {
-  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // tallentaa kaikki kortit usestateen
-  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // tallentaa näytetyn kortin
-  const [loading, setLoading] = useState(true); //
+  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Varastoidaan kortit
+  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Näytetty kortti storeen
+  const [loading, setLoading] = useState(true); // Lataus tila
 
   const getCurrentDate = () => {
-    const today = new Date(); // hakee tämän päivän
-    /* today.setDate(today.getDate() + 1); // vaihtaa päivää*/
-    return today.toISOString().split('T')[0]; // Palauttaa päivän muodossa YYYY-MM-DD
+    const today = new Date();
+    return today.toISOString().split('T')[0]; // Pvm muodossa YYYY-MM-DD
   };
 
-  // Functio joka tallentaa päivämäärän ja valitsee randomilla idexin ja tallentaa sen
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
-    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // Tallentaa indexin
-    await AsyncStorage.setItem('tarotDate', today); // Tallentaa Päivän
+    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); //  tarot-kortti index storeen
+    await AsyncStorage.setItem('tarotDate', today); // pmv storeen
   };
 
   const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
     try {
-      const storedIndex = await AsyncStorage.getItem('tarotCardIndex'); // hakee AsyncStorageen tallennetun indexin
-
-      const storedDate = await AsyncStorage.getItem('tarotDate'); // hakee AsyncStorageen tallenetun päivämäärän
-      const today = getCurrentDate(); // hakee tämän päivän päivän
+      const storedIndex = await AsyncStorage.getItem('tarotCardIndex');
+      const storedDate = await AsyncStorage.getItem('tarotDate');
+      const today = getCurrentDate();
 
       if (storedIndex && storedDate === today) {
-        // vertaa että onko päivämäärä sama kuin tämäpäivä
         const index = parseInt(storedIndex, 10);
-        setTarotCard(tarotCards[index]); // käyttää tallenettua indexiä näyttämään oikean kortin
-        setLoading(false);
+        setTarotCard(tarotCards[index]); // Käytetään indexiä näytetylle kortille
       } else {
-        fetchRandomCard(tarotCards); // Hakee uuden random kortin jos päivämäärä on muuttunut
+        fetchRandomCard(tarotCards); // Uusi kortti pvm vaihtuessa
       }
     } catch (error) {
       console.error('Error loading stored tarot card:', error);
-      fetchRandomCard(tarotCards); // Hakee uuden kortin jos tulee joku errori
+      fetchRandomCard(tarotCards);
+    } finally {
+      setLoading(false); // Lataus false kortin noudon jälkeen
     }
   };
 
-  // Functio joka hakee random kortin
   const fetchRandomCard = (tarotCards: TarotCard[]) => {
-    const randomIndex = Math.floor(Math.random() * tarotCards.length); // valitsee randomilla kortin
-    setTarotCard(tarotCards[randomIndex]);
-    storeRandomCardIndex(randomIndex); // Laittaa talteen sen kortin
+    const randomIndex = Math.floor(Math.random() * tarotCards.length);
+    setTarotCard(tarotCards[randomIndex]); //random kortti
+    storeRandomCardIndex(randomIndex); //
   };
 
   useEffect(() => {
     const tarotCollection = collection(db, 'Tarot');
 
-    // Saatiedon reaaliajassa muutoksista firebaeen
     const unsubscribe = onSnapshot(tarotCollection, (querySnapshot) => {
       if (!querySnapshot.empty) {
         const cards = querySnapshot.docs.map((doc) => ({
@@ -79,9 +67,8 @@ const Tarot: React.FC = () => {
           ...doc.data(),
         })) as TarotCard[];
 
-        setTarotCards(cards); // tallentaa päivitetyn tiedon
+        setTarotCards(cards);
 
-        // lataa päivitetyn kortin uusilla tiedoilla tai valitsee uuden kortin jos päivämmärä on muuttunut
         loadStoredTarotCard(cards);
       } else {
         console.log('No Tarot cards found.');
@@ -89,22 +76,20 @@ const Tarot: React.FC = () => {
       }
     });
 
-    return () => unsubscribe(); // Clean up the listener when the component unmounts
+    return () => unsubscribe();
   }, []);
 
   if (loading) {
-    return <ActivityIndicator size={'large'} color={'#0000ff'} />; // kun sovellus lataa tämä näkyy
+    return <ActivityIndicator size={'large'} color={'#0000ff'} />;
   }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
-      ) : tarotCard ? (
+      {tarotCard ? (
         <View style={styles.view}>
           <Text style={styles.headertop}> {tarotCard.Name} </Text>
 
-          <Image source={{ uri: tarotCard.Image }} style={styles.image}></Image>
+          <Image source={{ uri: tarotCard.Image }} style={styles.image} />
           <Teksti style={styles.box}>
             <Text style={styles.normalFont}>
               <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
@@ -112,12 +97,12 @@ const Tarot: React.FC = () => {
             {tarotCard.Money && (
               <Text style={styles.normalFont}>
                 <Text style={styles.header}>Money:</Text> {tarotCard.Money}
-              </Text> // money näkyy vain jos sellainen on olemassa
+              </Text>
             )}
             {tarotCard.Love && (
               <Text style={styles.normalFont}>
                 <Text style={styles.header}>Love:</Text> {tarotCard.Love}
-              </Text> // loe näkyy vaan jos sellainen on olemassa
+              </Text>
             )}
           </Teksti>
         </View>
