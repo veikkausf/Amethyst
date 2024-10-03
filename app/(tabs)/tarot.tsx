@@ -6,6 +6,7 @@ import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '@/components/loading';
+import FlipCard from 'react-native-flip-card';
 
 type TarotCard = {
   id: string;
@@ -89,8 +90,23 @@ const Tarot: React.FC = () => {
       {tarotCard ? (
         <View style={styles.view}>
           <Text style={styles.headertop}> {tarotCard.Name} </Text>
-
-          <Image source={{ uri: tarotCard.Image }} style={styles.image} />
+          <FlipCard
+            flipHorizontal={true}
+            flipVertical={false}
+            perspective={300}
+            friction={10}
+          >
+            <Image
+              source={require('../../assets/images/backside.jpg')}
+              style={styles.image}
+            ></Image>
+            <Image
+              source={{
+                uri: tarotCard.Image,
+              }}
+              style={styles.image}
+            />
+          </FlipCard>
           <Teksti style={styles.box}>
             <Text style={styles.normalFont}>
               <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
