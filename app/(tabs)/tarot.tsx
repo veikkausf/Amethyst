@@ -21,6 +21,7 @@ const Tarot: React.FC = () => {
   const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Varastoidaan kortit
   const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Näytetty kortti storeen
   const [loading, setLoading] = useState(true); // Lataus tila
+  const [flipped, setFlipped] = useState(false); // State to track flip status
 
   const getCurrentDate = () => {
     const today = new Date();
@@ -29,7 +30,7 @@ const Tarot: React.FC = () => {
 
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
-    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); //  tarot-kortti index storeen
+    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // tarot-kortti index storeen
     await AsyncStorage.setItem('tarotDate', today); // pmv storeen
   };
 
@@ -85,43 +86,67 @@ const Tarot: React.FC = () => {
     return <Loader />;
   }
 
+  // Handler to detect when the card starts flipping
+  const handleFlipStart = () => {
+    setFlipped((prev) => !prev); // Toggle flipped state
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {tarotCard ? (
         <View style={styles.view}>
-          <Text style={styles.headertop}> {tarotCard.Name} </Text>
+          {flipped && <Text style={styles.headertop}> {tarotCard.Name} </Text>}
+          {!flipped && (
+            <Text style={styles.header}>
+              Tap to flip the card and reveal your message!
+            </Text>
+          )}
           <FlipCard
             flipHorizontal={true}
             flipVertical={false}
             perspective={300}
             friction={10}
+            clickable={!flipped} // Disable flipping after the first flip
+            onFlipEnd={handleFlipStart} // Trigger on flip start
           >
+            {/* Front side of the card */}
             <Image
               source={require('../../assets/images/backside.jpg')}
               style={styles.image}
-            ></Image>
+            />
+
+            {/* Back side of the card */}
             <Image
               source={{
                 uri: tarotCard.Image,
               }}
-              style={styles.image}
+              style={[styles.image, flipped && { transform: [{ scaleX: -1 }] }]}
             />
           </FlipCard>
-          <Teksti style={styles.box}>
-            <Text style={styles.normalFont}>
-              <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
-            </Text>
-            {tarotCard.Money && (
-              <Text style={styles.normalFont}>
-                <Text style={styles.header}>Money:</Text> {tarotCard.Money}
+          {!flipped && (
+            <Teksti style={styles.box}>
+              <Text style={styles.header}>
+                Tap to flip the card and reveal your message!
               </Text>
-            )}
-            {tarotCard.Love && (
+            </Teksti>
+          )}
+          {flipped && (
+            <Teksti style={styles.box}>
               <Text style={styles.normalFont}>
-                <Text style={styles.header}>Love:</Text> {tarotCard.Love}
+                <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
               </Text>
-            )}
-          </Teksti>
+              {tarotCard.Money && (
+                <Text style={styles.normalFont}>
+                  <Text style={styles.header}>Money:</Text> {tarotCard.Money}
+                </Text>
+              )}
+              {tarotCard.Love && (
+                <Text style={styles.normalFont}>
+                  <Text style={styles.header}>Love:</Text> {tarotCard.Love}
+                </Text>
+              )}
+            </Teksti>
+          )}
         </View>
       ) : (
         <Text>No card found.</Text>
