@@ -7,20 +7,13 @@ import {
   Image,
   View,
 } from 'react-native';
-
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../Types';
 import Teksti from '../../components/Textbox';
 
-interface MenuButtonProps {
-  title: string; //Otsikko
-  text: string; //Sisältö
-  onPress: () => void;
-  img?: any; //Kuva
-  navigation: any;
-}
+type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 
-//Menu painikkeet kutsumalla MenuButton komponenttia
-//onPress() funtio navigointia varten
-function MenuScreen({ navigation }: MenuButtonProps) {
+function MenuScreen({ navigation }: MenuScreenProps) {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
@@ -145,6 +138,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'flex-start',
+    justifyContent: 'center',
   },
 
   imageleft: {
@@ -211,6 +205,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'flex-end',
+    justifyContent: 'center',
   },
 
   headerRight: {
