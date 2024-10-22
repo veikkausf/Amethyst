@@ -126,13 +126,6 @@ const Tarot: React.FC = () => {
               style={[styles.image, flipped && { transform: [{ scaleX: -1 }] }]}
             />
           </FlipCard>
-          {!flipped && (
-            <Teksti style={styles.box}>
-              <Text style={styles.header}>
-                Tap to flip the card and reveal your message!
-              </Text>
-            </Teksti>
-          )}
           {flipped && (
             <Teksti style={styles.box}>
               <Collapsible
@@ -201,6 +194,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F3154',
     alignItems: 'center',
     justifyContent: 'center',
+    minHeight: '100%',
   },
   view: {
     alignItems: 'center',
@@ -213,6 +207,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     flex: 1,
+    minHeight: 650,
+    maxHeight: 650,
   },
   box: {
     margin: 15,
