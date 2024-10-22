@@ -27,7 +27,7 @@ const Tarot: React.FC = () => {
 
   const getCurrentDate = () => {
     //lisää Date() sisään numeroita jos haluat vaihtaa päivää
-    const today = new Date();
+    const today = new Date(17);
     return today.toISOString().split('T')[0]; // Date in YYYY-MM-DD format
   };
 
@@ -102,9 +102,7 @@ const Tarot: React.FC = () => {
         <View style={styles.view}>
           {flipped && <Text style={styles.headertop}>{tarotCard.Name}</Text>}
           {!flipped && (
-            <Text style={styles.header}>
-              Tap to flip the card and reveal your message!
-            </Text>
+            <Text style={styles.headertop}>Tap the card to flip it</Text>
           )}
           <FlipCard
             flipHorizontal={true}
