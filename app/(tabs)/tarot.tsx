@@ -7,6 +7,7 @@ import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '@/components/loading';
 import FlipCard from 'react-native-flip-card';
+import { Collapsible } from '@/components/Collapsible';
 
 type TarotCard = {
   id: string;
@@ -18,20 +19,22 @@ type TarotCard = {
 } | null;
 
 const Tarot: React.FC = () => {
-  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Varastoidaan kortit
-  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Näytetty kortti storeen
-  const [loading, setLoading] = useState(true); // Lataus tila
-  const [flipped, setFlipped] = useState(false); // State to track flip status
+  const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Store cards
+  const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Displayed card state
+  const [loading, setLoading] = useState(true); // Loading state
+  const [flipped, setFlipped] = useState(false); // Track flip status
+  const [openIndex, setOpenIndex] = useState<number | null>(null); // Track the currently open collapsible
 
   const getCurrentDate = () => {
+    //lisää Date() sisään numeroita jos haluat vaihtaa päivää
     const today = new Date();
-    return today.toISOString().split('T')[0]; // Pvm muodossa YYYY-MM-DD
+    return today.toISOString().split('T')[0]; // Date in YYYY-MM-DD format
   };
 
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
-    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex)); // tarot-kortti index storeen
-    await AsyncStorage.setItem('tarotDate', today); // pmv storeen
+    await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex));
+    await AsyncStorage.setItem('tarotDate', today);
   };
 
   const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
@@ -42,22 +45,22 @@ const Tarot: React.FC = () => {
 
       if (storedIndex && storedDate === today) {
         const index = parseInt(storedIndex, 10);
-        setTarotCard(tarotCards[index]); // Käytetään indexiä näytetylle kortille
+        setTarotCard(tarotCards[index]);
       } else {
-        fetchRandomCard(tarotCards); // Uusi kortti pvm vaihtuessa
+        fetchRandomCard(tarotCards);
       }
     } catch (error) {
       console.error('Error loading stored tarot card:', error);
       fetchRandomCard(tarotCards);
     } finally {
-      setLoading(false); // Lataus false kortin noudon jälkeen
+      setLoading(false);
     }
   };
 
   const fetchRandomCard = (tarotCards: TarotCard[]) => {
     const randomIndex = Math.floor(Math.random() * tarotCards.length);
-    setTarotCard(tarotCards[randomIndex]); //random kortti
-    storeRandomCardIndex(randomIndex); //
+    setTarotCard(tarotCards[randomIndex]);
+    storeRandomCardIndex(randomIndex);
   };
 
   useEffect(() => {
@@ -71,7 +74,6 @@ const Tarot: React.FC = () => {
         })) as TarotCard[];
 
         setTarotCards(cards);
-
         loadStoredTarotCard(cards);
       } else {
         console.log('No Tarot cards found.');
@@ -86,16 +88,19 @@ const Tarot: React.FC = () => {
     return <Loader />;
   }
 
-  // Handler to detect when the card starts flipping
   const handleFlipStart = () => {
     setFlipped((prev) => !prev); // Toggle flipped state
+  };
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index); // Close if the same index is clicked, otherwise open the new one
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {tarotCard ? (
         <View style={styles.view}>
-          {flipped && <Text style={styles.headertop}> {tarotCard.Name} </Text>}
+          {flipped && <Text style={styles.headertop}>{tarotCard.Name}</Text>}
           {!flipped && (
             <Text style={styles.header}>
               Tap to flip the card and reveal your message!
@@ -132,18 +137,30 @@ const Tarot: React.FC = () => {
           )}
           {flipped && (
             <Teksti style={styles.box}>
-              <Text style={styles.normalFont}>
-                <Text style={styles.header}>Description:</Text> {tarotCard.Desc}
-              </Text>
+              <Collapsible
+                title="Description"
+                isOpen={openIndex === 0}
+                onToggle={() => handleToggle(0)}
+              >
+                <Text style={styles.normalFont}>{tarotCard.Desc}</Text>
+              </Collapsible>
               {tarotCard.Money && (
-                <Text style={styles.normalFont}>
-                  <Text style={styles.header}>Money:</Text> {tarotCard.Money}
-                </Text>
+                <Collapsible
+                  title="Money"
+                  isOpen={openIndex === 1}
+                  onToggle={() => handleToggle(1)}
+                >
+                  <Text style={styles.normalFont}>{tarotCard.Money}</Text>
+                </Collapsible>
               )}
               {tarotCard.Love && (
-                <Text style={styles.normalFont}>
-                  <Text style={styles.header}>Love:</Text> {tarotCard.Love}
-                </Text>
+                <Collapsible
+                  title="Love"
+                  isOpen={openIndex === 2}
+                  onToggle={() => handleToggle(2)}
+                >
+                  <Text style={styles.normalFont}>{tarotCard.Love}</Text>
+                </Collapsible>
               )}
             </Teksti>
           )}

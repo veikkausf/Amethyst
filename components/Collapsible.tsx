@@ -1,21 +1,31 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
-
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Colors } from '@/constants/Colors';
 
-export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+type CollapsibleProps = PropsWithChildren & {
+  title: string;
+  isOpen: boolean; // Receive isOpen from parent
+  onToggle: () => void; // Function to toggle the open/close state
+};
+
+export function Collapsible({
+  children,
+  title,
+  isOpen,
+  onToggle,
+}: CollapsibleProps) {
   const theme = useColorScheme() ?? 'light';
 
   return (
-    <ThemedView>
+    <ThemedView style={styles.container}>
       <TouchableOpacity
         style={styles.heading}
-        onPress={() => setIsOpen((value) => !value)}
-        activeOpacity={0.8}>
+        onPress={onToggle} // Use the onToggle passed from parent
+        activeOpacity={0.8}
+      >
         <Ionicons
           name={isOpen ? 'chevron-down' : 'chevron-forward-outline'}
           size={18}
@@ -29,6 +39,11 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
 }
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
   heading: {
     flexDirection: 'row',
     alignItems: 'center',
