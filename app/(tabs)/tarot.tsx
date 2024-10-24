@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
-import Teksti from '@/components/Textbox';
+//import Teksti from '@/components/Textbox';
+import AnimoituTeksti from '@/components/AnimatedTextbox';
 import { ScrollView } from 'react-native-gesture-handler';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
@@ -102,14 +103,16 @@ const Tarot: React.FC = () => {
       {tarotCard ? (
         <View style={styles.view}>
           {flipped && (
-            <Animatable.Text animation="zoomInUp" style={styles.headertop}>
+            <Animatable.Text
+              animation="fadeIn"
+              duration={5000}
+              style={styles.headertop}
+            >
               {tarotCard.Name}
             </Animatable.Text>
           )}
           {!flipped && (
-            <Animatable.Text animation="zoomInUp" style={styles.headertop}>
-              Tap the card to flip it
-            </Animatable.Text>
+            <Text style={styles.headertop}>Tap the card to flip it</Text>
           )}
           <FlipCard
             flipHorizontal={true}
@@ -134,7 +137,7 @@ const Tarot: React.FC = () => {
             />
           </FlipCard>
           {flipped && (
-            <Teksti style={styles.box}>
+            <AnimoituTeksti style={styles.box}>
               <Collapsible
                 title="Description"
                 isOpen={openIndex === 0}
@@ -160,7 +163,7 @@ const Tarot: React.FC = () => {
                   <Text style={styles.normalFont}>{tarotCard.Love}</Text>
                 </Collapsible>
               )}
-            </Teksti>
+            </AnimoituTeksti>
           )}
         </View>
       ) : (
