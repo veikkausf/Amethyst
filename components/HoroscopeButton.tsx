@@ -5,15 +5,24 @@ interface HoroscopeButtonProps {
   title: string;
   img?: any;
   onPress: () => void;
+  onLongPress?: (event: any) => void;
+  onPressOut?: () => void;
 }
 
 const HoroscopeButton: React.FC<HoroscopeButtonProps> = ({
   title,
   img,
   onPress,
+  onLongPress,
+  onPressOut,
 }) => {
   return (
-    <Pressable style={styles.button} onPress={onPress}>
+    <Pressable
+      style={styles.button}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      onPressOut={onPressOut}
+    >
       <View style={styles.content}>
         <Text style={styles.text}>{title}</Text>
         <Image source={img} style={styles.image}></Image>
