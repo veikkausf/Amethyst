@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '@/components/loading';
 import FlipCard from 'react-native-flip-card';
 import { Collapsible } from '@/components/Collapsible';
+import * as Animatable from 'react-native-animatable';
 
 type TarotCard = {
   id: string;
@@ -27,7 +28,7 @@ const Tarot: React.FC = () => {
 
   const getCurrentDate = () => {
     //lisää Date() sisään numeroita jos haluat vaihtaa päivää
-    const today = new Date(17);
+    const today = new Date();
     return today.toISOString().split('T')[0]; // Date in YYYY-MM-DD format
   };
 
@@ -100,9 +101,15 @@ const Tarot: React.FC = () => {
     <ScrollView contentContainerStyle={styles.container}>
       {tarotCard ? (
         <View style={styles.view}>
-          {flipped && <Text style={styles.headertop}>{tarotCard.Name}</Text>}
+          {flipped && (
+            <Animatable.Text animation="zoomInUp" style={styles.headertop}>
+              {tarotCard.Name}
+            </Animatable.Text>
+          )}
           {!flipped && (
-            <Text style={styles.headertop}>Tap the card to flip it</Text>
+            <Animatable.Text animation="zoomInUp" style={styles.headertop}>
+              Tap the card to flip it
+            </Animatable.Text>
           )}
           <FlipCard
             flipHorizontal={true}
@@ -177,10 +184,9 @@ const styles = StyleSheet.create({
   headertop: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
-    textAlign: 'left',
-    alignSelf: 'flex-start',
     marginBottom: 10,
     color: 'white',
+    width: '100%',
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
