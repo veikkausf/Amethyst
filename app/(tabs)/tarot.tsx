@@ -122,14 +122,17 @@ const Tarot: React.FC = () => {
             clickable={!flipped} // Disable flipping after the first flip
             onFlipEnd={handleFlipStart} // Trigger on flip start
           >
-            {/* Front side of the card */}
-            <Image
+            {/* Back side of the card */}
+            <Animatable.Image
+              animation="tada" // The animation effect (e.g., pulse)
+              iterationCount="infinite" // Infinite loop for idle effect
+              duration={5000}
               source={require('../../assets/images/backside.jpg')}
               style={styles.image}
             />
 
-            {/* Back side of the card */}
-            <Image
+            {/* Front side of the card */}
+            <Animatable.Image
               source={{
                 uri: tarotCard.Image,
               }}
