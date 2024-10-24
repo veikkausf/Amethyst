@@ -25,6 +25,7 @@ const Tarot: React.FC = () => {
   const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Displayed card state
   const [loading, setLoading] = useState(true); // Loading state
   const [flipped, setFlipped] = useState(false); // Track flip status
+  const [anim, setAnim] = useState(false); // Track Animation status
   const [openIndex, setOpenIndex] = useState<number | null>(null); // Track the currently open collapsible
 
   const getCurrentDate = () => {
@@ -97,15 +98,27 @@ const Tarot: React.FC = () => {
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index); // Close if the same index is clicked, otherwise open the new one
   };
-
+  const handleAnimationEnd = () => {
+    setAnim(true); // Set flipped to false to remove the component
+  };
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {tarotCard ? (
         <View style={styles.view}>
-          {flipped && (
+          {flipped && !anim && (
             <Animatable.Text
-              animation="fadeIn"
-              duration={5000}
+              animation="fadeOutLeft"
+              duration={800}
+              onAnimationEnd={handleAnimationEnd}
+              style={styles.headertop}
+            >
+              Tap the card to flip it
+            </Animatable.Text>
+          )}
+          {anim && (
+            <Animatable.Text
+              animation="fadeInRight"
+              duration={800}
               style={styles.headertop}
             >
               {tarotCard.Name}
