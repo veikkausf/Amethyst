@@ -143,7 +143,22 @@ const Tarot: React.FC = () => {
                 isOpen={openIndex === 0}
                 onToggle={() => handleToggle(0)}
               >
-                <Text style={styles.normalFont}>{tarotCard.Desc}</Text>
+                <Animatable.Text
+                  animation={{
+                    from: {
+                      translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                      opacity: 0,
+                    },
+                    to: {
+                      translateY: 0, // Ends at its natural position
+                      opacity: 1,
+                    },
+                  }}
+                  duration={1000}
+                  style={styles.normalFont}
+                >
+                  {tarotCard.Desc}
+                </Animatable.Text>
               </Collapsible>
               {tarotCard.Money && (
                 <Collapsible
@@ -151,7 +166,22 @@ const Tarot: React.FC = () => {
                   isOpen={openIndex === 1}
                   onToggle={() => handleToggle(1)}
                 >
-                  <Text style={styles.normalFont}>{tarotCard.Money}</Text>
+                  <Animatable.Text
+                    animation={{
+                      from: {
+                        translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                        opacity: 0,
+                      },
+                      to: {
+                        translateY: 0, // Ends at its natural position
+                        opacity: 1,
+                      },
+                    }}
+                    duration={1000}
+                    style={styles.normalFont}
+                  >
+                    {tarotCard.Money}
+                  </Animatable.Text>
                 </Collapsible>
               )}
               {tarotCard.Love && (
@@ -160,7 +190,22 @@ const Tarot: React.FC = () => {
                   isOpen={openIndex === 2}
                   onToggle={() => handleToggle(2)}
                 >
-                  <Text style={styles.normalFont}>{tarotCard.Love}</Text>
+                  <Animatable.Text
+                    animation={{
+                      from: {
+                        translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                        opacity: 0,
+                      },
+                      to: {
+                        translateY: 0, // Ends at its natural position
+                        opacity: 1,
+                      },
+                    }}
+                    duration={1000}
+                    style={styles.normalFont}
+                  >
+                    {tarotCard.Love}
+                  </Animatable.Text>
                 </Collapsible>
               )}
             </AnimoituTeksti>
