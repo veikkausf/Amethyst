@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Modal,
   Dimensions,
+  Vibration,
 } from 'react-native';
 import HoroscopeButton from '@/components/HoroscopeButton';
 import Teksti from '@/components/Textbox';
@@ -81,6 +82,7 @@ const data: BoxItem[] = [
   },
 ];
 const { width: screenWidth } = Dimensions.get('window'); // Get screen width
+const { height: screenHeight } = Dimensions.get('window'); // Get screen height
 
 function Horoscopes({ navigation }: { navigation: any }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -117,9 +119,11 @@ function Horoscopes({ navigation }: { navigation: any }) {
             onLongPress={(event) => {
               const { pageX, pageY } = event.nativeEvent;
 
-              // Calculate modal position, adjusting for screen bounds
-              const modalX = Math.min(pageX - 40, screenWidth - 210); // 200 is the width of the modal, adjust as needed
-              const modalY = pageY - 100; // Adjust as needed
+              // Laskelmoidaan modaalin position, ettei overlappaa "ruudun ohi"
+              const modalX = Math.min(pageX - 40, screenWidth - 210);
+              const modalY = Math.min(pageY - 175, screenHeight - 110);
+
+              Vibration.vibrate(100);
 
               setSelectedHoroscope(item);
               setModalPosition({ x: modalX, y: modalY });
