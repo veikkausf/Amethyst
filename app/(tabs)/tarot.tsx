@@ -33,13 +33,14 @@ const Tarot: React.FC = () => {
     const today = new Date();
     return today.toISOString().split('T')[0]; // Date in YYYY-MM-DD format
   };
-
+  //Tallennetaan päivän random kortti AsyncStorageen
+  //Kortti saadaan randomIndex joka tulee fetchRandomCard funktiosta
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
     await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex));
     await AsyncStorage.setItem('tarotDate', today);
   };
-
+  //ladataan tallenettu kortti
   const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
     try {
       const storedIndex = await AsyncStorage.getItem('tarotCardIndex');
@@ -59,13 +60,13 @@ const Tarot: React.FC = () => {
       setLoading(false);
     }
   };
-
+  //Random numero database pituuden mukaan
   const fetchRandomCard = (tarotCards: TarotCard[]) => {
     const randomIndex = Math.floor(Math.random() * tarotCards.length);
     setTarotCard(tarotCards[randomIndex]);
     storeRandomCardIndex(randomIndex);
   };
-
+  //Database query korteille
   useEffect(() => {
     const tarotCollection = collection(db, 'Tarot');
 
@@ -86,7 +87,7 @@ const Tarot: React.FC = () => {
 
     return () => unsubscribe();
   }, []);
-
+  //Lataus ruutu
   if (loading) {
     return <Loader />;
   }
@@ -94,12 +95,12 @@ const Tarot: React.FC = () => {
   const handleFlipStart = () => {
     setFlipped((prev) => !prev); // Toggle flipped state
   };
-
+  //Collapsible funktio
   const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // Close if the same index is clicked, otherwise open the new one
+    setOpenIndex(openIndex === index ? null : index); // sulkee Collapsiblen jos toinen avataan
   };
   const handleAnimationEnd = () => {
-    setAnim(true); // Set flipped to false to remove the component
+    setAnim(true); // Anim -> true että tekstin animaatio vaihtuu
   };
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -162,11 +163,11 @@ const Tarot: React.FC = () => {
                 <Animatable.Text
                   animation={{
                     from: {
-                      translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                      translateY: -25,
                       opacity: 0,
                     },
                     to: {
-                      translateY: 0, // Ends at its natural position
+                      translateY: 0,
                       opacity: 1,
                     },
                   }}
@@ -185,11 +186,11 @@ const Tarot: React.FC = () => {
                   <Animatable.Text
                     animation={{
                       from: {
-                        translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                        translateY: -25,
                         opacity: 0,
                       },
                       to: {
-                        translateY: 0, // Ends at its natural position
+                        translateY: 0,
                         opacity: 1,
                       },
                     }}
@@ -209,11 +210,11 @@ const Tarot: React.FC = () => {
                   <Animatable.Text
                     animation={{
                       from: {
-                        translateY: -25, // Start just above its final position (adjust the number to control the starting point)
+                        translateY: -25,
                         opacity: 0,
                       },
                       to: {
-                        translateY: 0, // Ends at its natural position
+                        translateY: 0,
                         opacity: 1,
                       },
                     }}
