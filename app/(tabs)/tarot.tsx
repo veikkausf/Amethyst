@@ -133,13 +133,13 @@ const Tarot: React.FC = () => {
             flipVertical={false}
             perspective={300}
             friction={10}
-            clickable={!flipped} // Disable flipping after the first flip
+            clickable={!flipped} // Vain kerran flipattava
             onFlipEnd={handleFlipStart} // Trigger on flip start
           >
             {/* Back side of the card */}
             <Animatable.Image
-              animation="tada" // The animation effect (e.g., pulse)
-              iterationCount="infinite" // Infinite loop for idle effect
+              animation="tada"
+              iterationCount="infinite" // loputon idle animaatio
               duration={5000}
               source={require('../../assets/images/backside.jpg')}
               style={styles.image}
