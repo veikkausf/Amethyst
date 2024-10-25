@@ -11,6 +11,7 @@ import MenuScreen from './menu';
 import HoroscopeData from './horoscope-data';
 import MineralData from './mineral-data';
 import MeditationData from './meditation-data';
+import DreamDiary from './dreamDiary';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -60,6 +61,8 @@ function MyStack() {
         name="MeditationData"
         component={MeditationData}
       ></Stack.Screen>
+
+      <Stack.Screen name="DreamDiary" component={DreamDiary}></Stack.Screen>
     </Stack.Navigator>
   );
 }
