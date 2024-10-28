@@ -7,6 +7,10 @@ export type RootStackParamList = {
   Meditate: undefined;
   Login: undefined;
   DreamDiary: undefined;
+  DiaryList: undefined;
+  DreamSymbols: undefined;
+  NewDiary: undefined;
+  SymbolData: { itemId: string; itemImage: any };
   HoroscopeData: { itemId: string; itemImage: any };
   MineralData: { itemId: string };
   MeditationData: { itemId: string; itemImage: any };

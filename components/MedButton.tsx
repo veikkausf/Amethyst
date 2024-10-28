@@ -1,6 +1,6 @@
 import { StyleSheet, Pressable, Text, Image, View } from 'react-native';
 import Teksti from './Textbox';
-
+//meditation button
 interface MedButtonProps {
   title: string;
   img?: any;
