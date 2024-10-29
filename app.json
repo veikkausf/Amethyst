@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/amethyst_icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.tiko.amethyst"
     },
     "web": {
       "bundler": "metro",
@@ -40,6 +41,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b94abb1a-dea7-492a-a582-49ce7e36c9e7"
+      }
     }
   }
 }
