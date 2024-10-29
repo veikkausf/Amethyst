@@ -94,7 +94,7 @@ function Horoscopes({ navigation }: { navigation: any }) {
     y: 0,
   });
 
-  // Function to handle closing of modal
+  // Suljetaan modaali
   const closeModal = () => {
     setIsModalVisible(false);
   };
@@ -129,12 +129,12 @@ function Horoscopes({ navigation }: { navigation: any }) {
               setModalPosition({ x: modalX, y: modalY });
               setIsModalVisible(true);
             }}
-            onPressOut={closeModal} // Pass closeModal to onPressOut
+            onPressOut={closeModal} // Kun käyttäjä ei pidä nappia phjassa modaali sulkeutuu
           />
         ))}
       </ScrollView>
 
-      {/* Modal to show horoscope dates */}
+      {/* Moddaali joka näyttää päivämäärän */}
       <Modal transparent={true} visible={isModalVisible} animationType="fade">
         <View style={[{ top: modalPosition.y, left: modalPosition.x }]}>
           <View>
