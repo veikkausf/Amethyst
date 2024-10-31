@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#ffffff',
-    fontSize: 35,
+    fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
