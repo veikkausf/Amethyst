@@ -14,7 +14,8 @@ import Teksti from '../../components/Textbox';
 
 type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 
-function MenuScreen({ navigation }: MenuScreenProps) {
+function MenuScreen({ navigation, route }: MenuScreenProps) {
+  const { givenName } = route.params;
   return (
     <ScrollView
       // sivun ylä ja alaosaan lisää tilaa että ei tunnu hassulta scrollaaminen
@@ -25,7 +26,7 @@ function MenuScreen({ navigation }: MenuScreenProps) {
     >
       <View style={styles.container}>
         <Text style={styles.header}>
-          <Text style={styles.headerbold}>Choose</Text> a way to calm your
+          <Text style={styles.headerbold}>{givenName}</Text> a way to calm your
           mind...
         </Text>
         {/* Tarot  */}

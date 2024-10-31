@@ -46,7 +46,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         // Ensure idToken is available
         if (idToken) {
           // Create a Google credential
-          const googleCredential = auth.GoogleAuthProvider.credential(idToken); // Type assertion here
+          const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
           // Sign in with credential from the Google user
           const userCredential = await auth().signInWithCredential(
@@ -56,11 +56,13 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
           console.log('User signed in with Firebase:', firebaseUser);
 
-          // Optionally, you can log more user details here
+          // Extract the first name (given name) from the user object
+          const givenName = user.givenName; // Extract given name
+
           console.log('User Info from Google:', user);
 
-          // Navigate to the Menu screen or wherever you want
-          navigation.navigate('Menu');
+          // Navigate to the Menu screen and pass the first name as a parameter
+          navigation.navigate('Menu', { givenName }); // Pass givenName here
         } else {
           console.error('idToken is not available:', userInfo);
           Alert.alert('Sign-In Error', 'No valid idToken returned.');
@@ -89,7 +91,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             break;
           default:
             Alert.alert('Sign-In Error', 'An error occurred during sign-in.');
-            console.error('Google Sign-In Error:', error.message); // This should be safe as error is an instance of Error
+            console.error('Google Sign-In Error:', error.message);
         }
       } else {
         console.error('Unknown error:', error);
@@ -100,6 +102,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     }
   };
 
+  // Return valid JSX for the component
   return (
     <ImageBackground
       source={require('../../assets/images/background.jpg')}
