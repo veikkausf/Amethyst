@@ -1,11 +1,20 @@
-import React from 'react';
-import { View, StyleSheet, ImageBackground, Alert } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import Nappi from '@/components/Button';
 import {
   GoogleSignin,
   statusCodes,
+  SignInResponse,
 } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 
+// Configure Google Sign-In
 GoogleSignin.configure({
   webClientId:
     '946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com',
@@ -16,39 +25,78 @@ interface LoginScreenProps {
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
+  const [isSigningIn, setIsSigningIn] = useState(false); // State to manage loading
+
   // Function to handle Google Sign-In
   const signInWithGoogle = async () => {
+    if (isSigningIn) return; // Prevent multiple sign-in attempts
+    setIsSigningIn(true); // Set loading state to true
+
     try {
       await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
+      const userInfo: SignInResponse = await GoogleSignin.signIn();
+
+      // Log the userInfo to inspect its structure
       console.log('User Info:', userInfo);
-      navigation.navigate('Menu');
-    } catch (error: unknown) {
-      // Explicitly declare error as `unknown`
-      // Narrow down the type of `error` using type guards
-      if (error instanceof Error) {
-        if ((error as any).code === statusCodes.SIGN_IN_CANCELLED) {
-          Alert.alert('Sign-In Cancelled', 'User cancelled the sign-in.');
-        } else if ((error as any).code === statusCodes.IN_PROGRESS) {
-          Alert.alert(
-            'Sign-In in Progress',
-            'Sign-In is currently in progress.'
+
+      // Ensure userInfo.data is defined
+      if (userInfo.data) {
+        const { idToken, user } = userInfo.data; // Destructure safely from userInfo.data
+
+        // Ensure idToken is available
+        if (idToken) {
+          // Create a Google credential
+          const googleCredential = auth.GoogleAuthProvider.credential(idToken); // Type assertion here
+
+          // Sign in with credential from the Google user
+          const userCredential = await auth().signInWithCredential(
+            googleCredential
           );
-        } else if (
-          (error as any).code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE
-        ) {
-          Alert.alert(
-            'Play Services Not Available',
-            'Google Play Services is required.'
-          );
+          const firebaseUser = userCredential.user;
+
+          console.log('User signed in with Firebase:', firebaseUser);
+
+          // Optionally, you can log more user details here
+          console.log('User Info from Google:', user);
+
+          // Navigate to the Menu screen or wherever you want
+          navigation.navigate('Menu');
         } else {
-          Alert.alert('Sign-In Error', 'An error occurred during sign-in.');
-          console.error('Google Sign-In Error:', error.message);
+          console.error('idToken is not available:', userInfo);
+          Alert.alert('Sign-In Error', 'No valid idToken returned.');
+        }
+      } else {
+        console.error('userInfo.data is null:', userInfo);
+        Alert.alert('Sign-In Error', 'No valid user information returned.');
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        switch ((error as any).code) {
+          case statusCodes.SIGN_IN_CANCELLED:
+            Alert.alert('Sign-In Cancelled', 'User cancelled the sign-in.');
+            break;
+          case statusCodes.IN_PROGRESS:
+            Alert.alert(
+              'Sign-In in Progress',
+              'Sign-In is currently in progress.'
+            );
+            break;
+          case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
+            Alert.alert(
+              'Play Services Not Available',
+              'Google Play Services is required.'
+            );
+            break;
+          default:
+            Alert.alert('Sign-In Error', 'An error occurred during sign-in.');
+            console.error('Google Sign-In Error:', error.message); // This should be safe as error is an instance of Error
         }
       } else {
         console.error('Unknown error:', error);
         Alert.alert('Error', 'An unexpected error occurred.');
       }
+    } finally {
+      setIsSigningIn(false); // Reset loading state
     }
   };
 
@@ -58,8 +106,12 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       style={styles.background}
       resizeMode="cover"
     >
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Nappi title="Login with Google" onPress={signInWithGoogle} />
+      <View style={styles.container}>
+        {isSigningIn ? (
+          <ActivityIndicator size="large" color="#ffffff" /> // Loading indicator
+        ) : (
+          <Nappi title="Login with Google" onPress={signInWithGoogle} />
+        )}
       </View>
     </ImageBackground>
   );
@@ -74,7 +126,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    backgroundColor: '#3F3154',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
