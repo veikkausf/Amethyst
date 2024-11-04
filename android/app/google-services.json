@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "946110492595-87v1u0btdgt2fo9heppkvict0m6dbhqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiko.amethyst",
+            "certificate_hash": "5a4becb99dc53fc6ec27eecd6cf15516d9db2d60"
+          }
+        },
+        {
           "client_id": "946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com",
           "client_type": 3
         }
