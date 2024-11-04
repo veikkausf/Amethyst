@@ -18,6 +18,8 @@ import auth from '@react-native-firebase/auth';
 GoogleSignin.configure({
   webClientId:
     '946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com',
+  offlineAccess: true,
+  forceCodeForRefreshToken: true,
 });
 
 interface LoginScreenProps {
