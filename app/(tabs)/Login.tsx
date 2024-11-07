@@ -13,6 +13,7 @@ import {
   SignInResponse,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import { StatusBar } from 'expo-status-bar';
 
 // Configure Google Sign-In
 GoogleSignin.configure({
@@ -115,6 +116,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       style={styles.background}
       resizeMode="cover"
     >
+      <StatusBar style="light" backgroundColor="#3F3154" />
       <View style={styles.container}>
         {isSigningIn ? (
           <ActivityIndicator size="large" color="#ffffff" /> // Loading indicator
