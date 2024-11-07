@@ -59,12 +59,14 @@ const styles = StyleSheet.create({
     width: 300,
     height: 70,
     top: '35%',
+    marginBottom: 10,
   },
   text: {
     color: '#ffffff',
     fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
+    alignContent: 'center',
   },
 });
 export default Nappi;
