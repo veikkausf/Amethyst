@@ -45,7 +45,7 @@ function MyStack() {
       <Stack.Screen
         name="Menu"
         component={MenuScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <Stack.Screen name="Tarot" component={Tarot} />
       <Stack.Screen name="Minerals" component={Minerals} />
