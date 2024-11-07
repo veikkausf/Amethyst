@@ -1,6 +1,6 @@
 export type RootStackParamList = {
   Home: undefined;
-  Menu: { givenName: string };
+  Menu: { givenName?: string };
   Tarot: undefined;
   Minerals: undefined;
   Horoscope: undefined;

@@ -59,7 +59,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           console.log('User signed in with Firebase:', firebaseUser);
 
           // Extract the first name (given name) from the user object
-          const givenName = user.givenName; // Extract given name
+          const givenName = user.givenName || 'Guest'; // Extract given name
 
           console.log('User Info from Google:', user);
 
@@ -103,6 +103,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       setIsSigningIn(false); // Reset loading state
     }
   };
+  const navigateAsGuest = () => {
+    const givenName = 'Guest'; // Default value for guest
+    navigation.navigate('Menu', { givenName });
+  };
 
   // Return valid JSX for the component
   return (
@@ -117,6 +121,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         ) : (
           <Nappi title="Login with Google" onPress={signInWithGoogle} />
         )}
+        <Nappi title="Continue as a guest" onPress={navigateAsGuest}></Nappi>
       </View>
     </ImageBackground>
   );

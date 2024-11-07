@@ -26,8 +26,8 @@ function MenuScreen({ navigation, route }: MenuScreenProps) {
     >
       <View style={styles.container}>
         <Text style={styles.header}>
-          <Text style={styles.headerbold}>{givenName}</Text>, choose a way to
-          calm your mind...
+          <Text style={styles.headerbold}>{givenName || 'Guest'}</Text>, choose
+          a way to calm your mind...
         </Text>
         {/* Tarot  */}
         <Pressable
