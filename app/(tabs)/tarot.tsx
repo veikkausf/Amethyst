@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ActivityIndicator,
+  Dimensions,
+} from 'react-native';
 //import Teksti from '@/components/Textbox';
 import AnimoituTeksti from '@/components/AnimatedTextbox';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -27,6 +34,14 @@ const Tarot: React.FC = () => {
   const [flipped, setFlipped] = useState(false); // Track flip status
   const [anim, setAnim] = useState(false); // Track Animation status
   const [openIndex, setOpenIndex] = useState<number | null>(null); // Track the currently open collapsible
+
+  // Get screen dimensions
+  const screenWidth = Dimensions.get('window').width;
+  const screenHeight = Dimensions.get('window').height;
+
+  // Adjust image dimensions based on screen size
+  const imageWidth = screenWidth * 0.8;
+  const imageHeight = (imageWidth / 330) * 650; // Maintain the original aspect ratio
 
   const getCurrentDate = () => {
     //lisää Date() sisään numeroita jos haluat vaihtaa päivää
@@ -142,7 +157,7 @@ const Tarot: React.FC = () => {
               iterationCount="infinite" // loputon idle animaatio
               duration={5000}
               source={require('../../assets/images/backside.jpg')}
-              style={styles.image}
+              style={[styles.image, { width: imageWidth, height: imageHeight }]}
             />
 
             {/* Front side of the card */}
@@ -150,7 +165,11 @@ const Tarot: React.FC = () => {
               source={{
                 uri: tarotCard.Image,
               }}
-              style={[styles.image, flipped && { transform: [{ scaleX: -1 }] }]}
+              style={[
+                styles.image,
+                { width: imageWidth, height: imageHeight },
+                flipped && { transform: [{ scaleX: -1 }] },
+              ]}
             />
           </FlipCard>
           {flipped && (
@@ -280,6 +299,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minHeight: 650,
     maxHeight: 650,
+    resizeMode: 'contain',
   },
   box: {
     margin: 15,
