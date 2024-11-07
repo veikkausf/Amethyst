@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { StyleSheet, Pressable, Text, View } from 'react-native';
+import { StyleSheet, Pressable, Text, View, StatusBar } from 'react-native';
 import {
   useFonts,
   Kadwa_400Regular,
@@ -22,6 +22,8 @@ interface NappiProps {
 }
 
 const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
+  StatusBar.setBarStyle('light-content');
+  StatusBar.setBackgroundColor('#3F3154');
   // Ladataan custom-fontit
   let [fontsLoaded] = useFonts({
     Kadwa_400Regular,

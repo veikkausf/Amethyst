@@ -13,7 +13,6 @@ import {
   SignInResponse,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import { StatusBar } from 'expo-status-bar';
 
 // Configure Google Sign-In
 GoogleSignin.configure({
@@ -30,7 +29,6 @@ interface LoginScreenProps {
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [isSigningIn, setIsSigningIn] = useState(false); // State to manage loading
 
-  // Function to handle Google Sign-In
   const signInWithGoogle = async () => {
     if (isSigningIn) return; // Prevent multiple sign-in attempts
     setIsSigningIn(true); // Set loading state to true
@@ -39,19 +37,13 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       await GoogleSignin.hasPlayServices();
       const userInfo: SignInResponse = await GoogleSignin.signIn();
 
-      // Log the userInfo to inspect its structure
       console.log('User Info:', userInfo);
 
-      // Ensure userInfo.data is defined
       if (userInfo.data) {
-        const { idToken, user } = userInfo.data; // Destructure safely from userInfo.data
+        const { idToken, user } = userInfo.data;
 
-        // Ensure idToken is available
         if (idToken) {
-          // Create a Google credential
           const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-          // Sign in with credential from the Google user
           const userCredential = await auth().signInWithCredential(
             googleCredential
           );
@@ -59,13 +51,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
           console.log('User signed in with Firebase:', firebaseUser);
 
-          // Extract the first name (given name) from the user object
-          const givenName = user.givenName || 'Guest'; // Extract given name
+          const givenName = user.givenName || 'Guest';
 
-          console.log('User Info from Google:', user);
-
-          // Navigate to the Menu screen and pass the first name as a parameter
-          navigation.navigate('Menu', { givenName }); // Pass givenName here
+          navigation.navigate('Menu', { givenName });
         } else {
           console.error('idToken is not available:', userInfo);
           Alert.alert('Sign-In Error', 'No valid idToken returned.');
@@ -104,32 +92,32 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       setIsSigningIn(false); // Reset loading state
     }
   };
+
   const navigateAsGuest = () => {
-    const givenName = 'Guest'; // Default value for guest
+    const givenName = 'Guest';
     navigation.navigate('Menu', { givenName });
   };
 
-  // Return valid JSX for the component
   return (
     <ImageBackground
       source={require('../../assets/images/background.jpg')}
       style={styles.background}
       resizeMode="cover"
     >
-      <StatusBar style="light" backgroundColor="#3F3154" />
+      {/* Ensure StatusBar is applied globally */}
       <View style={styles.container}>
         {isSigningIn ? (
-          <ActivityIndicator size="large" color="#ffffff" /> // Loading indicator
+          <ActivityIndicator size="large" color="#ffffff" />
         ) : (
-          <Nappi title="Login with Google" onPress={signInWithGoogle} />
+          <>
+            <Nappi title="Login with Google" onPress={signInWithGoogle} />
+            <Nappi title="Continue as a guest" onPress={navigateAsGuest} />
+          </>
         )}
-        <Nappi title="Continue as a guest" onPress={navigateAsGuest}></Nappi>
       </View>
     </ImageBackground>
   );
 };
-
-export default LoginScreen;
 
 const styles = StyleSheet.create({
   background: {
@@ -143,3 +131,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default LoginScreen;
