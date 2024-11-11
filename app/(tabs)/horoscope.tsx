@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,79 +10,124 @@ import {
 } from 'react-native';
 import HoroscopeButton from '@/components/HoroscopeButton';
 import Teksti from '@/components/Textbox';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../Types';
 
 type BoxItem = {
   id: string;
   image: any;
-  dates: string;
+  dates: {
+    startDate: { day: number; month: number };
+    endDate: { day: number; month: number };
+  };
 };
 
 const data: BoxItem[] = [
   {
     id: 'Capricorn',
     image: require('../../assets/images/capricorn.png'),
-    dates: 'December 22 - January 19',
+    dates: {
+      startDate: { day: 22, month: 12 },
+      endDate: { day: 19, month: 1 },
+    },
   },
   {
     id: 'Aquarius',
     image: require('../../assets/images/aquarius.png'),
-    dates: 'January 20 - February 18',
+    dates: {
+      startDate: { day: 20, month: 1 },
+      endDate: { day: 18, month: 2 },
+    },
   },
   {
     id: 'Pisces',
     image: require('../../assets/images/pisces.png'),
-    dates: 'February 19 - March 20',
+    dates: {
+      startDate: { day: 19, month: 2 },
+      endDate: { day: 20, month: 3 },
+    },
   },
   {
     id: 'Aries',
     image: require('../../assets/images/aries.png'),
-    dates: 'March 21 - April 19',
+    dates: {
+      startDate: { day: 21, month: 3 },
+      endDate: { day: 19, month: 4 },
+    },
   },
   {
     id: 'Taurus',
     image: require('../../assets/images/taurus.png'),
-    dates: 'April 20 - May 20',
+    dates: {
+      startDate: { day: 20, month: 4 },
+      endDate: { day: 20, month: 5 },
+    },
   },
   {
     id: 'Gemini',
     image: require('../../assets/images/gemini.png'),
-    dates: 'May 21 - June 20',
+    dates: {
+      startDate: { day: 21, month: 5 },
+      endDate: { day: 20, month: 6 },
+    },
   },
   {
     id: 'Cancer',
     image: require('../../assets/images/cancer.png'),
-    dates: 'June 21 - July 22',
+    dates: {
+      startDate: { day: 21, month: 6 },
+      endDate: { day: 22, month: 7 },
+    },
   },
   {
     id: 'Leo',
     image: require('../../assets/images/leo.png'),
-    dates: 'July 23 - August 22',
+    dates: {
+      startDate: { day: 23, month: 7 },
+      endDate: { day: 22, month: 8 },
+    },
   },
   {
     id: 'Virgo',
     image: require('../../assets/images/virgo.png'),
-    dates: 'August 23 - September 22',
+    dates: {
+      startDate: { day: 23, month: 8 },
+      endDate: { day: 22, month: 9 },
+    },
   },
   {
     id: 'Libra',
     image: require('../../assets/images/libra.png'),
-    dates: 'September 23 - October 22',
+    dates: {
+      startDate: { day: 23, month: 9 },
+      endDate: { day: 22, month: 10 },
+    },
   },
   {
     id: 'Scorpio',
     image: require('../../assets/images/scorpio.png'),
-    dates: 'October 23 - November 21',
+    dates: {
+      startDate: { day: 23, month: 10 },
+      endDate: { day: 21, month: 11 },
+    },
   },
   {
     id: 'Sagittarius',
     image: require('../../assets/images/sagittarius.png'),
-    dates: 'November 22 - December 21',
+    dates: {
+      startDate: { day: 22, month: 11 },
+      endDate: { day: 21, month: 12 },
+    },
   },
 ];
+
 const { width: screenWidth } = Dimensions.get('window'); // Get screen width
 const { height: screenHeight } = Dimensions.get('window'); // Get screen height
 
-function Horoscopes({ navigation }: { navigation: any }) {
+type HoroscopeProps = StackScreenProps<RootStackParamList, 'Horoscope'>;
+
+const Horoscope = ({ route, navigation }: HoroscopeProps) => {
+  const { userBirthday } = route.params || {}; // Safely access route params
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedHoroscope, setSelectedHoroscope] = useState<BoxItem | null>(
     null
@@ -91,11 +136,74 @@ function Horoscopes({ navigation }: { navigation: any }) {
     x: 0,
     y: 0,
   });
+  const [horoscopeText, setHoroscopeText] = useState<string>(''); // State for the horoscope text
 
-  // Suljetaan modaali
   const closeModal = () => {
     setIsModalVisible(false);
   };
+
+  // Check if userBirthday is valid
+  if (!userBirthday) {
+    console.error('User birthday data is missing');
+    return (
+      <View style={styles.container}>
+        <Text>Error: Missing birthday data.</Text>
+      </View>
+    );
+  }
+
+  // Safely handle userBirthday before destructuring
+  let birthday = { day: 0, month: 0 }; // Default values if userBirthday is invalid
+
+  if (userBirthday) {
+    if (typeof userBirthday === 'string') {
+      // If it's a string (e.g., "1998-05-20"), parse it into a Date object
+      const date = new Date(userBirthday);
+      birthday = { day: date.getDate(), month: date.getMonth() + 1 }; // Convert to day and month
+    } else {
+      // If it's already an object with day and month
+      birthday = userBirthday;
+    }
+  }
+
+  const { day, month } = birthday;
+
+  // Function to check if the user's birthday is within the date range
+  const isBirthdayInRange = (
+    startDate: { day: number; month: number },
+    endDate: { day: number; month: number }
+  ): boolean => {
+    if (
+      startDate.month < endDate.month ||
+      (startDate.month === endDate.month && startDate.day <= endDate.day)
+    ) {
+      return (
+        (month > startDate.month ||
+          (month === startDate.month && day >= startDate.day)) &&
+        (month < endDate.month ||
+          (month === endDate.month && day <= endDate.day))
+      );
+    }
+
+    return (
+      month > startDate.month ||
+      (month === startDate.month && day >= startDate.day) ||
+      month < endDate.month ||
+      (month === endDate.month && day <= endDate.day)
+    );
+  };
+
+  // Find the matching horoscope based on the user's birthday
+  useEffect(() => {
+    const matchingHoroscope = data.find((item) =>
+      isBirthdayInRange(item.dates.startDate, item.dates.endDate)
+    );
+    if (matchingHoroscope) {
+      setHoroscopeText(`Your horoscope is: ${matchingHoroscope.id}`); // Set the horoscope text
+    } else {
+      setHoroscopeText('No matching horoscope found');
+    }
+  }, [day, month]);
 
   return (
     <View style={styles.background}>
@@ -103,6 +211,10 @@ function Horoscopes({ navigation }: { navigation: any }) {
         <Text style={styles.header}>
           What's <Text style={styles.normalFont}>your sun sign?</Text>
         </Text>
+
+        {/* Display the horoscope text */}
+        <Text style={styles.header}>{horoscopeText}</Text>
+
         {data.map((item) => (
           <HoroscopeButton
             key={item.id}
@@ -137,19 +249,17 @@ function Horoscopes({ navigation }: { navigation: any }) {
         <View style={[{ top: modalPosition.y, left: modalPosition.x }]}>
           <View>
             {selectedHoroscope && (
-              <>
-                <Teksti style={styles.box}>
-                  <Text>{selectedHoroscope.id}</Text>
-                  <Text>{selectedHoroscope.dates}</Text>
-                </Teksti>
-              </>
+              <Teksti style={styles.box}>
+                <Text>{selectedHoroscope.id}</Text>
+                {/* <Text>{selectedHoroscope.dates}</Text>*/}
+              </Teksti>
             )}
           </View>
         </View>
       </Modal>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   background: {
@@ -183,6 +293,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  container: {
+    backgroundColor: '#3F3154',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
 });
 
-export default Horoscopes;
+export default Horoscope;

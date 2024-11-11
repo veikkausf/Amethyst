@@ -62,6 +62,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           // Get access token using GoogleSignin.getTokens() method
           const { accessToken } = await GoogleSignin.getTokens(); // Retrieve the access token
 
+          let userBirthday = null; // Default value for userBirthday
+
           if (accessToken) {
             // Fetch user's birthday using the People API with the access token
             const response = await fetch(
@@ -80,6 +82,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
             if (data && data.birthdays && data.birthdays.length > 0) {
               const birthday = data.birthdays[0].date;
               console.log('User Birthday:', birthday);
+              userBirthday = birthday;
             } else {
               console.log(
                 'Birthday is not available or not found in the response.'
@@ -88,9 +91,11 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           } else {
             console.log('Access token is not available.');
           }
-
+          console.log('Syntymäpäivä', userBirthday);
           const givenName = user.givenName || 'Guest';
-          navigation.navigate('Menu', { givenName });
+
+          // Now navigate to Menu screen and pass the userBirthday
+          navigation.navigate('Menu', { givenName, userBirthday });
         } else {
           console.error('idToken is not available:', userInfo);
           Alert.alert('Sign-In Error', 'No valid idToken returned.');

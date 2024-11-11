@@ -15,7 +15,7 @@ import Teksti from '../../components/Textbox';
 type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 
 function MenuScreen({ navigation, route }: MenuScreenProps) {
-  const { givenName } = route.params;
+  const { givenName, userBirthday } = route.params;
   return (
     <ScrollView
       // sivun ylä ja alaosaan lisää tilaa että ei tunnu hassulta scrollaaminen
@@ -50,7 +50,7 @@ function MenuScreen({ navigation, route }: MenuScreenProps) {
         {/* Horoscope */}
         <Pressable
           style={styles.containerRight}
-          onPress={() => navigation.navigate('Horoscope')}
+          onPress={() => navigation.navigate('Horoscope', { userBirthday })}
         >
           <Teksti style={styles.textBoxRight}>
             <View style={styles.borderRight}>
