@@ -85,14 +85,14 @@ android {
         versionName "1.0.0"
     }
     
-    signingConfigs {
-        release {
-            storeFile file("../keystores/my-release-key.jks") // Use relative path to keystore
-            storePassword 'Amethyst1234' // Your keystore password
-            keyAlias 'my-key-alias' // Replace with your key alias
-            keyPassword 'Amethyst1234' // The password for your alias
-        }
+signingConfigs {
+    release {
+        storeFile file("../keystores/@amethystproject__Amethyst.jks") // Use relative path to your keystore
+        storePassword '27b316cf8a45841f7d78013f51b293bb' // Your keystore password
+        keyAlias '01b2fdc1f14885bb7c5e7dc1a2b4ee08' // Your key alias (from the keystore)
+        keyPassword '7925d6f4c9d2eb98d1fae5e8cc9f6930' // The password for your alias
     }
+}
     
     buildTypes {
         debug {
