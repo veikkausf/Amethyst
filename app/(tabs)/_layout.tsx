@@ -16,6 +16,7 @@ import DiaryList from './diaryList';
 import NewDiary from './newDiary';
 import DreamSymbols from './dreamSymbols';
 import SymbolData from './symbolData';
+import diaryPrevious from './diaryPrevious';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -75,6 +76,10 @@ function MyStack() {
       <Stack.Screen name="NewDiary" component={NewDiary}></Stack.Screen>
 
       <Stack.Screen name="SymbolData" component={SymbolData}></Stack.Screen>
+      <Stack.Screen
+        name="diaryPrevious"
+        component={diaryPrevious}
+      ></Stack.Screen>
     </Stack.Navigator>
   );
 }

@@ -9,7 +9,14 @@ interface DiaryListProps {
 const DiaryList: React.FC<DiaryListProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Previous pages</Text>
+      <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate('diaryPrevious')}
+      >
+        <Teksti>
+          <Text style={styles.header}>History</Text>
+        </Teksti>
+      </Pressable>
       <Pressable
         style={styles.button}
         onPress={() => navigation.navigate('NewDiary')}
@@ -29,6 +36,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20, // Add padding to avoid content being cut off on smaller screens
+    gap: 20,
   },
   header: {
     color: '#ffffff',
