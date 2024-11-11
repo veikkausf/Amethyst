@@ -19,7 +19,14 @@ GoogleSignin.configure({
   webClientId:
     '946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com',
   offlineAccess: true,
-  forceCodeForRefreshToken: true,
+  //forceCodeForRefreshToken: true,
+  scopes: [
+    'profile',
+    'email',
+    'openid',
+    'https://www.googleapis.com/auth/user.birthday.read',
+    'https://www.googleapis.com/auth/userinfo.profile',
+  ],
 });
 
 interface LoginScreenProps {
@@ -37,13 +44,14 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       await GoogleSignin.hasPlayServices();
       const userInfo: SignInResponse = await GoogleSignin.signIn();
 
-      console.log('User Info:', userInfo);
-
       if (userInfo.data) {
         const { idToken, user } = userInfo.data;
 
+        // Proceed with Firebase Authentication using idToken
         if (idToken) {
+          // Import GoogleAuthProvider from Firebase auth
           const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
           const userCredential = await auth().signInWithCredential(
             googleCredential
           );
@@ -51,8 +59,37 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
           console.log('User signed in with Firebase:', firebaseUser);
 
-          const givenName = user.givenName || 'Guest';
+          // Get access token using GoogleSignin.getTokens() method
+          const { accessToken } = await GoogleSignin.getTokens(); // Retrieve the access token
 
+          if (accessToken) {
+            // Fetch user's birthday using the People API with the access token
+            const response = await fetch(
+              `https://people.googleapis.com/v1/people/me?personFields=birthdays`,
+              {
+                method: 'GET',
+                headers: {
+                  Authorization: `Bearer ${accessToken}`, // Use the access token here
+                },
+              }
+            );
+
+            const data = await response.json();
+            console.log('Full People API Response:', data);
+
+            if (data && data.birthdays && data.birthdays.length > 0) {
+              const birthday = data.birthdays[0].date;
+              console.log('User Birthday:', birthday);
+            } else {
+              console.log(
+                'Birthday is not available or not found in the response.'
+              );
+            }
+          } else {
+            console.log('Access token is not available.');
+          }
+
+          const givenName = user.givenName || 'Guest';
           navigation.navigate('Menu', { givenName });
         } else {
           console.error('idToken is not available:', userInfo);
@@ -62,32 +99,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         console.error('userInfo.data is null:', userInfo);
         Alert.alert('Sign-In Error', 'No valid user information returned.');
       }
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        switch ((error as any).code) {
-          case statusCodes.SIGN_IN_CANCELLED:
-            Alert.alert('Sign-In Cancelled', 'User cancelled the sign-in.');
-            break;
-          case statusCodes.IN_PROGRESS:
-            Alert.alert(
-              'Sign-In in Progress',
-              'Sign-In is currently in progress.'
-            );
-            break;
-          case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
-            Alert.alert(
-              'Play Services Not Available',
-              'Google Play Services is required.'
-            );
-            break;
-          default:
-            Alert.alert('Sign-In Error', 'An error occurred during sign-in.');
-            console.error('Google Sign-In Error:', error.message);
-        }
-      } else {
-        console.error('Unknown error:', error);
-        Alert.alert('Error', 'An unexpected error occurred.');
-      }
+    } catch (error) {
+      console.error('Error during sign-in:', error);
     } finally {
       setIsSigningIn(false); // Reset loading state
     }
@@ -104,7 +117,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       style={styles.background}
       resizeMode="cover"
     >
-      {/* Ensure StatusBar is applied globally */}
       <View style={styles.container}>
         {isSigningIn ? (
           <ActivityIndicator size="large" color="#ffffff" />
