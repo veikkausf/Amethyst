@@ -137,6 +137,9 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
     y: 0,
   });
   const [horoscopeText, setHoroscopeText] = useState<string>(''); // State for the horoscope text
+  const [horoscopeImage, setHoroscopeImage] = useState<any>(
+    require('../../assets/images/virgo.png') //placeholder image
+  );
 
   const closeModal = () => {
     setIsModalVisible(false);
@@ -194,14 +197,17 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
   };
 
   // Find the matching horoscope based on the user's birthday
+  // Find the matching horoscope based on the user's birthday
   useEffect(() => {
     const matchingHoroscope = data.find((item) =>
       isBirthdayInRange(item.dates.startDate, item.dates.endDate)
     );
     if (matchingHoroscope) {
-      setHoroscopeText(`Your horoscope is: ${matchingHoroscope.id}`); // Set the horoscope text
+      setHoroscopeText(matchingHoroscope.id);
+      setHoroscopeImage(matchingHoroscope.image);
     } else {
       setHoroscopeText('No matching horoscope found');
+      setHoroscopeImage(null);
     }
   }, [day, month]);
 
@@ -209,12 +215,20 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
         <Text style={styles.header}>
-          What's <Text style={styles.normalFont}>your sun sign?</Text>
+          Your <Text style={styles.normalFont}>sun sign:</Text>
         </Text>
-
-        {/* Display the horoscope text */}
-        <Text style={styles.header}>{horoscopeText}</Text>
-
+        <HoroscopeButton
+          key={horoscopeText}
+          title={horoscopeText} // Passing the ID of the matched horoscope
+          img={horoscopeImage} // Passing the image of the matched horoscope
+          onPress={() =>
+            navigation.navigate('HoroscopeData', {
+              itemId: horoscopeText, // Pass the ID to the next screen
+              itemImage: horoscopeImage, // Pass the image to the next screen
+            })
+          }
+        />
+        <Text style={styles.smallheader}>Other signs:</Text>
         {data.map((item) => (
           <HoroscopeButton
             key={item.id}
@@ -281,6 +295,12 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    color: 'white',
+    marginHorizontal: 40,
+  },
+  smallheader: {
+    fontSize: 25,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
