@@ -300,8 +300,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
   },
   smallheader: {
-    fontSize: 25,
-    fontFamily: 'Kadwa_700Bold',
+    fontSize: 24,
+    fontFamily: 'Kadwa_400Regular',
     color: 'white',
     marginHorizontal: 40,
   },
