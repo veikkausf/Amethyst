@@ -13,13 +13,13 @@ import {
   SignInResponse,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import BirthdayModal from '@/components/DatePicker';
 
 // Configure Google Sign-In
 GoogleSignin.configure({
   webClientId:
     '946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com',
   offlineAccess: true,
-  //forceCodeForRefreshToken: true,
   scopes: [
     'profile',
     'email',
@@ -34,11 +34,12 @@ interface LoginScreenProps {
 }
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
-  const [isSigningIn, setIsSigningIn] = useState(false); // State to manage loading
+  const [isSigningIn, setIsSigningIn] = useState(false);
+  const [showModal, setShowModal] = useState(false); // State for modal visibility
 
   const signInWithGoogle = async () => {
-    if (isSigningIn) return; // Prevent multiple sign-in attempts
-    setIsSigningIn(true); // Set loading state to true
+    if (isSigningIn) return;
+    setIsSigningIn(true);
 
     try {
       await GoogleSignin.hasPlayServices();
@@ -47,11 +48,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       if (userInfo.data) {
         const { idToken, user } = userInfo.data;
 
-        // Proceed with Firebase Authentication using idToken
         if (idToken) {
-          // Import GoogleAuthProvider from Firebase auth
           const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
           const userCredential = await auth().signInWithCredential(
             googleCredential
           );
@@ -59,19 +57,17 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
           console.log('User signed in with Firebase:', firebaseUser);
 
-          // Get access token using GoogleSignin.getTokens() method
-          const { accessToken } = await GoogleSignin.getTokens(); // Retrieve the access token
+          const { accessToken } = await GoogleSignin.getTokens();
 
-          let userBirthday = null; // Default value for userBirthday
+          let userBirthday = null;
 
           if (accessToken) {
-            // Fetch user's birthday using the People API with the access token
             const response = await fetch(
               `https://people.googleapis.com/v1/people/me?personFields=birthdays`,
               {
                 method: 'GET',
                 headers: {
-                  Authorization: `Bearer ${accessToken}`, // Use the access token here
+                  Authorization: `Bearer ${accessToken}`,
                 },
               }
             );
@@ -91,10 +87,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           } else {
             console.log('Access token is not available.');
           }
-          console.log('Syntymäpäivä', userBirthday);
-          const givenName = user.givenName || 'Guest';
 
-          // Now navigate to Menu screen and pass the userBirthday
+          const givenName = user.givenName || 'Guest';
           navigation.navigate('Menu', { givenName, userBirthday });
         } else {
           console.error('idToken is not available:', userInfo);
@@ -107,13 +101,18 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     } catch (error) {
       console.error('Error during sign-in:', error);
     } finally {
-      setIsSigningIn(false); // Reset loading state
+      setIsSigningIn(false);
     }
   };
 
   const navigateAsGuest = () => {
+    setShowModal(true); // Avataan birthday modaali kun kirjaudutaan vieraana
+  };
+
+  const handleSubmitBirthday = (birthday: { day: number; month: number }) => {
     const givenName = 'Guest';
-    navigation.navigate('Menu', { givenName });
+    setShowModal(false); // Kun pvm valittu, suljetaan modaali
+    navigation.navigate('Menu', { givenName, userBirthday: birthday });
   };
 
   return (
@@ -132,6 +131,14 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
           </>
         )}
       </View>
+
+      {showModal && (
+        <BirthdayModal
+          isVisible={showModal}
+          onClose={() => setShowModal(false)}
+          onSubmit={handleSubmitBirthday}
+        />
+      )}
     </ImageBackground>
   );
 };
