@@ -25,6 +25,7 @@ type TarotCard = {
   Money?: string;
   Love?: string;
   Image: string;
+  Keywords: string;
 } | null;
 
 const Tarot: React.FC = () => {
@@ -172,35 +173,16 @@ const Tarot: React.FC = () => {
               ]}
             />
           </FlipCard>
+
           {flipped && (
-            <AnimoituTeksti style={styles.box}>
-              <Collapsible
-                title="Description"
-                isOpen={openIndex === 0}
-                onToggle={() => handleToggle(0)}
-              >
-                <Animatable.Text
-                  animation={{
-                    from: {
-                      translateY: -25,
-                      opacity: 0,
-                    },
-                    to: {
-                      translateY: 0,
-                      opacity: 1,
-                    },
-                  }}
-                  duration={1000}
-                  style={styles.normalFont}
-                >
-                  {tarotCard.Desc}
-                </Animatable.Text>
-              </Collapsible>
-              {tarotCard.Money && (
+            <View>
+              <Text style={styles.keywords}>{tarotCard.Keywords}</Text>
+
+              <AnimoituTeksti style={styles.box}>
                 <Collapsible
-                  title="Money"
-                  isOpen={openIndex === 1}
-                  onToggle={() => handleToggle(1)}
+                  title="Description"
+                  isOpen={openIndex === 0}
+                  onToggle={() => handleToggle(0)}
                 >
                   <Animatable.Text
                     animation={{
@@ -216,35 +198,59 @@ const Tarot: React.FC = () => {
                     duration={1000}
                     style={styles.normalFont}
                   >
-                    {tarotCard.Money}
+                    {tarotCard.Desc}
                   </Animatable.Text>
                 </Collapsible>
-              )}
-              {tarotCard.Love && (
-                <Collapsible
-                  title="Love"
-                  isOpen={openIndex === 2}
-                  onToggle={() => handleToggle(2)}
-                >
-                  <Animatable.Text
-                    animation={{
-                      from: {
-                        translateY: -25,
-                        opacity: 0,
-                      },
-                      to: {
-                        translateY: 0,
-                        opacity: 1,
-                      },
-                    }}
-                    duration={1000}
-                    style={styles.normalFont}
+                {tarotCard.Money && (
+                  <Collapsible
+                    title="Money"
+                    isOpen={openIndex === 1}
+                    onToggle={() => handleToggle(1)}
                   >
-                    {tarotCard.Love}
-                  </Animatable.Text>
-                </Collapsible>
-              )}
-            </AnimoituTeksti>
+                    <Animatable.Text
+                      animation={{
+                        from: {
+                          translateY: -25,
+                          opacity: 0,
+                        },
+                        to: {
+                          translateY: 0,
+                          opacity: 1,
+                        },
+                      }}
+                      duration={1000}
+                      style={styles.normalFont}
+                    >
+                      {tarotCard.Money}
+                    </Animatable.Text>
+                  </Collapsible>
+                )}
+                {tarotCard.Love && (
+                  <Collapsible
+                    title="Love"
+                    isOpen={openIndex === 2}
+                    onToggle={() => handleToggle(2)}
+                  >
+                    <Animatable.Text
+                      animation={{
+                        from: {
+                          translateY: -25,
+                          opacity: 0,
+                        },
+                        to: {
+                          translateY: 0,
+                          opacity: 1,
+                        },
+                      }}
+                      duration={1000}
+                      style={styles.normalFont}
+                    >
+                      {tarotCard.Love}
+                    </Animatable.Text>
+                  </Collapsible>
+                )}
+              </AnimoituTeksti>
+            </View>
           )}
         </View>
       ) : (
@@ -304,6 +310,15 @@ const styles = StyleSheet.create({
   box: {
     margin: 15,
     width: '90%',
+  },
+  keywords: {
+    fontFamily: 'Kadwa_400Regular',
+    color: 'white',
+    fontSize: 20,
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+    marginHorizontal: 30,
   },
 });
 
