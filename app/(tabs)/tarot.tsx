@@ -34,7 +34,7 @@ const Tarot: React.FC = () => {
   const [loading, setLoading] = useState(true); // Loading state
   const [flipped, setFlipped] = useState(false); // Track flip status
   const [anim, setAnim] = useState(false); // Track Animation status
-  const [openIndex, setOpenIndex] = useState<number | null>(null); // Track the currently open collapsible
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // Allow null for closed state
 
   // Get screen dimensions
   const screenWidth = Dimensions.get('window').width;
@@ -111,9 +111,9 @@ const Tarot: React.FC = () => {
   const handleFlipStart = () => {
     setFlipped((prev) => !prev); // Toggle flipped state
   };
-  //Collapsible funktio
+  // Collapsible function
   const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // sulkee Collapsiblen jos toinen avataan
+    setOpenIndex(openIndex === index ? null : index); // Close current and open new collapsible
   };
   const handleAnimationEnd = () => {
     setAnim(true); // Anim -> true että tekstin animaatio vaihtuu
