@@ -149,7 +149,7 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
   if (!userBirthday) {
     console.error('User birthday data is missing');
     return (
-      <View style={styles.container}>
+      <View>
         <Text>Error: Missing birthday data.</Text>
       </View>
     );
@@ -213,7 +213,7 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
 
   return (
     <View style={styles.background}>
-      <ScrollView contentContainerStyle={styles.grid}>
+      <ScrollView>
         <Text style={styles.header}>
           Your <Text style={styles.normalFont}>sun sign:</Text>
         </Text>
@@ -286,24 +286,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#918998',
     width: '50%',
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: 10,
-  },
   header: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    marginHorizontal: 40,
   },
   smallheader: {
     fontSize: 24,
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
-    marginHorizontal: 40,
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
@@ -312,13 +303,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  container: {
-    backgroundColor: '#3F3154',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
   },
 });
 

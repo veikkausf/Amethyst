@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
     borderRadius: 20,
-    width: '85%',
+    width: '95%',
     height: 100,
     marginVertical: 10,
     borderColor: '#ACA3AF',
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     position: 'absolute',
-    left: 50,
+    left: '10%',
     fontSize: 20,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 35,
     height: 35,
-    // scam
-    left: 250,
+    left: '80%',
   },
   content: {
     alignItems: 'center',
     flexDirection: 'row',
+    width: '100%',
   },
 });
 export default HoroscopeButton;
