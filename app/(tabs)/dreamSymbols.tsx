@@ -3,6 +3,9 @@ import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { Collapsible } from '@/components/Collapsible';
 import { db } from '../../firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import Teksti from '@/components/Textbox';
+import * as Animatable from 'react-native-animatable';
+import Loader from '@/components/loading';
 
 type SymbolData = {
   id: string;
@@ -45,6 +48,10 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
     fetchSymbols();
   }, []);
 
+  if (loading) {
+    return <Loader />;
+  }
+
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -53,16 +60,33 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
         <Text style={styles.header}>Symbols</Text>
-        {symbolData.map((item, index) => (
-          <Collapsible
-            key={item.id}
-            title={item.Name}
-            isOpen={openIndex === index}
-            onToggle={() => handleToggle(index)}
-          >
-            <Text style={styles.normalFont}>{item.Desc}</Text>
-          </Collapsible>
-        ))}
+        <Teksti>
+          {symbolData.map((item, index) => (
+            <Collapsible
+              key={item.id}
+              title={item.Name}
+              isOpen={openIndex === index}
+              onToggle={() => handleToggle(index)}
+            >
+              <Animatable.Text
+                animation={{
+                  from: {
+                    translateY: -25,
+                    opacity: 0,
+                  },
+                  to: {
+                    translateY: 0,
+                    opacity: 1,
+                  },
+                }}
+                duration={1000}
+                style={styles.normalFont}
+              >
+                {item.Desc}
+              </Animatable.Text>
+            </Collapsible>
+          ))}
+        </Teksti>
         {loading && <Text style={styles.normalFont}>Loading symbols...</Text>}
       </ScrollView>
     </View>
@@ -78,7 +102,7 @@ const styles = StyleSheet.create({
   },
   grid: {
     flexDirection: 'column',
-    width: '100%',
+    width: '95%',
     padding: 10,
   },
   header: {
