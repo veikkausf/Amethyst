@@ -46,10 +46,14 @@ function MyStack() {
       <Stack.Screen
         name="Menu"
         component={MenuScreen}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
       <Stack.Screen name="Tarot" component={Tarot} />
-      <Stack.Screen name="Minerals" component={Minerals} />
+      <Stack.Screen
+        name="Minerals"
+        component={Minerals}
+        options={{ headerTransparent: true }}
+      />
       <Stack.Screen name="Horoscope" component={Horoscope} />
       <Stack.Screen
         name="HoroscopeData"

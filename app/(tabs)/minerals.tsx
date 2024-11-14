@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F3154',
     flex: 1,
     alignItems: 'center',
+    paddingTop: 20,
     justifyContent: 'center',
   },
   grid: {
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
     borderColor: '#ACA3AF',
     borderWidth: 4,
-    height: '65%',
+    height: '75%',
     width: '90%',
     margin: 15,
   },
@@ -115,7 +116,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
-    height: '20%',
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
