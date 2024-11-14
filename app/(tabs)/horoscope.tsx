@@ -20,6 +20,7 @@ type BoxItem = {
     startDate: { day: number; month: number };
     endDate: { day: number; month: number };
   };
+  date: string;
 };
 
 const data: BoxItem[] = [
@@ -30,6 +31,7 @@ const data: BoxItem[] = [
       startDate: { day: 22, month: 12 },
       endDate: { day: 19, month: 1 },
     },
+    date: 'December 22 - January 19',
   },
   {
     id: 'Aquarius',
@@ -38,6 +40,7 @@ const data: BoxItem[] = [
       startDate: { day: 20, month: 1 },
       endDate: { day: 18, month: 2 },
     },
+    date: 'January 20 - February 18',
   },
   {
     id: 'Pisces',
@@ -46,6 +49,7 @@ const data: BoxItem[] = [
       startDate: { day: 19, month: 2 },
       endDate: { day: 20, month: 3 },
     },
+    date: 'February 19 - March 20',
   },
   {
     id: 'Aries',
@@ -54,6 +58,7 @@ const data: BoxItem[] = [
       startDate: { day: 21, month: 3 },
       endDate: { day: 19, month: 4 },
     },
+    date: 'March 21 - April 19',
   },
   {
     id: 'Taurus',
@@ -62,6 +67,7 @@ const data: BoxItem[] = [
       startDate: { day: 20, month: 4 },
       endDate: { day: 20, month: 5 },
     },
+    date: 'March 21 - April 19',
   },
   {
     id: 'Gemini',
@@ -70,6 +76,7 @@ const data: BoxItem[] = [
       startDate: { day: 21, month: 5 },
       endDate: { day: 20, month: 6 },
     },
+    date: 'May 21 - June 20',
   },
   {
     id: 'Cancer',
@@ -78,6 +85,7 @@ const data: BoxItem[] = [
       startDate: { day: 21, month: 6 },
       endDate: { day: 22, month: 7 },
     },
+    date: 'June 21 - July 22',
   },
   {
     id: 'Leo',
@@ -86,6 +94,7 @@ const data: BoxItem[] = [
       startDate: { day: 23, month: 7 },
       endDate: { day: 22, month: 8 },
     },
+    date: 'July 23 - August 22',
   },
   {
     id: 'Virgo',
@@ -94,6 +103,7 @@ const data: BoxItem[] = [
       startDate: { day: 23, month: 8 },
       endDate: { day: 22, month: 9 },
     },
+    date: 'August 23 - September 22',
   },
   {
     id: 'Libra',
@@ -102,6 +112,7 @@ const data: BoxItem[] = [
       startDate: { day: 23, month: 9 },
       endDate: { day: 22, month: 10 },
     },
+    date: 'September 23 - October 22',
   },
   {
     id: 'Scorpio',
@@ -110,6 +121,7 @@ const data: BoxItem[] = [
       startDate: { day: 23, month: 10 },
       endDate: { day: 21, month: 11 },
     },
+    date: 'October 23 - November 21',
   },
   {
     id: 'Sagittarius',
@@ -118,6 +130,7 @@ const data: BoxItem[] = [
       startDate: { day: 22, month: 11 },
       endDate: { day: 21, month: 12 },
     },
+    date: 'November 22 - December 21',
   },
 ];
 
@@ -265,7 +278,7 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
             {selectedHoroscope && (
               <Teksti style={styles.box}>
                 <Text>{selectedHoroscope.id}</Text>
-                {/* <Text>{selectedHoroscope.dates}</Text>*/}
+                <Text>{selectedHoroscope.date}</Text>
               </Teksti>
             )}
           </View>
