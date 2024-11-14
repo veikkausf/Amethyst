@@ -36,9 +36,9 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
           { text: 'No', style: 'destructive' },
         ]
       );
-      return true; // Prevent default back behavior
+      return true;
     }
-    return false; // Allow default back behavior
+    return false;
   };
 
   // Add the back handler when the screen is focused
@@ -49,7 +49,7 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
         handleBackPress
       );
 
-      return () => backHandler.remove(); // Clean up the event listener on unmount
+      return () => backHandler.remove(); // Otetaan pois käytöstä event listener, kun unmountantaan
     }, [header, text])
   );
 
@@ -110,13 +110,14 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
           multiline
           autoCapitalize="sentences"
           numberOfLines={25}
-          maxLength={120}
+          maxLength={10000}
           onChangeText={(text) => setText(text)}
           value={text}
           style={styles.textInputBig}
           placeholder="Write here about your dreams..."
           textAlignVertical={'top'}
           allowFontScaling
+          scrollEnabled={true}
         />
       </Teksti>
       <View style={styles.buttonContainer}>
@@ -131,17 +132,6 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
             Save
           </Text>
         </Pressable>
-        <Pressable onPress={showAlert} style={styles.cancelButton}>
-          <Text
-            style={{
-              fontSize: 20,
-              color: 'white',
-              fontFamily: 'Kadwa_400Regular',
-            }}
-          >
-            Cancel
-          </Text>
-        </Pressable>
       </View>
     </View>
   );
@@ -152,8 +142,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F3154',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     paddingHorizontal: width * 0.05, // Responsive padding based on width
+    paddingTop: height * 0.05, // Optional: Adjusts padding from the top, remove if you want it flush with the top
   },
   textInputBig: {
     padding: 10,
@@ -161,6 +151,7 @@ const styles = StyleSheet.create({
     color: 'white',
     width: width * 0.8, // Width adjusted to screen size
     fontSize: width < 360 ? 13 : 15, // Smaller font on smaller screens
+    height: height * 0.5, // Height adjusted to screen size
   },
   textInputSmall: {
     padding: 10,
@@ -175,17 +166,19 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     gap: width * 0.05, // Adjust gap based on width
+    justifyContent: 'center',
   },
   saveButton: {
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
     borderColor: 'green',
     borderWidth: 3,
     borderRadius: 10,
-    height: height * 0.07, // Set height as a percentage of screen height
-    width: width * 0.4, // Width set to 40% of screen width
+    height: height * 0.08, // Set height as a percentage of screen height
+    width: width * 0.6, // Width set to 40% of screen width
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
+    position: 'absolute',
   },
   cancelButton: {
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
