@@ -13,6 +13,7 @@ import {
   SignInResponse,
 } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
+import GuestBirthdayModal from '@/components/BirthdayModal';
 import BirthdayModal from '@/components/DatePicker';
 
 // Configure Google Sign-In
@@ -35,7 +36,8 @@ interface LoginScreenProps {
 
 const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [showModal, setShowModal] = useState(false); // State for modal visibility
+  const [showGuestModal, setShowGuestModal] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
   const signInWithGoogle = async () => {
     if (isSigningIn) return;
@@ -105,13 +107,21 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     }
   };
 
+  // Vieraana "kirjautuminen"
   const navigateAsGuest = () => {
-    setShowModal(true); // Avataan birthday modaali kun kirjaudutaan vieraana
+    setShowGuestModal(true); // Näytetään tämä modaali
   };
 
+  // Painaessa ok, suljetaan tämä modaali ja näytetään datepicker
+  const handleGuestBirthdayOk = () => {
+    setShowGuestModal(false); // suljetaan
+    setShowDatePicker(true); // näytetään datepicker
+  };
+
+  // Otetaan talteen datepickerista saadut päivä ja kk
   const handleSubmitBirthday = (birthday: { day: number; month: number }) => {
     const givenName = 'Guest';
-    setShowModal(false); // Kun pvm valittu, suljetaan modal
+    setShowDatePicker(false); // Tiedot saatua, suljetaan datepicker ja mennään menuun
     navigation.navigate('Menu', { givenName, userBirthday: birthday });
   };
 
@@ -132,11 +142,18 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         )}
       </View>
 
-      {/* Render BirthdayModal if showModal is true */}
-      {showModal && (
+      {showGuestModal && (
+        <GuestBirthdayModal
+          isVisible={showGuestModal}
+          onClose={() => setShowGuestModal(false)}
+          onSubmit={handleGuestBirthdayOk}
+        />
+      )}
+
+      {showDatePicker && (
         <BirthdayModal
-          isVisible={showModal}
-          onClose={() => setShowModal(false)}
+          isVisible={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
           onSubmit={handleSubmitBirthday}
         />
       )}
