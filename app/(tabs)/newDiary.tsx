@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,9 +6,11 @@ import {
   Pressable,
   TextInput,
   Alert,
+  BackHandler,
 } from 'react-native';
 import Teksti from '@/components/Textbox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 import { Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -21,6 +23,35 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
   // Tilat
   const [header, setHeader] = React.useState('');
   const [text, setText] = React.useState('');
+  // Jos koitetaan mennä takaisin puhelimen back-buttonilla, mutta ei tallennettu merkintää
+  const handleBackPress = () => {
+    // Jos tekstit kesken
+    if (header || text) {
+      // Varoitus
+      Alert.alert(
+        'Warning',
+        'You have unsaved changes. Are you sure you want to cancel this diary entry?',
+        [
+          { text: 'Yes', onPress: () => navigation.goBack(), style: 'cancel' },
+          { text: 'No', style: 'destructive' },
+        ]
+      );
+      return true; // Prevent default back behavior
+    }
+    return false; // Allow default back behavior
+  };
+
+  // Add the back handler when the screen is focused
+  useFocusEffect(
+    useCallback(() => {
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        handleBackPress
+      );
+
+      return () => backHandler.remove(); // Clean up the event listener on unmount
+    }, [header, text])
+  );
 
   // Alert, jos aikoo cancellaa
   const showAlert = () =>
@@ -50,10 +81,12 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
       const timestamp = new Date().toISOString(); // "yksilöllinen" aika per merkintä
       await AsyncStorage.setItem(`diaryHeader_${timestamp}`, header);
       await AsyncStorage.setItem(`diaryText_${timestamp}`, text);
-      console.log('Saved diary entry');
-      Alert.alert('Success', 'Diary entry saved successfully!');
+
       setHeader(''); // Tyhjät fieldit
       setText('');
+
+      // Navigate back or to the Diary screen after saving
+      navigation.goBack(); // use navigation.navigate('Diary') if you have a specific diary screen
     } catch (e) {
       console.error('Could not save diary data', e);
     }
