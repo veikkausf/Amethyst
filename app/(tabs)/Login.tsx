@@ -111,7 +111,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
   const handleSubmitBirthday = (birthday: { day: number; month: number }) => {
     const givenName = 'Guest';
-    setShowModal(false); // Kun pvm valittu, suljetaan modaali
+    setShowModal(false); // Kun pvm valittu, suljetaan modal
     navigation.navigate('Menu', { givenName, userBirthday: birthday });
   };
 
@@ -132,6 +132,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         )}
       </View>
 
+      {/* Render BirthdayModal if showModal is true */}
       {showModal && (
         <BirthdayModal
           isVisible={showModal}

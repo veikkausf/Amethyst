@@ -1,47 +1,45 @@
-// BirthdayModal.tsx
 import React, { useState } from 'react';
-import { View, Modal, Pressable, StyleSheet, Text } from 'react-native';
-import DatePicker from 'react-native-date-picker';
+import { View, StyleSheet } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-// Rajapintaluokka modaalille
 interface BirthdayModalProps {
   isVisible: boolean;
   onClose: () => void;
   onSubmit: (birthday: { day: number; month: number }) => void;
 }
 
-const BirthdayModal: React.FC<BirthdayModalProps> = ({
-  isVisible,
-  onClose,
-  onSubmit,
-}) => {
+const BirthdayModal: React.FC<BirthdayModalProps> = ({ onClose, onSubmit }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [showPicker, setShowPicker] = useState(true); // Show date picker initially
 
-  const handleConfirm = () => {
-    const birthday = {
-      day: selectedDate.getDate(),
-      month: selectedDate.getMonth() + 1,
-    };
-    onSubmit(birthday); // Annetaan syntymäpäivä
-    onClose();
+  // Handle the date change and confirm action
+  const handleDateChange = (event: any, date?: Date) => {
+    if (event.type === 'set' && date) {
+      setSelectedDate(date); // Update selected date when user picks a date
+      // If the user pressed OK, confirm the selection
+      const birthday = {
+        day: date.getDate(),
+        month: date.getMonth() + 1,
+      };
+      onSubmit(birthday); // Pass the selected birthday to the parent
+      onClose(); // Close the modal immediately after confirming
+    } else if (event.type === 'dismissed') {
+      onClose(); // If picker is dismissed, close the modal
+    }
   };
 
   return (
-    <Modal visible={isVisible} transparent animationType="slide">
-      <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
-          <DatePicker
-            date={selectedDate}
-            mode="date"
-            onDateChange={setSelectedDate}
-            maximumDate={new Date()}
-          />
-          <Pressable onPress={handleConfirm}>
-            <Text>Confirm</Text>
-          </Pressable>
-        </View>
-      </View>
-    </Modal>
+    <View style={styles.modalContainer}>
+      {/* DateTimePicker inside the modal */}
+      <DateTimePicker
+        value={selectedDate}
+        mode="date"
+        display="spinner" // Show the spinner view for scrolling dates
+        onChange={handleDateChange}
+        maximumDate={new Date()}
+        style={styles.datePicker}
+      />
+    </View>
   );
 };
 
@@ -50,14 +48,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
   },
   modalContent: {
-    width: 300,
+    width: '80%',
+    maxWidth: 350,
     padding: 20,
     backgroundColor: 'white',
     borderRadius: 10,
     alignItems: 'center',
+    elevation: 5, // Adds shadow on Android
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#333',
+  },
+  datePicker: {
+    width: '100%',
+    marginBottom: 20,
   },
 });
 
