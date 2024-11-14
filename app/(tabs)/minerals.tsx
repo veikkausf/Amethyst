@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F3154',
     flex: 1,
     alignItems: 'center',
-    paddingTop: 20,
     justifyContent: 'center',
   },
   grid: {

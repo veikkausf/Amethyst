@@ -298,13 +298,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: 330,
-    height: 650,
     alignContent: 'center',
     justifyContent: 'center',
     flex: 1,
-    minHeight: 650,
-    maxHeight: 650,
+    maxHeight: '90%',
     resizeMode: 'contain',
   },
   box: {
@@ -319,6 +316,8 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
     marginHorizontal: 30,
+    justifyContent: 'center',
+    marginTop: -30,
   },
 });
 

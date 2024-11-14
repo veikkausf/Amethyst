@@ -49,11 +49,7 @@ function MyStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="Tarot" component={Tarot} />
-      <Stack.Screen
-        name="Minerals"
-        component={Minerals}
-        options={{ headerTransparent: true }}
-      />
+      <Stack.Screen name="Minerals" component={Minerals} />
       <Stack.Screen name="Horoscope" component={Horoscope} />
       <Stack.Screen
         name="HoroscopeData"
