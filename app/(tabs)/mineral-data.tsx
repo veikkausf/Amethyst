@@ -20,6 +20,7 @@ const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
 function MineralData({ route, navigation }: { route: any; navigation: any }) {
   const { itemId } = route.params;
+  const { itemImage } = route.params;
   const [mineral, setMineral] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -61,10 +62,11 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {/* Image with proper resizing */}
         <Image
-          source={require('../../assets/images/mineral_icon.png')}
+          source={{
+            uri: mineral.Image,
+          }}
           style={styles.image}
-          resizeMode="contain"
-        />
+        ></Image>
         <Text style={styles.headerbig}>{mineral.Name}</Text>
 
         <Pressable onPress={handleInfo}>
@@ -128,7 +130,6 @@ const styles = StyleSheet.create({
     maxHeight: 200,
     minWidth: 100,
     minHeight: 100,
-    marginBottom: 20,
   },
   info: {
     fontSize: 30,

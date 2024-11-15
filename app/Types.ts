@@ -12,7 +12,7 @@ export type RootStackParamList = {
   NewDiary: { header: string; text: string; timestamp: string };
   SymbolData: { itemId: string; itemImage: any };
   HoroscopeData: { itemId: string; itemImage: any };
-  MineralData: { itemId: string };
+  MineralData: { itemId: string; itemImage: string };
   MeditationData: { itemId: string; itemImage: any };
   diaryPrevious: undefined;
 };

@@ -75,9 +75,14 @@ function Minerals({ navigation }: { navigation: any }) {
               // Käytetään noudettua dataa ScrollViewissä
               key={item.id}
               title={item.Name}
+              // Pitää viedä mineral dataan
               img={{ uri: item.Image }}
               onPress={() =>
-                navigation.navigate('MineralData', { itemId: item.id })
+                navigation.navigate(
+                  'MineralData',
+                  { itemId: item.id },
+                  { itemImage: item.Image }
+                )
               } // Navigoidaan MineralDataan nappia painaessa
             />
           ))}
