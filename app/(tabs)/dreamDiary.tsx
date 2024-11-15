@@ -15,7 +15,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
       <Text style={styles.text}>
         Things you see in your dreams often have a deeper meaning than you’d
         expect. Learn the most common symbolism and start being mindful about
-        your dreams, and start writing your them down.
+        your dreams, and start writing them down.
       </Text>
       <View style={styles.buttonContainer}>
         <Pressable
