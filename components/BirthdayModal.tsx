@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
-    marginBottom: 20, // Space between text and button
-    fontSize: RFValue(24, 580),
+    marginBottom: 20,
+    fontSize: RFValue(24, 780), // Responsiivinen fontti
   },
   button: {
     borderRadius: 35, // Rounded corners as in your desired style
