@@ -7,6 +7,8 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  Modal,
+  Pressable,
 } from 'react-native';
 import { doc, getDoc } from 'firebase/firestore'; // Firestore importit
 import { db } from '../../firebaseConfig';
@@ -20,6 +22,11 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
   const { itemId } = route.params;
   const [mineral, setMineral] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleInfo = () => {
+    setShowModal(true);
+  };
 
   useEffect(() => {
     const fetchMineralById = async (id: string) => {
@@ -60,7 +67,10 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
         />
         <Text style={styles.headerbig}>{mineral.Name}</Text>
 
-        <Text style={styles.header}>Chakra: </Text>
+        <Pressable onPress={handleInfo}>
+          <Text style={styles.info}>ⓘ</Text>
+          <Text style={styles.header}>Chakra: </Text>
+        </Pressable>
         <Text style={styles.headertext}>{mineral.Chakra}</Text>
 
         <Text style={styles.header}>Horoscope: </Text>
@@ -70,6 +80,34 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
           <Text style={styles.normalFont}>{mineral.Desc}</Text>
         </Teksti>
       </ScrollView>
+      <Modal
+        visible={showModal}
+        animationType="fade"
+        onRequestClose={() => setShowModal(false)}
+        transparent={true}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalHeader}> What are chakras?</Text>
+            <Text style={styles.modalText}>
+              Crystals connect with chakras and zodiac signs to support energy
+              healing and balance. Each chakra corresponds to specific crystals
+              (e.g., Amethyst for the Crown Chakra) to restore energy flow. In
+              astrology, crystals align with zodiac traits (e.g., Aquamarine
+              enhances Pisces' intuition). By combining chakra work and
+              astrological insights, crystals help harmonize your energy and
+              amplify personal strengths. Perfect for spiritual growth and
+              balance!
+            </Text>
+            <Pressable
+              style={styles.closeButton}
+              onPress={() => setShowModal(false)}
+            >
+              <Text style={styles.closeButtonText}>Close</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -91,6 +129,12 @@ const styles = StyleSheet.create({
     minWidth: 100,
     minHeight: 100,
     marginBottom: 20,
+  },
+  info: {
+    fontSize: 30,
+    fontFamily: 'Kadwa_400Regular',
+    color: 'white',
+    textAlign: 'center',
   },
   headerbig: {
     fontSize: 30,
@@ -126,6 +170,44 @@ const styles = StyleSheet.create({
   },
   box: {
     width: '95%',
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  modalContainer: {
+    backgroundColor: '#ACA3AF',
+    borderRadius: 10,
+    padding: 20,
+    width: width * 0.8,
+    alignItems: 'center',
+    borderColor: '#3F3154',
+  },
+  modalHeader: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 15,
+  },
+  modalText: {
+    fontSize: 20,
+    color: '#555',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  closeButton: {
+    backgroundColor: '#3F3154',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  closeButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontFamily: 'Kadwa_400Regular',
   },
 });
 
