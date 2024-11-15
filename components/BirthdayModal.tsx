@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 interface GuestBirthdayModalProps {
   isVisible: boolean;
@@ -54,10 +55,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#ffffff',
-    fontSize: 25,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
     marginBottom: 20, // Space between text and button
+    fontSize: RFValue(24, 580),
   },
   button: {
     borderRadius: 35, // Rounded corners as in your desired style
