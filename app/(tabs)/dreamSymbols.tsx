@@ -60,8 +60,9 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
         <Text style={styles.header}>Symbols</Text>
-        <Teksti>
-          {symbolData.map((item, index) => (
+
+        {symbolData.map((item, index) => (
+          <Teksti style={styles.tekstiBox}>
             <Collapsible
               key={item.id}
               title={item.Name}
@@ -85,8 +86,9 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
                 {item.Desc}
               </Animatable.Text>
             </Collapsible>
-          ))}
-        </Teksti>
+          </Teksti>
+        ))}
+
         {loading && <Text style={styles.normalFont}>Loading symbols...</Text>}
       </ScrollView>
     </View>
@@ -114,6 +116,12 @@ const styles = StyleSheet.create({
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
+  },
+  tekstiBox: {
+    width: '90%',
+    padding: 5,
+    marginVertical: 10, // Optional: Add spacing between boxes
+    borderRadius: 8, // Optional: Add rounded corners for a polished look
   },
 });
 
