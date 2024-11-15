@@ -62,7 +62,7 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
         <Text style={styles.header}>Symbols</Text>
 
         {symbolData.map((item, index) => (
-          <Teksti style={styles.tekstiBox}>
+          <Teksti style={styles.tekstiBox} key={item.id}>
             <Collapsible
               key={item.id}
               title={item.Name}
