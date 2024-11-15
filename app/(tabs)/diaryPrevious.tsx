@@ -231,13 +231,13 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   modalText: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#555',
     marginBottom: 20,
     textAlign: 'center',
   },
   closeButton: {
-    backgroundColor: '#bbb',
+    backgroundColor: '#3F3154',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -246,6 +246,7 @@ const styles = StyleSheet.create({
   closeButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontFamily: 'Kadwa_400Regular',
   },
   deleteButton: {
     backgroundColor: '#ff4d4d',

@@ -29,6 +29,7 @@ function MyStack() {
           backgroundColor: '#3F3154',
           shadowColor: 'transparent',
         },
+        animationEnabled: false,
         headerTitle: '',
         headerBackImage: () => (
           <Image
