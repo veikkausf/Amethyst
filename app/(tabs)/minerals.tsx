@@ -12,6 +12,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import Loader from '@/components/loading';
 import { RFValue } from 'react-native-responsive-fontsize';
+import FastImage from 'react-native-fast-image';
 
 type MineralData = {
   id: string;
@@ -72,18 +73,15 @@ function Minerals({ navigation }: { navigation: any }) {
         <ScrollView contentContainerStyle={styles.grid}>
           {mineralData.map((item) => (
             <MineralButton
-              // Käytetään noudettua dataa ScrollViewissä
               key={item.id}
               title={item.Name}
-              // Pitää viedä mineral dataan
               img={{ uri: item.Image }}
               onPress={() =>
-                navigation.navigate(
-                  'MineralData',
-                  { itemId: item.id },
-                  { itemImage: item.Image }
-                )
-              } // Navigoidaan MineralDataan nappia painaessa
+                navigation.navigate('MineralData', {
+                  itemId: item.id,
+                  itemImage: item.Image,
+                })
+              }
             />
           ))}
         </ScrollView>
