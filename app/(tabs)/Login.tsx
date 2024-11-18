@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -15,6 +15,7 @@ import {
 import auth from '@react-native-firebase/auth';
 import GuestBirthdayModal from '@/components/BirthdayModal';
 import BirthdayModal from '@/components/DatePicker';
+import LottieView from 'lottie-react-native';
 
 // Configure Google Sign-In
 GoogleSignin.configure({
@@ -131,6 +132,20 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
       style={styles.background}
       resizeMode="cover"
     >
+      {/* Login ruutuun animaatiopohja, vaihdetaan varmasti myöhemmin */}
+      <LottieView
+        loop
+        autoPlay
+        style={{
+          backgroundColor: 'transparent',
+          position: 'absolute',
+
+          height: '100%',
+          width: '100%',
+        }}
+        source={require('../../assets/images/bg_lottie.json')}
+        resizeMode="cover"
+      />
       <View style={styles.container}>
         {isSigningIn ? (
           <ActivityIndicator size="large" color="#ffffff" />
