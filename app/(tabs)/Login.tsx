@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   View,
   StyleSheet,
@@ -120,10 +121,33 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   };
 
   // Otetaan talteen datepickerista saadut päivä ja kk
-  const handleSubmitBirthday = (birthday: { day: number; month: number }) => {
-    const givenName = 'Guest';
-    setShowDatePicker(false); // Tiedot saatua, suljetaan datepicker ja mennään menuun
-    navigation.navigate('Menu', { givenName, userBirthday: birthday });
+  const handleSubmitBirthday = async (birthday: {
+    day: number;
+    month: number;
+  }) => {
+    try {
+      // Save user birthday and set guest login status
+      await AsyncStorage.setItem('userBirthday', JSON.stringify(birthday));
+      await AsyncStorage.setItem('isGuestLoggedIn', 'true');
+      await AsyncStorage.setItem('givenName', 'Guest');
+
+      // Log to confirm that data is saved in AsyncStorage
+      const storedBirthday = await AsyncStorage.getItem('userBirthday');
+      const storedGuestStatus = await AsyncStorage.getItem('isGuestLoggedIn');
+      const storedGivenName = await AsyncStorage.getItem('givenName');
+      console.warn('Stored Values:', {
+        storedBirthday,
+        storedGuestStatus,
+        storedGivenName,
+      });
+
+      setShowDatePicker(false); // Close the date picker and go to Menu
+      navigation.navigate('Menu', {
+        userBirthday: birthday,
+      });
+    } catch (error) {
+      console.error('Error saving user birthday:', error);
+    }
   };
 
   return (
