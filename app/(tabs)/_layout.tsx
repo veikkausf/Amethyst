@@ -66,63 +66,9 @@ function MyStack() {
     );
   }
 
-  if (isAuthenticated) {
-    return (
-      <Stack.Navigator
-        initialRouteName={'Menu'}
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#3F3154',
-            shadowColor: 'transparent',
-          },
-          animationEnabled: false,
-          headerTitle: '',
-          headerBackImage: () => (
-            <Image
-              source={require('../../assets/images/backbt.png')}
-              style={{ width: 75, height: 75 }}
-            />
-          ),
-        }}
-      >
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Menu"
-          component={MenuScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="Tarot" component={Tarot} />
-        <Stack.Screen name="Minerals" component={Minerals} />
-        <Stack.Screen name="Horoscope" component={Horoscope} />
-        <Stack.Screen
-          name="HoroscopeData"
-          component={HoroscopeData}
-          options={{ headerTransparent: true }}
-        />
-        <Stack.Screen name="Meditate" component={Meditate} />
-        <Stack.Screen
-          name="MineralData"
-          component={MineralData}
-          options={{ headerTransparent: true }}
-        />
-        <Stack.Screen name="MeditationData" component={MeditationData} />
-        <Stack.Screen name="DreamDiary" component={DreamDiary} />
-        <Stack.Screen name="DiaryList" component={DiaryList} />
-        <Stack.Screen name="DreamSymbols" component={DreamSymbols} />
-        <Stack.Screen name="NewDiary" component={NewDiary} />
-        <Stack.Screen name="SymbolData" component={SymbolData} />
-        <Stack.Screen name="diaryPrevious" component={diaryPrevious} />
-      </Stack.Navigator>
-    );
-  }
-
   return (
     <Stack.Navigator
-      initialRouteName={'Login'}
+      initialRouteName={isAuthenticated ? 'Menu' : 'Login'}
       screenOptions={{
         headerStyle: {
           backgroundColor: '#3F3154',
@@ -130,6 +76,7 @@ function MyStack() {
         },
         animationEnabled: false,
         headerTitle: '',
+
         headerBackImage: () => (
           <Image
             source={require('../../assets/images/backbt.png')}

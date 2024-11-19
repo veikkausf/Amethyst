@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   StyleSheet,
   Pressable,
@@ -11,11 +11,35 @@ import {
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Teksti from '../../components/Textbox';
+import { SplashScreen } from 'expo-router';
+import {
+  useFonts,
+  Kadwa_400Regular,
+  Kadwa_700Bold,
+} from '@expo-google-fonts/kadwa';
 
+SplashScreen.preventAutoHideAsync();
 type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 
 function MenuScreen({ navigation, route }: MenuScreenProps) {
-  const { givenName, userBirthday } = route.params;
+  let [fontsLoaded] = useFonts({
+    Kadwa_400Regular,
+    Kadwa_700Bold,
+  });
+
+  // Splash screen piilotetaan, kun fontit ovat ladattu
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  //
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  const { givenName = 'Guest', userBirthday = '' } = route.params || {};
   return (
     <ScrollView
       // sivun ylä ja alaosaan lisää tilaa että ei tunnu hassulta scrollaaminen
@@ -24,7 +48,7 @@ function MenuScreen({ navigation, route }: MenuScreenProps) {
         backgroundColor: '#3F3154',
       }}
     >
-      <View style={styles.container}>
+      <View onLayout={onLayoutRootView} style={styles.container}>
         <Text style={styles.header}>
           <Text style={styles.headerbold}>{givenName ?? 'Guest'}</Text>, choose
           a way to calm your mind...
