@@ -70,21 +70,23 @@ function Minerals({ navigation }: { navigation: any }) {
         <Text style={styles.normalFont}> a suitable crystal for your mood</Text>
       </Text>
       <Teksti style={styles.stonebox}>
-        <ScrollView contentContainerStyle={styles.grid}>
-          {mineralData.map((item) => (
-            <MineralButton
-              key={item.id}
-              title={item.Name}
-              img={{ uri: item.Image }}
-              onPress={() =>
-                navigation.navigate('MineralData', {
-                  itemId: item.id,
-                  itemImage: item.Image,
-                })
-              }
-            />
-          ))}
-        </ScrollView>
+        <FastImage>
+          <ScrollView contentContainerStyle={styles.grid}>
+            {mineralData.map((item) => (
+              <MineralButton
+                key={item.id}
+                title={item.Name}
+                img={{ uri: item.Image }}
+                onPress={() =>
+                  navigation.navigate('MineralData', {
+                    itemId: item.id,
+                    itemImage: item.Image,
+                  })
+                }
+              />
+            ))}
+          </ScrollView>
+        </FastImage>
       </Teksti>
     </View>
   );
@@ -114,10 +116,11 @@ const styles = StyleSheet.create({
   },
   header: {
     // Font responsiivisuus tesTI
-    fontSize: RFValue(24, 812),
+    fontSize: RFValue(27, 812),
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
+    marginBottom: 14,
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
