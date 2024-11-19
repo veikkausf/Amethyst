@@ -126,12 +126,12 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     month: number;
   }) => {
     try {
-      // Save user birthday and set guest login status
+      // Vieraan tiedot asyncStorageen ja guest boolean nyt totta
       await AsyncStorage.setItem('userBirthday', JSON.stringify(birthday));
       await AsyncStorage.setItem('isGuestLoggedIn', 'true');
       await AsyncStorage.setItem('givenName', 'Guest');
 
-      // Log to confirm that data is saved in AsyncStorage
+      // Logataan tiedot, jos ei löydy storagesta niin null
       const storedBirthday = await AsyncStorage.getItem('userBirthday');
       const storedGuestStatus = await AsyncStorage.getItem('isGuestLoggedIn');
       const storedGivenName = await AsyncStorage.getItem('givenName');
@@ -141,7 +141,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         storedGivenName,
       });
 
-      setShowDatePicker(false); // Close the date picker and go to Menu
+      setShowDatePicker(false); // Suljetaan syntymäpäivä modaali
       navigation.navigate('Menu', {
         userBirthday: birthday,
       });

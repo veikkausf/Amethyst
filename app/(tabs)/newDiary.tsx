@@ -85,8 +85,8 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
       setHeader(''); // Tyhjät fieldit
       setText('');
 
-      // Navigate back or to the Diary screen after saving
-      navigation.goBack(); // use navigation.navigate('Diary') if you have a specific diary screen
+      // Mennään takaisin edelliseen ruutuun, kun merkintä tallennettu
+      navigation.goBack();
     } catch (e) {
       console.error('Could not save diary data', e);
     }
