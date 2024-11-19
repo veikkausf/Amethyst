@@ -5,6 +5,7 @@ import {
   ImageBackground,
   Alert,
   ActivityIndicator,
+  Image,
 } from 'react-native';
 import Nappi from '@/components/Button';
 import {
@@ -146,6 +147,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         source={require('../../assets/images/bg_lottie.json')}
         resizeMode="cover"
       />
+      <Image
+        source={require('../../assets/images/logo.png')}
+        style={styles.image}
+      ></Image>
       <View style={styles.container}>
         {isSigningIn ? (
           <ActivityIndicator size="large" color="#ffffff" />
@@ -187,6 +192,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '40%',
+  },
+  image: {
+    marginTop: 25,
+    maxHeight: '45%',
+    maxWidth: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
