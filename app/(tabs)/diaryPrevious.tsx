@@ -78,7 +78,7 @@ const DiaryPrevious: React.FC = () => {
     setModalVisible(true); // Modaalin näyttö
   };
 
-  // Merkinnän poistaminen tietokannasta
+  // Merkinnän poistaminen
   const handleDelete = async (timestamp: string) => {
     // Kysytään, ollaanko varmoja
     Alert.alert('Are you sure?', 'Do you really want to delete this entry?', [
