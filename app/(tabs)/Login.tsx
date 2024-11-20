@@ -152,14 +152,14 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
         style={styles.image}
       ></Image>
       <View style={styles.container}>
-        {isSigningIn ? (
-          <ActivityIndicator size="large" color="#ffffff" />
-        ) : (
+        <Nappi title="Login with Google" onPress={signInWithGoogle} />
+        {/* Conditionally render buttons */}
+        {!showGuestModal && !isSigningIn && (
           <>
-            <Nappi title="Login with Google" onPress={signInWithGoogle} />
             <Nappi title="Continue as a guest" onPress={navigateAsGuest} />
           </>
         )}
+        {isSigningIn && <ActivityIndicator size="large" color="#ffffff" />}
       </View>
 
       {showGuestModal && (
@@ -183,22 +183,20 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1, // Take up the full height of the screen
+    justifyContent: 'center', // Align children at the top of the screen
+    alignItems: 'center', // Center children horizontally
   },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: '40%',
+    alignItems: 'center', // Center buttons horizontally
+    marginTop: 20, // Add space between the image and the buttons
   },
   image: {
-    marginTop: 25,
-    maxHeight: '45%',
-    maxWidth: '50%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '80%', // Adjust width as needed
+    height: 150, // Set a fixed height for the image
+    resizeMode: 'contain', // Ensure the image scales correctly
+    marginTop: 0, // Remove any margin at the top
   },
 });
 

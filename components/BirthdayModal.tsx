@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface GuestBirthdayModalProps {
   isVisible: boolean;
@@ -29,11 +30,12 @@ const GuestBirthdayModal: React.FC<GuestBirthdayModalProps> = ({
         >
           <Text style={styles.text}>OK</Text>
         </Pressable>
-
-        <Text style={styles.title}>
-          Please tell us your birthday, so that we can inform you about your own
-          horoscope!
-        </Text>
+        <SafeAreaView>
+          <Text style={styles.title}>
+            Please tell us your birthday, so that we can inform you about your
+            own horoscope!
+          </Text>
+        </SafeAreaView>
       </View>
     </View>
   ) : null;
@@ -57,14 +59,14 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
-    marginBottom: 20,
-    fontSize: RFValue(24, 780), // Responsiivinen fontti
+    fontSize: RFValue(10, 412), // Responsiivinen fontti
+    marginBottom: 10,
+    flex: 1,
   },
   button: {
     borderRadius: 35, // Rounded corners as in your desired style
     width: 300, // Button width
     height: 70, // Button height
-    marginBottom: 10, // Space between button and text
     justifyContent: 'center',
     alignItems: 'center', // Center the text inside the button
   },
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 25, // Font size for button text
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center', // Center the text horizontally
+    flexWrap: 'wrap',
   },
 });
 
