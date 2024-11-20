@@ -246,6 +246,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     color: 'white',
     minWidth: '80%',
+    textAlign: 'center',
   },
   closeButton: {
     backgroundColor: '#3F3154',
