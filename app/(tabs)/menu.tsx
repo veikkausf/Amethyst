@@ -101,7 +101,7 @@ function MenuScreen({ navigation, route }: MenuScreenProps) {
             </View>
             <View>
               <Text style={styles.headerRight}>Crystal guide</Text>
-              <Text style={styles.textRight}>Lear about crystal energies</Text>
+              <Text style={styles.textRight}>Learn about crystal energies</Text>
             </View>
           </Teksti>
         </Pressable>

@@ -147,8 +147,10 @@ const DiaryPrevious: React.FC = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
-            <Text style={styles.modalHeader}>{selectedEntry?.header}</Text>
-            <Text style={styles.modalText}>{selectedEntry?.text}</Text>
+            <ScrollView>
+              <Text style={styles.modalHeader}>{selectedEntry?.header}</Text>
+              <Text style={styles.modalText}>{selectedEntry?.text}</Text>
+            </ScrollView>
             <Pressable
               style={styles.closeButton}
               onPress={() => setModalVisible(false)}
@@ -218,23 +220,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
   modalContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: '#3F3154',
     borderRadius: 10,
     padding: 20,
     width: width * 0.8,
     alignItems: 'center',
+    maxHeight: '75%',
   },
   modalHeader: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#333',
+    color: 'white',
     marginBottom: 15,
   },
   modalText: {
-    fontSize: 20,
-    color: '#555',
-    marginBottom: 20,
-    textAlign: 'center',
+    padding: 20,
+    borderWidth: 3,
+    borderColor: '#ACA3AF',
+    borderRadius: 10,
+    backgroundColor: 'rgba(145, 137, 152, 0.4)',
+    alignItems: 'center',
+    color: 'white',
   },
   closeButton: {
     backgroundColor: '#3F3154',
@@ -242,6 +248,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     marginBottom: 10,
+    marginTop: 10,
   },
   closeButtonText: {
     color: '#fff',
