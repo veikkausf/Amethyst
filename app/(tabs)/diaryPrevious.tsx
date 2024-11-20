@@ -147,8 +147,8 @@ const DiaryPrevious: React.FC = () => {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
-            <ScrollView>
-              <Text style={styles.modalHeader}>{selectedEntry?.header}</Text>
+            <Text style={styles.modalHeader}>{selectedEntry?.header}</Text>
+            <ScrollView style={styles.scroll}>
               <Text style={styles.modalText}>{selectedEntry?.text}</Text>
             </ScrollView>
             <Pressable
@@ -226,21 +226,26 @@ const styles = StyleSheet.create({
     width: width * 0.8,
     alignItems: 'center',
     maxHeight: '75%',
+    justifyContent: 'center',
   },
   modalHeader: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 15,
+    textAlign: 'center',
   },
-  modalText: {
-    padding: 20,
+  scroll: {
     borderWidth: 3,
     borderColor: '#ACA3AF',
     borderRadius: 10,
+  },
+  modalText: {
+    padding: 20,
     backgroundColor: 'rgba(145, 137, 152, 0.4)',
     alignItems: 'center',
     color: 'white',
+    minWidth: '80%',
   },
   closeButton: {
     backgroundColor: '#3F3154',
@@ -249,6 +254,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     marginTop: 10,
+    borderWidth: 3,
+    borderColor: '#ACA3AF',
   },
   closeButtonText: {
     color: '#fff',
