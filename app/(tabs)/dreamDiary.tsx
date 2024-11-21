@@ -58,8 +58,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20, // Add padding to avoid content being cut off on smaller screens
-    borderWidth: 2,
-    borderColor: 'red',
   },
   image: {
     width: '100%',
