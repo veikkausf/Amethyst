@@ -68,7 +68,11 @@ function MyStack() {
         component={MeditationData}
       ></Stack.Screen>
 
-      <Stack.Screen name="DreamDiary" component={DreamDiary}></Stack.Screen>
+      <Stack.Screen
+        name="DreamDiary"
+        component={DreamDiary}
+        options={{ headerTransparent: true }}
+      ></Stack.Screen>
 
       <Stack.Screen name="DiaryList" component={DiaryList}></Stack.Screen>
 

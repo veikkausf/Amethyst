@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Pressable } from 'react-native';
+import { View, StyleSheet, Text, Pressable, Image } from 'react-native';
 import Teksti from '@/components/Textbox';
 
 interface DiaryScreenProps {
@@ -9,6 +9,10 @@ interface DiaryScreenProps {
 const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      <Image
+        source={require('../../assets/images/mineral_icon.png')}
+        style={styles.image}
+      ></Image>
       <Text style={styles.header}>
         <Text style={styles.headerbold}>Meaning</Text> of dreams
       </Text>
@@ -23,7 +27,11 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('DreamSymbols')}
         >
           <Teksti>
-            <Text>Symbols</Text>
+            <Text style={styles.buttontext}>Symbols</Text>
+            <Image
+              source={require('../../assets/images/moon.png')}
+              style={styles.image}
+            ></Image>
           </Teksti>
         </Pressable>
         <Pressable
@@ -31,7 +39,11 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('DiaryList')}
         >
           <Teksti>
-            <Text>Diary</Text>
+            <Text style={styles.buttontext}>Diary</Text>
+            <Image
+              source={require('../../assets/images/book.png')}
+              style={styles.image}
+            ></Image>
           </Teksti>
         </Pressable>
       </View>
@@ -46,6 +58,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20, // Add padding to avoid content being cut off on smaller screens
+    borderWidth: 2,
+    borderColor: 'red',
+  },
+  image: {
+    width: '100%',
+    height: 100,
+    resizeMode: 'contain',
   },
   header: {
     color: '#ffffff',
@@ -64,6 +83,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
     marginVertical: 20, // Adds spacing around the text
+  },
+  buttontext: {
+    color: '#ffffff',
+    fontSize: 20, // Reduced font size for better layout
+    fontFamily: 'Kadwa_400Regular',
+    textAlign: 'center',
   },
   buttonContainer: {
     flexDirection: 'row', // Arrange buttons horizontally

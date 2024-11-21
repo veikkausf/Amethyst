@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     width: '80%', // Adjust width as needed
     height: 150, // Set a fixed height for the image
     resizeMode: 'contain', // Ensure the image scales correctly
-    marginTop: 0, // Remove any margin at the top
+    marginTop: 10, // Remove any margin at the top
   },
 });
 
