@@ -23,6 +23,8 @@ interface NappiProps {
 
 const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
   // Ladataan custom-fontit
+  StatusBar.setBarStyle('light-content');
+  StatusBar.setBackgroundColor('#3F3154');
   let [fontsLoaded] = useFonts({
     Kadwa_400Regular,
     Kadwa_700Bold,
