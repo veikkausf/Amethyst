@@ -25,29 +25,9 @@ const Nappi: React.FC<NappiProps> = ({ title, onPress }) => {
   StatusBar.setBarStyle('light-content');
   StatusBar.setBackgroundColor('#3F3154');
   // Ladataan custom-fontit
-  let [fontsLoaded] = useFonts({
-    Kadwa_400Regular,
-    Kadwa_700Bold,
-  });
-
-  // Splash screen piilotetaan, kun fontit ovat ladattu
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  //
-  if (!fontsLoaded) {
-    return null;
-  }
 
   return (
-    <Pressable
-      style={styles.button}
-      onPress={onPress}
-      onLayout={onLayoutRootView}
-    >
+    <Pressable style={styles.button} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   );

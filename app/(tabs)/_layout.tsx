@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Image } from 'react-native';
+import React, { useCallback, useEffect } from 'react';
+import { Image, Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 import Horoscope from './horoscope';
@@ -17,10 +17,33 @@ import NewDiary from './newDiary';
 import DreamSymbols from './dreamSymbols';
 import SymbolData from './symbolData';
 import diaryPrevious from './diaryPrevious';
+import {
+  useFonts,
+  Kadwa_400Regular,
+  Kadwa_700Bold,
+} from '@expo-google-fonts/kadwa';
+import * as SplashScreen from 'expo-splash-screen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 function MyStack() {
+  let [fontsLoaded] = useFonts({
+    Kadwa_400Regular,
+    Kadwa_700Bold,
+  });
+
+  // Splash screen piilotetaan, kun fontit ovat ladattu
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  //
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Stack.Navigator
       initialRouteName="Login"
@@ -76,7 +99,13 @@ function MyStack() {
 
       <Stack.Screen name="DiaryList" component={DiaryList}></Stack.Screen>
 
-      <Stack.Screen name="DreamSymbols" component={DreamSymbols}></Stack.Screen>
+      <Stack.Screen
+        name="DreamSymbols"
+        component={DreamSymbols}
+        options={{
+          headerTitle: () => <Text style={styles.header}>Symbols</Text>,
+        }}
+      ></Stack.Screen>
 
       <Stack.Screen name="NewDiary" component={NewDiary}></Stack.Screen>
 
@@ -88,6 +117,15 @@ function MyStack() {
     </Stack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    color: '#ffffff',
+    fontSize: 30,
+    fontFamily: 'Kadwa_700Bold',
+    textAlign: 'center', // Center-align text to fit better on screen
+  },
+});
 
 export default function App() {
   return <MyStack />;

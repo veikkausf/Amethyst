@@ -59,8 +59,6 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
   return (
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
-        <Text style={styles.header}>Symbols</Text>
-
         {symbolData.map((item, index) => (
           <Teksti style={styles.tekstiBox} key={item.id}>
             <Collapsible

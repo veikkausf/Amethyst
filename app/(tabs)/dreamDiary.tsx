@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Pressable, Image } from 'react-native';
 import Teksti from '@/components/Textbox';
-
+import { RFValue } from 'react-native-responsive-fontsize';
 interface DiaryScreenProps {
   navigation: any;
 }
@@ -77,14 +77,14 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#ffffff',
-    fontSize: 20, // Reduced font size for better layout
+    fontSize: RFValue(12, 412), // Responsiivinen fontti
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
     marginVertical: 20, // Adds spacing around the text
   },
   buttontext: {
     color: '#ffffff',
-    fontSize: 20, // Reduced font size for better layout
+    fontSize: RFValue(10, 412), // Responsiivinen fontti
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
