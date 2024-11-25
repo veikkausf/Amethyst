@@ -1,5 +1,7 @@
 # Amethyst - Spiritual Wellness Mobile App
 
+![alt text](https://i.imgur.com/fjbon6R.gif)
+
 Amethyst is a mobile application that combines tarot cards, horoscopes, crystals, and a dream journal as one integrated entity. The goal of the app is to provide users with tools for self-reflection, spiritual growth, and maintaining overall well-being. The app was created during the school project.
 
 # Our team
