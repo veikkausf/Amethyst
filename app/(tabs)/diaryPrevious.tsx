@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import {
   View,
   StyleSheet,
@@ -58,9 +59,11 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
     }
   };
 
-  useEffect(() => {
-    loadEntries(); // Ladataan useEffectillä merkinnät
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      loadEntries(); // Load diary entries when screen is focused
+    }, [])
+  );
 
   // Tehdään timeStampista luettavampaa historia-sivulla (olis pitänyt käyttää moment.js)
   const formatDate = (timestamp: string) => {
@@ -292,7 +295,7 @@ const styles = StyleSheet.create({
   button: {
     width: '90%',
     alignSelf: 'center',
-    marginBottom: 20,
+    marginVertical: 20,
   },
 
   header: {
