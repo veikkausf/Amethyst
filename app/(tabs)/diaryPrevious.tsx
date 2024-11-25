@@ -76,7 +76,7 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'long', // Viikonpäivä
       year: 'numeric', // Vuosi
-      month: 'long', // Kuukauden nimi
+      month: 'numeric', // Kuukauden nimi
       day: 'numeric', // Päivä numerona
     };
     return date.toLocaleDateString('en-US', options); // Tapa merkata pvm

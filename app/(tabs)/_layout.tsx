@@ -1,6 +1,10 @@
 import React, { useCallback, useEffect } from 'react';
 import { Image, Text, StyleSheet } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPreset,
+} from '@react-navigation/stack';
+
 import { RootStackParamList } from '../Types';
 import Horoscope from './horoscope';
 import Tarot from './tarot';
@@ -43,6 +47,19 @@ function MyStack() {
   if (!fontsLoaded) {
     return null;
   }
+
+  // Esimerkki
+  const config = {
+    animation: 'spring',
+    config: {
+      stiffness: 1000,
+      damping: 500,
+      mass: 3,
+      overshootClamping: true,
+      restDisplacementThreshold: 0.01,
+      restSpeedThreshold: 0.01,
+    },
+  };
 
   return (
     <Stack.Navigator
