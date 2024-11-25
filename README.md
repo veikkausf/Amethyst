@@ -8,7 +8,7 @@ Amethyst is a mobile application that combines tarot cards, horoscopes, crystals
 
 ### Eelis Pekkarinen - SCRUM Master, Business Manager, Developer, Testing ![alt text](https://i.imgur.com/PwPZzdt.gif)
 
-### Camilla Forsberg - Product Owner, UI/UX Designer, Content Creator
+### Camilla Forsberg - Product Owner, UI/UX Designer, Content Creator ![alt text](https://i.imgur.com/PwPZzdt.gif)
 
 ### Siru Tontti - Product Owner, UI/UX Designer, Content Creator, Business Manager
 
