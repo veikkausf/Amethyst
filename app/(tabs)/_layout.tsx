@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { Image, Text, StyleSheet } from 'react-native';
 import {
   createStackNavigator,
-  TransitionPreset,
+  TransitionPresets,
 } from '@react-navigation/stack';
 
 import { RootStackParamList } from '../Types';
@@ -49,17 +49,6 @@ function MyStack() {
   }
 
   // Esimerkki
-  const config = {
-    animation: 'spring',
-    config: {
-      stiffness: 1000,
-      damping: 500,
-      mass: 3,
-      overshootClamping: true,
-      restDisplacementThreshold: 0.01,
-      restSpeedThreshold: 0.01,
-    },
-  };
 
   return (
     <Stack.Navigator
@@ -69,8 +58,9 @@ function MyStack() {
           backgroundColor: '#3F3154',
           shadowColor: 'transparent',
         },
-        animationEnabled: false,
         headerTitle: '',
+        animationEnabled: true,
+        ...TransitionPresets.SlideFromRightIOS, // Sivusuuunnasta liikkuva animaatio
         headerBackImage: () => (
           <Image
             source={require('../../assets/images/backbt.png')}
