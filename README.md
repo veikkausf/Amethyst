@@ -8,13 +8,13 @@ Amethyst is a mobile application that combines tarot cards, horoscopes, crystals
 
 ### Eelis Pekkarinen - SCRUM Master, Business Manager, Developer, Testing ![alt text](https://i.imgur.com/PwPZzdt.gif)
 
-### Camilla Forsberg - Product Owner, UI/UX Designer, Content Creator ![alt text](https://i.imgur.com/PwPZzdt.gif)
+### Camilla Forsberg - Product Owner, UI/UX Designer, Content Creator ![alt text](https://i.imgur.com/2DJdXDl.gif)
 
-### Siru Tontti - Product Owner, UI/UX Designer, Content Creator, Business Manager
+### Siru Tontti - Product Owner, UI/UX Designer, Content Creator, Business Manager ![alt text](https://i.imgur.com/FrtOYlo.gif)
 
-### Veikka Liljander - Lead Developer
+### Veikka Liljander - Lead Developer ![alt text](https://i.imgur.com/9UPey4F.gif)
 
-### Riku Ruotsalainen - Developer, Database Specialist
+### Riku Ruotsalainen - Developer, Database Specialist ![alt text](https://i.imgur.com/EMjWdDD.gif)
 
 ## Getting started
 
