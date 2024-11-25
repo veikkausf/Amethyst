@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { Collapsible } from '@/components/Collapsible';
 import { db } from '../../firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
@@ -59,6 +59,10 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
   return (
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
+        <Image
+          source={require('../../assets/images/moon.png')}
+          style={styles.image}
+        ></Image>
         {symbolData.map((item, index) => (
           <Teksti style={styles.tekstiBox} key={item.id}>
             <Collapsible
@@ -120,6 +124,12 @@ const styles = StyleSheet.create({
     padding: 5,
     marginVertical: 10, // Optional: Add spacing between boxes
     borderRadius: 8, // Optional: Add rounded corners for a polished look
+  },
+  image: {
+    width: 140,
+    height: 140,
+    resizeMode: 'contain',
+    alignSelf: 'center',
   },
 });
 

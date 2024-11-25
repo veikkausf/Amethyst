@@ -11,16 +11,19 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Dimensions } from 'react-native';
+import Teksti from '@/components/Textbox';
 
 const { width, height } = Dimensions.get('window');
-
+interface DiaryScreenProps {
+  navigation: any;
+}
 interface DiaryEntry {
   header: string;
   text: string;
   timestamp: string;
 }
 
-const DiaryPrevious: React.FC = () => {
+const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedEntry, setSelectedEntry] = useState<DiaryEntry | null>(null);
@@ -107,6 +110,10 @@ const DiaryPrevious: React.FC = () => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
+        <Image
+          source={require('../../assets/images/book.png')}
+          style={styles.image}
+        ></Image>
         {/* Jos ei merkintöjä */}
         {entries.length === 0 ? (
           <Text style={styles.noEntriesText}>
@@ -137,6 +144,14 @@ const DiaryPrevious: React.FC = () => {
           ))
         )}
       </ScrollView>
+      <Pressable
+        style={styles.button}
+        onPress={() => navigation.navigate('NewDiary')}
+      >
+        <Teksti>
+          <Text style={styles.header}>New Page</Text>
+        </Teksti>
+      </Pressable>
 
       {/* Modaali, jossa näytetään itse merkintä */}
       <Modal
@@ -169,6 +184,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#3F3154',
     paddingHorizontal: width * 0.05,
+    justifyContent: 'center',
   },
   scrollView: {
     marginTop: 20,
@@ -272,6 +288,24 @@ const styles = StyleSheet.create({
   deleteButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  button: {
+    width: '90%',
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
+
+  header: {
+    color: '#ffffff',
+    fontSize: 30,
+    fontFamily: 'Kadwa_400Regular',
+    textAlign: 'center', // Center-align text to fit better on screen
+  },
+  image: {
+    width: 140,
+    height: 140,
+    resizeMode: 'contain',
+    alignSelf: 'center',
   },
 });
 

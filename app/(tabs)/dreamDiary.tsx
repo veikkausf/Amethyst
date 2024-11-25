@@ -36,7 +36,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
         </Pressable>
         <Pressable
           style={styles.button}
-          onPress={() => navigation.navigate('DiaryList')}
+          onPress={() => navigation.navigate('diaryPrevious')}
         >
           <Teksti>
             <Text style={styles.buttontext}>Diary</Text>

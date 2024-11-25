@@ -57,7 +57,10 @@ function MyStack() {
         headerBackImage: () => (
           <Image
             source={require('../../assets/images/backbt.png')}
-            style={{ width: 75, height: 75 }}
+            style={{
+              width: 75,
+              height: 75,
+            }}
           />
         ),
       }}
@@ -104,6 +107,7 @@ function MyStack() {
         component={DreamSymbols}
         options={{
           headerTitle: () => <Text style={styles.header}>Symbols</Text>,
+          headerTitleAlign: 'center',
         }}
       ></Stack.Screen>
 
@@ -113,6 +117,10 @@ function MyStack() {
       <Stack.Screen
         name="diaryPrevious"
         component={diaryPrevious}
+        options={{
+          headerTitle: () => <Text style={styles.header}>Previous pages</Text>,
+          headerTitleAlign: 'center',
+        }}
       ></Stack.Screen>
     </Stack.Navigator>
   );
