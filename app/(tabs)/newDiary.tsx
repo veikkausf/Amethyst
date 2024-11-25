@@ -41,7 +41,6 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
     return false;
   };
 
-  // Add the back handler when the screen is focused
   useFocusEffect(
     useCallback(() => {
       const backHandler = BackHandler.addEventListener(
@@ -85,8 +84,8 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
       setHeader(''); // Tyhjät fieldit
       setText('');
 
-      // Navigate back or to the Diary screen after saving
-      navigation.goBack(); // use navigation.navigate('Diary') if you have a specific diary screen
+      // Naviogoidaan takaisin, kun tallennettu
+      navigation.goBack();
     } catch (e) {
       console.error('Could not save diary data', e);
     }
@@ -99,6 +98,7 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
         maxLength={20}
         style={styles.textInputSmall}
         placeholder="Header..."
+        placeholderTextColor={'white'}
         autoCapitalize="sentences"
         value={header}
         onChangeText={(text) => setHeader(text)}
@@ -115,6 +115,7 @@ const NewDiary: React.FC<NewDiaryProps> = ({ navigation }) => {
           value={text}
           style={styles.textInputBig}
           placeholder="Write here about your dreams..."
+          placeholderTextColor={'white'}
           textAlignVertical={'top'}
           allowFontScaling
           scrollEnabled={true}
@@ -142,30 +143,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F3154',
     flex: 1,
     alignItems: 'center',
-    paddingHorizontal: width * 0.05, // Responsive padding based on width
-    paddingTop: height * 0.05, // Optional: Adjusts padding from the top, remove if you want it flush with the top
+    paddingHorizontal: width * 0.05,
+    paddingTop: height * 0.05,
   },
   textInputBig: {
     padding: 10,
     backgroundColor: 'transparent',
     color: 'white',
-    width: width * 0.8, // Width adjusted to screen size
-    fontSize: width < 360 ? 13 : 15, // Smaller font on smaller screens
-    height: height * 0.5, // Height adjusted to screen size
+    width: width * 0.8,
+    fontSize: width < 360 ? 13 : 15,
+    height: height * 0.5,
   },
   textInputSmall: {
     padding: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(145, 137, 152, 0.4)',
     borderColor: '#ACA3AF',
+    color: 'white',
     borderWidth: 3,
-    width: width * 0.9, // 90% of screen width
+    width: width * 0.9,
     marginBottom: 20,
-    fontSize: width < 360 ? 18 : 20, // Adjust font size
+    fontSize: width < 360 ? 18 : 20,
     borderRadius: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
-    gap: width * 0.05, // Adjust gap based on width
+    gap: width * 0.05,
     justifyContent: 'center',
   },
   saveButton: {
@@ -173,8 +175,8 @@ const styles = StyleSheet.create({
     borderColor: 'green',
     borderWidth: 3,
     borderRadius: 10,
-    height: height * 0.08, // Set height as a percentage of screen height
-    width: width * 0.6, // Width set to 40% of screen width
+    height: height * 0.08,
+    width: width * 0.6,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
@@ -185,8 +187,8 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     borderWidth: 3,
     borderRadius: 10,
-    height: height * 0.07, // Same as save button height
-    width: width * 0.4, // Same width as save button
+    height: height * 0.07,
+    width: width * 0.4,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
