@@ -7,6 +7,7 @@ import {
   Modal,
   Dimensions,
   Vibration,
+  Image,
 } from 'react-native';
 import HoroscopeButton from '@/components/HoroscopeButton';
 import Teksti from '@/components/Textbox';
@@ -241,7 +242,13 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
             })
           }
         />
-        <Text style={styles.smallheader}>Other signs:</Text>
+        <View style={[styles.rowContainer]}>
+          <Text style={styles.smallheader}>Other signs:</Text>
+          <Image
+            style={styles.image}
+            source={require('../../assets/images/Icon_crystal.png')}
+          ></Image>
+        </View>
         {data.map((item) => (
           <HoroscopeButton
             key={item.id}
@@ -303,11 +310,16 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
+    marginLeft: 10,
+    marginBottom: 10,
   },
   smallheader: {
     fontSize: 24,
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
+    flex: 1,
+    flexWrap: 'wrap',
+    marginLeft: 10,
   },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
@@ -316,6 +328,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  image: {
+    alignSelf: 'flex-end',
+  },
+  rowContainer: {
+    flexDirection: 'row', // Arrange items in a row
+    alignItems: 'center', // Align items vertically in the center
   },
 });
 
