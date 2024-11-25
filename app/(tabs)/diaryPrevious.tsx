@@ -52,7 +52,11 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
           }
         }
       }
-
+      diaryEntries.sort((a, b) => {
+        return (
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+        );
+      });
       setEntries(diaryEntries); // Päivitetään state ladatuilla merkinnöillä
     } catch (e) {
       console.error('Could not load diary entries', e);
