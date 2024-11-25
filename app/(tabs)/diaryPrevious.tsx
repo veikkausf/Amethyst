@@ -226,7 +226,8 @@ const styles = StyleSheet.create({
   trashIcon: {
     width: 35,
     height: 35,
-    marginLeft: 10,
+    marginLeft: '2%',
+    top: '50%',
   },
 
   noEntriesText: {
