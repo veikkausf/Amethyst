@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
   scrollView: {
     marginTop: 20,
     flex: 1,
+    marginBottom: 120,
   },
   entryBox: {
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
