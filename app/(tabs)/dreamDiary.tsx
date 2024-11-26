@@ -2,6 +2,8 @@ import React from 'react';
 import { View, StyleSheet, Text, Pressable, Image } from 'react-native';
 import Teksti from '@/components/Textbox';
 import { RFValue } from 'react-native-responsive-fontsize';
+import ResponsiveText from '@/components/ResponsiveText';
+
 interface DiaryScreenProps {
   navigation: any;
 }
@@ -16,18 +18,20 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
       <Text style={styles.header}>
         <Text style={styles.headerbold}>Meaning</Text> of dreams
       </Text>
-      <Text style={styles.text}>
+      <ResponsiveText fontSize={12} style={styles.text}>
         Things you see in your dreams often have a deeper meaning than you’d
         expect. Learn the most common symbolism and start being mindful about
         your dreams, and start writing them down.
-      </Text>
+      </ResponsiveText>
       <View style={styles.buttonContainer}>
         <Pressable
           style={styles.button}
           onPress={() => navigation.navigate('DreamSymbols')}
         >
           <Teksti>
-            <Text style={styles.buttontext}>Symbols</Text>
+            <ResponsiveText fontSize={10} style={styles.buttontext}>
+              Symbols
+            </ResponsiveText>
             <Image
               source={require('../../assets/images/moon.png')}
               style={styles.image}
@@ -39,7 +43,9 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('diaryPrevious')}
         >
           <Teksti>
-            <Text style={styles.buttontext}>Diary</Text>
+            <ResponsiveText fontSize={10} style={styles.buttontext}>
+              Diary
+            </ResponsiveText>
             <Image
               source={require('../../assets/images/book.png')}
               style={styles.imagebook}
@@ -85,7 +91,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#ffffff',
-    fontSize: RFValue(12, 412), // Responsiivinen fontti
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
     marginVertical: 20, // Adds spacing around the text
@@ -95,7 +100,6 @@ const styles = StyleSheet.create({
   },
   buttontext: {
     color: '#ffffff',
-    fontSize: RFValue(10, 412), // Responsiivinen fontti
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
   },
