@@ -60,7 +60,7 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
     <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.grid}>
         <Image
-          source={require('../../assets/images/moon.png')}
+          source={require('../../assets/images/moon2.png')}
           style={styles.image}
         ></Image>
         {symbolData.map((item, index) => (

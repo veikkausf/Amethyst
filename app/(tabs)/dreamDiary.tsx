@@ -42,7 +42,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
             <Text style={styles.buttontext}>Diary</Text>
             <Image
               source={require('../../assets/images/book.png')}
-              style={styles.image}
+              style={styles.imagebook}
             ></Image>
           </Teksti>
         </Pressable>
@@ -64,11 +64,19 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'contain',
   },
+  imagebook: {
+    width: '140%',
+    height: 100,
+    resizeMode: 'cover',
+  },
   header: {
     color: '#ffffff',
     fontSize: 30,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center', // Center-align text to fit better on screen
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   headerbold: {
     color: '#ffffff',
@@ -81,6 +89,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
     marginVertical: 20, // Adds spacing around the text
+    textShadowColor: 'black',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
   },
   buttontext: {
     color: '#ffffff',

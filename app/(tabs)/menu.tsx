@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     width: '80%',
     height: '15%',
+    borderRadius: 10, // Rounded corners
   },
   imageright: {
     width: 60,

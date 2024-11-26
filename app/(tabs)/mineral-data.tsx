@@ -68,11 +68,20 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
           style={styles.image}
         ></Image>
         <Text style={styles.headerbig}>{mineral.Name}</Text>
-
-        <Pressable onPress={handleInfo}>
-          <Text style={styles.info}>ⓘ</Text>
-          <Text style={styles.header}>Chakra: </Text>
-        </Pressable>
+        <View style={styles.imagebox}>
+          <Image
+            source={require('../../assets/images/Icon_crystal_left.png')}
+            style={styles.imagecrystalleft}
+          ></Image>
+          <Pressable onPress={handleInfo}>
+            <Text style={styles.info}>ⓘ</Text>
+            <Text style={styles.header}>Chakra: </Text>
+          </Pressable>
+          <Image
+            source={require('../../assets/images/Icon_crystal_right.png')}
+            style={styles.imagecrystalright}
+          ></Image>
+        </View>
         <Text style={styles.headertext}>{mineral.Chakra}</Text>
 
         <Text style={styles.header}>Horoscope: </Text>
@@ -124,8 +133,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   image: {
-    width: width * 0.2, // Käytetään dimensions-kirjastoa responsiivisuuteen
-    height: width * 0.2,
+    width: width * 0.4, // Käytetään dimensions-kirjastoa responsiivisuuteen
+    height: width * 0.4,
     maxWidth: 200,
     maxHeight: 200,
     minWidth: 100,
@@ -138,10 +147,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerbig: {
-    fontSize: 30,
+    fontSize: 35,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    paddingBottom: 40,
     textAlign: 'center',
   },
   header: {
@@ -212,6 +220,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'Kadwa_400Regular',
   },
+  imagebox: {
+    flex: 1,
+    resizeMode: 'contain',
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'center',
+  },
+  imagecrystalleft: { right: '60%' },
+  imagecrystalright: { left: '60%' },
 });
 
 export default MineralData;

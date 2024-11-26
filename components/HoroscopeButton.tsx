@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center',
+    letterSpacing: 4,
   },
   image: {
     position: 'absolute',

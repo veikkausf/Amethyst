@@ -118,7 +118,7 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Image
-          source={require('../../assets/images/book.png')}
+          source={require('../../assets/images/book2.png')}
           style={styles.image}
         ></Image>
         {/* Jos ei merkintöjä */}
@@ -155,9 +155,7 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
         style={styles.button}
         onPress={() => navigation.navigate('NewDiary')}
       >
-        <Teksti>
-          <Text style={styles.header}>New Page</Text>
-        </Teksti>
+        <Text style={styles.header}>New Page</Text>
       </Pressable>
 
       {/* Modaali, jossa näytetään itse merkintä */}
@@ -185,7 +183,6 @@ const DiaryPrevious: React.FC<DiaryScreenProps> = ({ navigation }) => {
     </View>
   );
 };
-// IHAN KESKEN TYYLIT
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -195,6 +192,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: 20,
+    flex: 1,
   },
   entryBox: {
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
@@ -278,7 +276,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     marginBottom: 10,
-    marginTop: 10,
+    marginTop: 20,
     borderWidth: 3,
     borderColor: '#ACA3AF',
   },
@@ -298,16 +296,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   button: {
-    width: '90%',
+    width: '100%',
     alignSelf: 'center',
     marginVertical: 20,
+    backgroundColor: '#918998',
+    position: 'absolute',
+    bottom: 5,
+    borderColor: '#B88EEE',
+    borderRadius: 10,
+    borderWidth: 3,
+    height: 100,
+    justifyContent: 'center',
   },
-
   header: {
     color: '#ffffff',
     fontSize: 30,
     fontFamily: 'Kadwa_400Regular',
     textAlign: 'center', // Center-align text to fit better on screen
+    textShadowColor: 'black',
+    textShadowOffset: { width: -2, height: 1 },
+    textShadowRadius: 15,
   },
   image: {
     width: 140,

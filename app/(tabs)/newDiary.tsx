@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     backgroundColor: 'rgba(145, 137, 152, 0.5)',
-    borderColor: 'green',
+    borderColor: '#B88EEE',
     borderWidth: 3,
     borderRadius: 10,
     height: height * 0.08,
