@@ -58,3 +58,4 @@ expo-env.d.ts
 #omat ignoret
 google-services.json
 firebaseConfig.js
+debug.keystore

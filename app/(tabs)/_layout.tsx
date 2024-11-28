@@ -36,7 +36,7 @@ function MyStack() {
     Kadwa_700Bold,
   });
 
-  // Splash screen piilotetaan, kun fontit ovat ladattu
+  // Splash screen piilotetaan, kun fontit ovat ladattu a
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
