@@ -54,8 +54,3 @@ yarn-error.*
 
 expo-env.d.ts
 # @end expo-cli
-
-#omat ignoret
-google-services.json
-firebaseConfig.js
-debug.keystore
