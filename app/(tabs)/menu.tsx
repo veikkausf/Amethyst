@@ -17,114 +17,88 @@ type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 function MenuScreen({ navigation, route }: MenuScreenProps) {
   const { givenName, userBirthday } = route.params;
   return (
-    <ScrollView
-      // sivun ylä ja alaosaan lisää tilaa että ei tunnu hassulta scrollaaminen
-      contentContainerStyle={{
-        paddingVertical: 50,
-        backgroundColor: '#3F3154',
-      }}
-    >
-      <View style={styles.container}>
-        <Text style={styles.header}>
-          <Text style={styles.headerbold}>{givenName || 'Guest'}</Text>, choose
-          a way to calm your mind...
-        </Text>
-        {/* Tarot  */}
-        <Pressable
-          style={styles.containerLeft}
-          onPress={() => navigation.navigate('Tarot')}
-        >
-          <Teksti style={styles.textBoxLeft}>
-            <View style={styles.borderLeft}>
-              <Image
-                style={styles.imageleft}
-                source={require('../../assets/images/menu-tarot.png')}
-              />
-            </View>
-            <View>
-              <Text style={styles.headerLeft}>Daily tarot</Text>
-              <Text style={styles.textLeft}>Get your daily guidance</Text>
-            </View>
-          </Teksti>
-        </Pressable>
-        {/* Horoscope */}
-        <Pressable
-          style={styles.containerRight}
-          onPress={() => navigation.navigate('Horoscope', { userBirthday })}
-        >
-          <Teksti style={styles.textBoxRight}>
-            <View style={styles.borderRight}>
-              <Image
-                style={styles.imageright}
-                source={require('../../assets/images/menu-horo.png')}
-              />
-            </View>
-            <View>
-              <Text style={styles.headerRight}>Today's horoscope</Text>
-              <Text style={styles.textRight}>What's in the air today</Text>
-            </View>
-          </Teksti>
-        </Pressable>
+    <View style={styles.container}>
+      <Text style={styles.header}>
+        <Text style={styles.headerbold}>{givenName || 'Guest'}</Text>, choose a
+        way to calm your mind...
+      </Text>
+      {/* Tarot  */}
+      <Pressable
+        style={styles.containerLeft}
+        onPress={() => navigation.navigate('Tarot')}
+      >
+        <Teksti style={styles.textBoxLeft}>
+          <View style={styles.borderLeft}>
+            <Image
+              style={styles.imageleft}
+              source={require('../../assets/images/menu-tarot.png')}
+            />
+          </View>
+          <View>
+            <Text style={styles.headerLeft}>Daily tarot</Text>
+            <Text style={styles.textLeft}>Get your daily guidance</Text>
+          </View>
+        </Teksti>
+      </Pressable>
+      {/* Horoscope */}
+      <Pressable
+        style={styles.containerRight}
+        onPress={() => navigation.navigate('Horoscope', { userBirthday })}
+      >
+        <Teksti style={styles.textBoxRight}>
+          <View style={styles.borderRight}>
+            <Image
+              style={styles.imageright}
+              source={require('../../assets/images/menu-horo.png')}
+            />
+          </View>
+          <View>
+            <Text style={styles.headerRight}>Today's horoscope</Text>
+            <Text style={styles.textRight}>What's in the air today</Text>
+          </View>
+        </Teksti>
+      </Pressable>
 
-        {/* Meditation */}
+      {/* Meditation */}
 
-        <Pressable
-          style={styles.containerLeft}
-          onPress={() => navigation.navigate('Meditate')}
-        >
-          <Teksti style={styles.textBoxLeft}>
-            <View style={styles.borderLeft}>
-              <Image
-                style={styles.imageleft}
-                source={require('../../assets/images/menu-meditation.png')}
-              />
-            </View>
-            <View>
-              <Text style={styles.headerLeft}>Meditation lessons</Text>
-              <Text style={styles.textLeft}>Clear your mind and relax</Text>
-            </View>
-          </Teksti>
-        </Pressable>
+      <Pressable
+        style={styles.containerLeft}
+        onPress={() => navigation.navigate('DreamDiary')}
+      >
+        <Teksti style={styles.textBoxLeft}>
+          <View style={styles.borderLeft}>
+            <Image
+              style={styles.imageleft}
+              source={require('../../assets/images/menu-dream.png')}
+            />
+          </View>
+          <View>
+            <Text style={styles.headerLeft}>Dream diary</Text>
+            <Text style={styles.textLeft}>Interpretation of dreams</Text>
+          </View>
+        </Teksti>
+      </Pressable>
 
-        {/* Crystals  */}
+      {/* Crystals  */}
 
-        <Pressable
-          style={styles.containerRight}
-          onPress={() => navigation.navigate('Minerals')}
-        >
-          <Teksti style={styles.textBoxRight}>
-            <View style={styles.borderRight}>
-              <Image
-                style={styles.imageright}
-                source={require('../../assets/images/menu-mineral.png')}
-              />
-            </View>
-            <View>
-              <Text style={styles.headerRight}>Crystal guide</Text>
-              <Text style={styles.textRight}>Learn about crystal energies</Text>
-            </View>
-          </Teksti>
-        </Pressable>
-
-        <Pressable
-          style={styles.containerLeft}
-          onPress={() => navigation.navigate('DreamDiary')}
-        >
-          <Teksti style={styles.textBoxLeft}>
-            <View style={styles.borderLeft}>
-              <Image
-                style={styles.imageleft}
-                source={require('../../assets/images/menu-dream.png')}
-              />
-            </View>
-            <View>
-              <Text style={styles.headerLeft}>Dream diary</Text>
-              <Text style={styles.textLeft}>Interpretation of dreams</Text>
-            </View>
-          </Teksti>
-        </Pressable>
-      </View>
-    </ScrollView>
+      <Pressable
+        style={styles.containerRight}
+        onPress={() => navigation.navigate('Minerals')}
+      >
+        <Teksti style={styles.textBoxRight}>
+          <View style={styles.borderRight}>
+            <Image
+              style={styles.imageright}
+              source={require('../../assets/images/menu-mineral.png')}
+            />
+          </View>
+          <View>
+            <Text style={styles.headerRight}>Crystal guide</Text>
+            <Text style={styles.textRight}>Learn about crystal energies</Text>
+          </View>
+        </Teksti>
+      </Pressable>
+    </View>
   );
 }
 
