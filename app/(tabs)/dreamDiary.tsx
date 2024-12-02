@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, Pressable, Image } from 'react-native';
 import Teksti from '@/components/Textbox';
-import { RFValue } from 'react-native-responsive-fontsize';
 import ResponsiveText from '@/components/ResponsiveText';
 
 interface DiaryScreenProps {
@@ -18,7 +17,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
       <Text style={styles.header}>
         <Text style={styles.headerbold}>Meaning</Text> of dreams
       </Text>
-      <ResponsiveText fontSize={12} style={styles.text}>
+      <ResponsiveText fontSize={20} style={styles.text}>
         Things you see in your dreams often have a deeper meaning than you’d
         expect. Learn the most common symbolism and start being mindful about
         your dreams, and start writing them down.
@@ -29,7 +28,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('DreamSymbols')}
         >
           <Teksti>
-            <ResponsiveText fontSize={10} style={styles.buttontext}>
+            <ResponsiveText fontSize={18} style={styles.buttontext}>
               Symbols
             </ResponsiveText>
             <Image
@@ -43,7 +42,7 @@ const DreamDiary: React.FC<DiaryScreenProps> = ({ navigation }) => {
           onPress={() => navigation.navigate('diaryPrevious')}
         >
           <Teksti>
-            <ResponsiveText fontSize={10} style={styles.buttontext}>
+            <ResponsiveText fontSize={18} style={styles.buttontext}>
               Diary
             </ResponsiveText>
             <Image

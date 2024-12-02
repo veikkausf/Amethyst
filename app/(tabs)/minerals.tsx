@@ -11,7 +11,7 @@ import Teksti from '@/components/Textbox';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import Loader from '@/components/loading';
-import { RFValue } from 'react-native-responsive-fontsize';
+import ResponsiveText from '@/components/ResponsiveText';
 import FastImage from 'react-native-fast-image';
 
 type MineralData = {
@@ -65,10 +65,13 @@ function Minerals({ navigation }: { navigation: any }) {
   // Renderataan mineraalit noutamisen onnistuttua
   return (
     <View style={styles.background}>
-      <Text style={styles.header}>
+      <ResponsiveText fontSize={27} style={styles.header}>
         Find
-        <Text style={styles.normalFont}> a suitable crystal for your mood</Text>
-      </Text>
+        <ResponsiveText fontSize={27} style={styles.normalFont}>
+          {' '}
+          a suitable crystal for your mood
+        </ResponsiveText>
+      </ResponsiveText>
       <Teksti style={styles.stonebox}>
         <FastImage>
           <ScrollView contentContainerStyle={styles.grid}>
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
   },
   header: {
     // Font responsiivisuus tesTI
-    fontSize: RFValue(27, 812),
+
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,
