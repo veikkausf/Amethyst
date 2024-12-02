@@ -190,12 +190,13 @@ const styles = StyleSheet.create({
     padding: 20,
     width: width * 0.8,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   modalHeader: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'white',
     marginBottom: 15,
+    fontFamily: 'Kadwa_700Bold',
   },
   modalText: {
     padding: 20,
@@ -205,6 +206,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(145, 137, 152, 0.4)',
     alignItems: 'center',
     color: 'white',
+    textAlign: 'center',
+    fontFamily: 'Kadwa_400Regular',
   },
   closeButton: {
     backgroundColor: '#3F3154',
@@ -212,10 +215,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
     marginBottom: 10,
+    marginTop: 20,
+    borderWidth: 3,
+    borderColor: '#ACA3AF',
   },
   closeButtonText: {
     color: '#fff',
-    fontWeight: 'bold',
     fontFamily: 'Kadwa_400Regular',
   },
   imagebox: {

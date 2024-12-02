@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Dimensions } from 'react-native';
-import Teksti from '@/components/Textbox';
 
 const { width, height } = Dimensions.get('window');
 interface DiaryScreenProps {
@@ -212,9 +211,8 @@ const styles = StyleSheet.create({
   entryHeader: {
     color: 'white',
     fontSize: 20,
-    fontWeight: 'bold',
     fontFamily: 'Kadwa_400Regular',
-    flex: 1, // Make header text take available space
+    flex: 1,
   },
   entryText: {
     color: 'white',
@@ -232,7 +230,6 @@ const styles = StyleSheet.create({
   noEntriesText: {
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 30,
   },
@@ -253,10 +250,10 @@ const styles = StyleSheet.create({
   },
   modalHeader: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'white',
     marginBottom: 15,
     textAlign: 'center',
+    fontFamily: 'Kadwa_700Bold',
   },
   scroll: {
     borderWidth: 3,
@@ -270,6 +267,7 @@ const styles = StyleSheet.create({
     color: 'white',
     minWidth: '80%',
     textAlign: 'center',
+    fontFamily: 'Kadwa_400Regular',
   },
   closeButton: {
     backgroundColor: '#3F3154',
@@ -283,7 +281,6 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     color: '#fff',
-    fontWeight: 'bold',
     fontFamily: 'Kadwa_400Regular',
   },
   deleteButton: {
