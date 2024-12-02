@@ -71,7 +71,6 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
         <View style={styles.imagebox}>
           <Image
             source={require('../../assets/images/Icon_crystal_left.png')}
-            style={styles.imagecrystalleft}
           ></Image>
           <Pressable onPress={handleInfo}>
             <Text style={styles.info}>ⓘ</Text>
@@ -79,7 +78,6 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
           </Pressable>
           <Image
             source={require('../../assets/images/Icon_crystal_right.png')}
-            style={styles.imagecrystalright}
           ></Image>
         </View>
         <Text style={styles.headertext}>{mineral.Chakra}</Text>
@@ -225,10 +223,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
-  imagecrystalleft: { right: '60%' },
-  imagecrystalright: { left: '60%' },
 });
 
 export default MineralData;
