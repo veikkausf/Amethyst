@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "946110492595",
+    "project_id": "amethyst-71024",
+    "storage_bucket": "amethyst-71024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946110492595:android:5c510f55a44e8b59fce5c6",
+        "android_client_info": {
+          "package_name": "com.tiko.amethyst"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946110492595-496gp4n6q6falla2qetof0sq92bcc6ce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiko.amethyst",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "946110492595-87v1u0btdgt2fo9heppkvict0m6dbhqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiko.amethyst",
+            "certificate_hash": "5a4becb99dc53fc6ec27eecd6cf15516d9db2d60"
+          }
+        },
+        {
+          "client_id": "946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNRgNW4vVpeF6ihmT6LqLyygOM-Jxp1I4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946110492595-2boqsje3qba3aoj6uo3npvsooj8rrfp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
