@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ActivityIndicator,
-  Dimensions,
-} from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 //import Teksti from '@/components/Textbox';
 import AnimoituTeksti from '@/components/AnimatedTextbox';
 import { ScrollView } from 'react-native-gesture-handler';

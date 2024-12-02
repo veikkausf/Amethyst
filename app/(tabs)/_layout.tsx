@@ -8,18 +8,14 @@ import {
 import { RootStackParamList } from '../Types';
 import Horoscope from './horoscope';
 import Tarot from './tarot';
-import Meditate from './meditate';
 import Minerals from './minerals';
 import LoginScreen from './Login';
 import MenuScreen from './menu';
 import HoroscopeData from './horoscope-data';
 import MineralData from './mineral-data';
-import MeditationData from './meditation-data';
 import DreamDiary from './dreamDiary';
-import DiaryList from './diaryList';
 import NewDiary from './newDiary';
 import DreamSymbols from './dreamSymbols';
-import SymbolData from './symbolData';
 import diaryPrevious from './diaryPrevious';
 import {
   useFonts,
@@ -90,24 +86,17 @@ function MyStack() {
         component={HoroscopeData}
         options={{ headerTransparent: true }}
       />
-      <Stack.Screen name="Meditate" component={Meditate} />
       <Stack.Screen
         name="MineralData"
         component={MineralData}
         options={{ headerTransparent: true }}
       />
-      <Stack.Screen
-        name="MeditationData"
-        component={MeditationData}
-      ></Stack.Screen>
 
       <Stack.Screen
         name="DreamDiary"
         component={DreamDiary}
         options={{ headerTransparent: true }}
       ></Stack.Screen>
-
-      <Stack.Screen name="DiaryList" component={DiaryList}></Stack.Screen>
 
       <Stack.Screen
         name="DreamSymbols"
@@ -120,7 +109,6 @@ function MyStack() {
 
       <Stack.Screen name="NewDiary" component={NewDiary}></Stack.Screen>
 
-      <Stack.Screen name="SymbolData" component={SymbolData}></Stack.Screen>
       <Stack.Screen
         name="diaryPrevious"
         component={diaryPrevious}
