@@ -10,10 +10,7 @@ import {
   Modal,
   Pressable,
 } from 'react-native';
-import { doc, getDoc } from 'firebase/firestore'; // Firestore importit
-import { db } from '../../firebaseConfig';
 import Teksti from '@/components/Textbox';
-import Loader from '@/components/loading';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
@@ -21,53 +18,21 @@ const { width, height } = Dimensions.get('window'); // Get screen dimensions
 function MineralData({ route, navigation }: { route: any; navigation: any }) {
   const { itemId } = route.params;
   const { itemImage } = route.params;
-  const [mineral, setMineral] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const { itemDesc } = route.params;
+  const { itemChakra } = route.params;
+  const { itemHoroscope } = route.params;
   const [showModal, setShowModal] = useState(false);
 
   const handleInfo = () => {
     setShowModal(true);
   };
 
-  useEffect(() => {
-    const fetchMineralById = async (id: string) => {
-      try {
-        const mineralDocRef = doc(db, 'Mineral', id);
-        const mineralDoc = await getDoc(mineralDocRef);
-        if (mineralDoc.exists()) {
-          setMineral(mineralDoc.data());
-        } else {
-          console.error('No such document!');
-        }
-      } catch (error) {
-        console.error('Error fetching mineral:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMineralById(itemId);
-  }, [itemId]);
-
-  if (loading) {
-    return <Loader />;
-  }
-
-  if (!mineral) {
-    return <Text>Mineral data not found!</Text>;
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         {/* Image with proper resizing */}
-        <Image
-          source={{
-            uri: mineral.Image,
-          }}
-          style={styles.image}
-        ></Image>
-        <Text style={styles.headerbig}>{mineral.Name}</Text>
+        <Image source={itemImage} style={styles.image}></Image>
+        <Text style={styles.headerbig}>{itemId}</Text>
         <View style={styles.imagebox}>
           <Image
             source={require('../../assets/images/Icon_crystal_left.png')}
@@ -80,13 +45,13 @@ function MineralData({ route, navigation }: { route: any; navigation: any }) {
             source={require('../../assets/images/Icon_crystal_right.png')}
           ></Image>
         </View>
-        <Text style={styles.headertext}>{mineral.Chakra}</Text>
+        <Text style={styles.headertext}>{itemChakra}</Text>
 
         <Text style={styles.header}>Horoscope: </Text>
-        <Text style={styles.headertext}>{mineral.Horoscope}</Text>
+        <Text style={styles.headertext}>{itemHoroscope}</Text>
 
         <Teksti style={styles.box}>
-          <Text style={styles.normalFont}>{mineral.Desc}</Text>
+          <Text style={styles.normalFont}>{itemDesc}</Text>
         </Teksti>
       </ScrollView>
       <Modal
