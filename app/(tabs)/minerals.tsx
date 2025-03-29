@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
+import FastImage from 'react-native-fast-image'; // Import FastImage
 import MineralButton from '@/components/MineralButton';
 import Teksti from '@/components/Textbox';
 import ResponsiveText from '@/components/ResponsiveText';
@@ -140,7 +141,6 @@ const data: BoxItem[] = [
     image: require('../../assets/images/Minerals/snow_quartz.png'),
   },
 ];
-
 function Minerals({ navigation }: { navigation: any }) {
   // Directly using static data for rendering buttons
   return (
@@ -160,9 +160,9 @@ function Minerals({ navigation }: { navigation: any }) {
         >
           {data.map((item, index) => (
             <MineralButton
-              key={index} // Use index here since we don't have an id anymore
+              key={index}
               title={item.name}
-              img={item.image} // Now passing the local image directly
+              img={item.image} // Passing the local image directly
               onPress={() =>
                 navigation.navigate('MineralData', {
                   itemId: item.name,
@@ -179,7 +179,8 @@ function Minerals({ navigation }: { navigation: any }) {
     </View>
   );
 }
-//Tyylittely
+
+// Styles
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#3F3154',
@@ -203,8 +204,6 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   header: {
-    // Font responsiivisuus tesTI
-
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
     marginHorizontal: 40,

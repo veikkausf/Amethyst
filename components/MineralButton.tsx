@@ -1,4 +1,6 @@
+import React from 'react';
 import { StyleSheet, Pressable, Text, View, Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 interface MineralButtonProps {
   title?: string;
@@ -14,7 +16,12 @@ const MineralButton: React.FC<MineralButtonProps> = ({
   return (
     <Pressable style={styles.button} onPress={onPress}>
       <View style={styles.content}>
-        <Image source={img} style={styles.image} resizeMode="cover" />
+        {/* Replaced Image with FastImage */}
+        <FastImage
+          source={img}
+          style={styles.image}
+          resizeMode={FastImage.resizeMode.cover}
+        />
         <Text style={styles.text}>{title}</Text>
       </View>
     </Pressable>
