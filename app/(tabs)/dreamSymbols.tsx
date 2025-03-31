@@ -6,6 +6,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import Teksti from '@/components/Textbox';
 import * as Animatable from 'react-native-animatable';
 import Loader from '@/components/loading';
+import Symbols from '../../dreamsymbols.json';
 
 type SymbolData = {
   id: string;
