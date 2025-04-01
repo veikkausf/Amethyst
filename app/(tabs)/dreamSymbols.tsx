@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { Collapsible } from '@/components/Collapsible';
-import { db } from '../../firebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
 import Teksti from '@/components/Textbox';
 import * as Animatable from 'react-native-animatable';
 import Loader from '@/components/loading';
@@ -24,29 +22,9 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchSymbols = async () => {
-      try {
-        const SymbolCollection = collection(db, 'Dream symbols');
-        const DreamSymbolsSnapshot = await getDocs(SymbolCollection);
-
-        const symbols: SymbolData[] = DreamSymbolsSnapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id,
-            Name: data.Name ?? 'Unknown Symbol',
-            Desc: data.Desc ?? '',
-          };
-        });
-
-        setSymbolData(symbols);
-      } catch (error) {
-        console.error('Error fetching symbols:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSymbols();
+    // Directly set symbolData from the imported JSON file
+    setSymbolData(Symbols.DreamSymbols);
+    setLoading(false);
   }, []);
 
   if (loading) {
@@ -63,7 +41,7 @@ const DreamSymbols: React.FC<DreamSymbolProps> = ({ navigation }) => {
         <Image
           source={require('../../assets/images/moon2.png')}
           style={styles.image}
-        ></Image>
+        />
         {symbolData.map((item, index) => (
           <Teksti style={styles.tekstiBox} key={item.id}>
             <Collapsible
@@ -110,12 +88,6 @@ const styles = StyleSheet.create({
     width: '95%',
     padding: 10,
   },
-  header: {
-    fontSize: 30,
-    fontFamily: 'Kadwa_700Bold',
-    color: 'white',
-    marginHorizontal: 40,
-  },
   normalFont: {
     fontFamily: 'Kadwa_400Regular',
     color: 'white',
@@ -123,8 +95,8 @@ const styles = StyleSheet.create({
   tekstiBox: {
     width: '90%',
     padding: 5,
-    marginVertical: 10, // Optional: Add spacing between boxes
-    borderRadius: 8, // Optional: Add rounded corners for a polished look
+    marginVertical: 10,
+    borderRadius: 8,
   },
   image: {
     width: 140,

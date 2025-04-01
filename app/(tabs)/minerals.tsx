@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import FastImage from 'react-native-fast-image'; // Import FastImage
+import FastImage from 'react-native-fast-image';
 import MineralButton from '@/components/MineralButton';
 import Teksti from '@/components/Textbox';
 import ResponsiveText from '@/components/ResponsiveText';
