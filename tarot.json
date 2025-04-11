@@ -1,0 +1,202 @@
+{
+  "Tarot": [
+    {
+      "id": "The Empress",
+      "Name": "The Empress",
+      "Desc": "The Empress is about nature, fertility and prosperity. It’s about living a beautiful life and enjoying it to the fullest. Don’t save your best outfits for special occasions, wear them and make every day special. Burn the candles and stick the stickers you haven’t used. Eat foods that make you happy and fulfilled and sprinkle everything in your life with things you enjoy and makes life prettier for your eye. The Empress is filled with creative energy, so it is a great time to start something new, where you can be as creative as you can. Create with the joy of doing it and don’t worry about little details yet. The process of creating is as important as the creation. Nature is a great place to go to and get inspired. Enjoy the circle of everything, the rebirth and the dying. Find the beauty in every aspect of living.",
+      "Money": "As fertile this card is, it also is very fruitful when it comes to money. It’s giving you peace of mind through the promise of economic balance. But most importantly, you have to be thankful and learn to feel rich no matter of your situation, so you may manifest yourself a fuller wallet.",
+      "Love": "The Empress is always a positive sign when it comes to relationships. She is loving and loves everyone around her. Even herself. She reminds you that loving someone requires that you love yourself first. You are enough. Start from that, and then you’ll see that love and romantics are on your way. For the ones in a relationship, your love will be deepening. If you are dreaming of starting a family, this is the time to begin! If not, take care of prevention… this cards feminine and fertile energy might otherwise take you and your partner to a tricky situation.",
+      "Image": "./assets/images/Tarot/the_empress.jpg",
+      "Keywords": "Fertility, beauty, pleasure, prosperity, motherhood"
+    },
+    {
+      "id": "The Sun",
+      "Name": "The Sun",
+      "Desc": "Things are starting to fall on place and your future seems bright. It’s time to have fun and enjoy life. Things don’t need to be so complicated. Treat yourself and try to see the world as a place you are now seeing for the first time. In astrology your sun sign describes your personality, so this card is also suggesting you to find yourself. Leave self-hatred and doubts behind, since you are one of a kind and have nothing to be afraid of.",
+      "Money": "Be brave enough to ask for what you want, a pay rise or promotion. The Suns energy is allowing you to hope and promises good in financial matters too.",
+      "Love": "If you are in a relationship, this card means happiness and joy. Something to be celebrated might also occur, maybe engagement party or even a child if that’s what you are hoping for. As what comes to single ones, you are now the happiest you’ve been alone. You truly feel like you don’t need anyone by your side. Your happiness might lure someone in your life thought, and if the time feels right, you should let them in.",
+      "Image": "./assets/images/Tarot/the_sun.jpg",
+      "Keywords": "Optimism, joy, happiness, inner child"
+    },
+    {
+      "id": "Death",
+      "Name": "Death",
+      "Desc": "You are probably dealing with some kind of loss or change right now. Or is there something in your life that should not be there anymore? You cannot outrun Death, you’ll just have to decide how you greet them. Death helps you grow as a person - it removes from your life things that no longer serve you. When you are willing to truly let it go, you’ll get something so much better in change. This card might also quite literally mean actual death or illness, it’s truly not very common thought. Generally this card represents rebirth and life itself. Death helps you appreciate life in its complexness.",
+      "Money": "Death might suggest a situation where you suddenly loose a big amount of money, or your income changes drastically. You are supposed to take the situation as a needed lesson about your money habits or even life in general. Start spending less and avoid hoarding stuff. After all you cannot bring material goods to grave with you.",
+      "Love": "In the context of love, death usually means the end of a relationship or giving up old habits in it. Start thinking what is not working in your relationship and what you could do about it. If you don’t deal with difficult stuff, they will eventually build up and collapse onto itself. If you want the relationship to last, things must change. If that doesn’t help, perhaps it is time to finally let go. If you are single, you should change your own old habits to start building a strong relationship with someone.",
+      "Image": "./assets/images/Tarot/the_death.jpg",
+      "Keywords": "Change, loss, endings, transition, letting go"
+    },
+    {
+      "id": "The Tower",
+      "Name": "The Tower",
+      "Desc": "You are facing a drastic change in your life. Something that has felt sure and safe isn’t on as solid of a ground you thought. This card doesn’t accept compromises or allow you to ignore what’s going to happen, and everything built to unstable structure will fall. The change is present in our physical world. It could mean losing your job or filing for bankruptcy, divorce, pandemia, earthquake, illness or even death of a close one. But sometimes we will have to face a total destruction to be able to start again and grow stronger. The healing process wont be easy, but its not meant to be. When it is all in the past, your life will be on the next level. Since you cant avoid the change, you might as well find that silver lining. You will find out what and who truly matters to you. Which people were with you through the hard times and what is truly important to you? You are about to find out.",
+      "Money": "Do you have any savings for a rainy day? It might be too late to create a savings account now, but if you can save up on expenses, do it now.",
+      "Love": "Storms eye is approaching. Your relationship will be tested but if you both know in your hearts it is worth fighting, it is. But if something is wrong, every bad omen you had about them in the beginning, will be shown true. Don’t feel bad about possible break up, its not your fault. After all, you’ve most likely learnt something. If you haven’t found a suitable partner, the reason according to this card is that you have propensity to develop drama and chaos around you.",
+      "Image": "./assets/images/Tarot/the_tower.jpg",
+      "Keywords": "Chaos, destruction, sudden change, disaster"
+    },
+    {
+      "id": "Strength",
+      "Name": "Strength",
+      "Desc": "in a card of strength, you usually see a person with a lion. The person in the card looks calm and gentle and seems to be petting the lion. The calmness of the situation is telling of control. The person in this card know that it is the master of the situation and that treating the lion right, will lead it to be more cooperative. So you should start to treat the lion in you right. The better the terms you are in with your inner lion, the easier it is to use your inner strength and creativity. The lion is also mirroring the energy that lies within yourself. Imagine the power you’d have, if you did not put value into what others think or have to feel ashamed of yourself ever again. What was the last time you felt like yourself? What made you happy and excited as a child? You should really start dismantling the walls you’ve built and get back to your roots. The inner strength you have will help you to get over your fears, be yourself and live life to the fullest.",
+      "Money": "Drawing this card means that you probably have a stable situation with money, you just tend to spend it without a care. If you want the balance of your bank account to stay good, avoid impulse buys! With your confidence being on its peak, it is a good time to ask for a pay rise!",
+      "Love": "This card is about being brave and confident, so it is time to stop being afraid and start dating! No need to stress about finding a soulmate thought, you can always just enjoy fun dates and positive attention. You might end up getting serious with a bit wilder person, but remember, there might not be a way to tame them… If you are in a good relationship, this card marks strong love. If one of you tries to reflect their own self consciousnesses to your relationship, remember that you are stronger together, and will get over the issues.",
+      "Image": "./assets/images/Tarot/the_strength.jpg",
+      "Keywords": "Courage, compassion, inner power"
+    },
+    {
+      "id": "The Star",
+      "Name": "The Star",
+      "Desc": "You should try to be grateful. Life has been very hard for you lately and you may have gone through a transformation. The star is now giving you a permit to relax and enjoy, since you are on the right path and one with the universe. Happiness and abundance are present, and you don’t have to try and grow, for you are good as you are. The Star is also heavily connected to creativity. You have likely found your thing and it makes creating easier for you. So making art is pretty easy for you now. Take advantage of it and write, paint, knit. cook… whatever your heart desires!",
+      "Money": "If money is thight, The Star is promising relief. If your job is offering you interesting possibilities, take them. Also, creative projects might give you a way to earn extra money. Perhaps try selling your art?",
+      "Love": "Have you finally let go of your ex? Since the shadows of the past are now behind and you have no trouble of being yourself, dating seems to be easy. Focus on having fun rather than obsessively looking for a partner, so they might come before you even notice.",
+      "Image": "./assets/images/Tarot/the_star.jpg",
+      "Keywords": "Hope, gratitude, faith, healing, inspiration"
+    },
+    {
+      "id": "Judgement",
+      "Name": "Judgement",
+      "Desc": "Means a beginning of new era. It’s time to wake up from hibernation and look for signs the universe is giving to you and find your true calling. This card might also suggest that you should spread your wisdom so maybe your calling is in leadership. Judgement might also be telling you to bring back old hobbies. Have you forgotten something in the middle of busy everyday life? What are you missing in your life? Since you are moving to new era, bring only what matters with you.",
+      "Money": "If you are good at something, people are usually willing to pay for your services, so you might have found a new way of making money. On the other hand, this card might try to warn you about issues in your current financial balance. So be careful whatsoever.",
+      "Love": "This card is telling of judgmental behaviors considering love. If you are single, you might be too quick to judge someone even based on their looks. Perhaps you should get to know each other before you make any choices. If you are in a relationship, it might be shadowed by your past conflicts. Judgement is looking for conclusion, so either fix the problem and forgive or leave the whole relationship behind and move on.",
+      "Image": "./assets/images/Tarot/judgement.jpg",
+      "Keywords": "Awakening, purpose, renewal, forgiveness"
+    },
+    {
+      "id": "The Hermit",
+      "Name": "The Hermit",
+      "Desc": "The hermit is an ascetic minimalist, who’s telling you to focus to conscious presence, instead of your smart devices. He doesn’t need a lot of unneeded things around him, so perhaps you should also start to think what is truly needed in your life. Take time to study yourself. You don’t have to withdraw completely but focus on the important relationships in your life. Also you do not need to focus on other people’s dramas. You could use a weekend at the cabin alone though, or just a short hike in the nature. Since the Hermit usually approaches you in a key stage of life where you are wondering who you are and what you want from life, he tells you that the truth lies within yourself. You just need to listen. As said beforehand, give less time to your phone and other devices, and calm down a bit to be able to focus.",
+      "Money": "Is your lifestyle focused on money and spending it on material goods? You should start thinking that what actually matters to you and learn the secrets of minimalism.",
+      "Love": "Unfortunately, single ones reading this should not be expecting much romance in their lives now. You should truly focus on yourself, before you can find a suitable partner. Think of what you really want in life, and what kind of person would fit in that scenery. In a relationship, this means you guys either spend too much time together or enjoy your alone time more than you should. It’s not good to be too dependent on your partner, but obviously you should not forget each other. Balance is key.",
+      "Image": "./assets/images/Tarot/the_hermit.jpg",
+      "Keywords": "Withdrawal, solitude, introspection, self-reflection"
+    },
+    {
+      "id": "Justice",
+      "Name": "Justice",
+      "Desc": "When righteousness isn’t served, Justice arrives to settle accounts. Every decision you make will count from now on. Are you ready to take accountability of your actions? It’s time to define what you think is right or wrong. Are you making choices based on your own values, or do you allow others to influence your opinions? You should also wonder if you treat others right. When you have your truth figured out, Justice expects action rather than just big words. You may have to make hard choices since your surroundings might not match your values. Just keep in mind that these are not light choices, you’ll have to base them on real things.",
+      "Money": "It is time to estimate is your money going to right things. Justice is also telling you to concider if your job supports your values. If not, perhaps you should change things.",
+      "Love": "The people who aren’t good for you are about to be history. You will finally meet someone who treats you right, and the mistreating exes will get their karma. In a relationship your situation depends on the stage of your relationship. Since this card is about law, perhaps you shall get married soon. But if one of you is hiding something, the secrets will be revealed soon.",
+      "Image": "./assets/images/Tarot/justice.jpg",
+      "Keywords": "Karma, accountability, consequence, balance, law"
+    },
+    {
+      "id": "The Hierophant",
+      "Name": "The Hierophant",
+      "Desc": "This card is probably one of the most multidimensional card of the deck. It’s about learning, knowledge and tradition. The hierophant is a teacher, who strives to be understood by most. So it makes sense you might be in a state of wanting to expand your awareness and learn new things. Might even be that you are going to meet a mentor, who will change your way of seeing things. Or you could just have a lesson to learn from life in general. Perhaps you should even start considering going back to studies. If you don’t agree, could it be ‘cause you have something you want to teach to others instead? But remember, you should stick to what you believe and stand behind it proudly.",
+      "Money": "Now it’s not the time to think big and bold. Lean to traditional ways of handling money, try not to spend too much and if you have issues, call to bank to ask for a professional.",
+      "Love": "This is the packs clearest sign of commitment and traditional marriage. Even if you don’t yet feel like going ring shopping, this is a sign that you have a deep connection. You share same values and plans for the future, and it creates a stable base for your relationship. Single ones might be having an inappropriate crush. But if you are wary and patient, a stable relationship might be on its way.",
+      "Image": "./assets/images/Tarot/the_hierophant.jpg",
+      "Keywords": "Tradition, knowledge, learning, teaching, hierarchy"
+    },
+    {
+      "id": "The Emperor",
+      "Name": "The Emperor",
+      "Desc": "The emperor is the embodiment of authority, confidence and leadership. He’s the king of the kings and a father figure. The card is commanding you to start doing and focusing on practical matter. And yes, it also means the boring stuff like budgeting. You need to face the challenges that slow you down and solve your problems. It’s no excuse if the situation feels chaotic. That’s exactly why you need to start getting your hands dirty. Set goals and if they seem hard cut chores to smaller areas. The important part is, just get it done and you’ll feel better. The emperor also encourages you to find the leader in yourself. If you don’t happen to hae a group to lead, take responsibility of your own life. Take inspiration of characters that have power, start dressing better, standing taller and looking confident. But remember, a great leader is not a dominant power hoarder. They respect and listen to others and cares for them",
+      "Money": "One of the “boring chores” you should start doing is observing your money habits. Start being conscious where you put your money towards to and start avoiding pointless spending. But do not start stressing though, it might ruin your manifestations and drive money away. In work life, your hard work will surely be noticed, so keep going!",
+      "Love": "If you are. single, you might be falling for someone older. Most likely, they are trustworthy and they make you feel safe, even though they are not very good with romantic chestures, let alone talking about their feelings. You should think if it is really the person you like, or just their authority. If you are in a relationship, this card is promising it will be long and stable. But if one of you seems to be more dominant in the relationship, it might be a good time to talk about it.",
+      "Image": "./assets/images/Tarot/the_empreror.jpg",
+      "Keywords": "Authority, leadership, confidence"
+    },
+    {
+      "id": "The Fool",
+      "Name": "The Fool",
+      "Desc": "As the card number zero of the deck, it represents new beginnings. As you draw this card, new adventures open up in front of you. Even if you may be lost, you shall find your path soon. As this card advises, you should follow your heart and get on with it with the joy of a child and trust the universe. There’s no such thing as “you are not ready”, everyone has to start somewhere. If you can dream it, you can do it. And even though you failed, you will always survive. That’s the optimism of the Fool.",
+      "Money": "The Fool promises new possibilities. Perhaps now is the perfect time to switch workplace or start a business of your own. Even though your close people might not understand your dreams, don’t let it discourage you. If the work life of yours is fulfilling enough, look for opportunities outside that. Just don’t make a fool of yourself…",
+      "Love": "If you don’t already have a certain person in your mind, this is the time to search for one! Show the universe, that you are ready for love. Even if you don’t find someone truly potential, you could still meet someone fun and exciting. Spontaneity is one of the Fools features. For the ones that are already dating someone, the card might try to warn about a person who is not ready to commit. This person is purely for the joy of having someone for a while but remember not to fall too much in love. Enjoy while it lasts. If you are committed to someone, there might be first lovers’ kind of excitement in the air. But if something seems wrong you might have to think if one of you is not taking things seriously enough.",
+      "Image": "./assets/images/Tarot/the_fool.jpg",
+      "Keywords": "Adventure, inner child, new beginnings, innocence"
+    },
+    {
+      "id": "The Lovers",
+      "Name": "The Lovers",
+      "Desc": "Today is about relationships and choises. Even if it may seem that this card has romantic load to it, it does also consider important platonic relationships and friendships in general. Has someone been on your mind lately? This cards important theme is dichotomy, so it seems you are undecicive what to do with a certain person. It’s time to make a decicion and not be scared of what comes next. What will happen, is meant to be. It could also mean, that the person is you, and you don’t yet know who you want to be. That is something, you should start thinking and make choices towards the person you dream to be.",
+      "Money": "The lovers are a sign of good fortune. Perhaps you shall meet a new business partner or a colleague, with whom your ideas bloom. Your skills and experience complement each other and you will make a lot of money together! This card might also have a work place romance on the horizon. Are you willing to mix work and free time?",
+      "Love": "If you are curious about your love life, this is a just as a good sign, as you thought it might be. A loved one is on its way, or if you have one already, this card is means sincere love that everyone around you seems to notice. They truly are your soulmate. If the person you are interested in seems cold and distant, they are not your soulmate. Make yourself a favor and move on. The most important thing is to love yourself first and build a good relationship with yourself.",
+      "Image": "./assets/images/Tarot/the_lovers.jpg",
+      "Keywords": "Attraction, choices, relationships, love"
+    },
+    {
+      "id": "The Magician",
+      "Name": "The Magician",
+      "Desc": "The magician wants you to see every ability you have. The idea you have in your mind is now ready to be done. Usually in the card you can see every element of tarot represented. The cups, pentacles, swords and wands. Meaning you do not lack any resources, on the contrary, you have everything you need to start truly working towards your goal. But you should really consider the source of the motivation. Are you just in it for the money or status, or do you really want to do this thing? If so, forget what anyone has to say and believe in yourself. You have limitless potential and power within.",
+      "Money": "The magician is a positive sign in worklife and money. It’s a great moment for pay rise, promotion or perhaps new businesses. Just be wary of showing all your cards, magicians never reveal their secrets.",
+      "Love": "For the single folks this card might actually be a sign of a loved one to come to your life. If you already have this person in your life, it means that you guys truly are on the same level. They can also challenge you to be the best version of yourself. This kind of connection is rare, so make sure you don’t loose it. For the ones already committed, your relationship will be deepening. You will be committing in a deeper level. Maybe it is time to start talking about the next stage of your life together.",
+      "Image": "./assets/images/Tarot/the_magician.jpg",
+      "Keywords": "Abilities, skills, manifestation"
+    },
+    {
+      "id": "The High Priestess",
+      "Name": "The High Priestess",
+      "Desc": "The High Priestess represents subconsciousness and intuition and works as a messenger between your conscious and subconscious mind. One key part of this card is to understand dichotomy of the things in life, and to find balance between things. As you got this card, it is the time to calm down and start looking for answers within yourself. Meditate, focus on the dreams you’ve had and search for signs that universe has sent you. Before all, trust your intuition. This card might also try to inform you that your calling might be helping others. Perhaps you should consider studies in health field? Or you might actually be a witch. If you haven’t been into witchy stuff early, now it might be the time to start learning about astrology, crystals and tarot.",
+      "Money": "This card doesn’t really have a connection to money. You might receive some key information that gets you upwards in corporate ladder, and for those in art field it promises inspiration and creativity.",
+      "Love": "Whatever your current status is, The High Priestess is about attraction. You might be in a situation that a lot of people have their eyes on you. Enjoy that, but be wary of the ones who might not have the best intentions. If you have a partner, this card is promising magic between the sheets, but not in the traditional procreational way.",
+      "Image": "./assets/images/Tarot/the_high_priestess.jpg",
+      "Keywords": "Subconscious, intuition, witchcraft, femininity"
+    },
+    {
+      "id": "The Chariot",
+      "Name": "The Chariot",
+      "Desc": "The chariot is a means of transport that is protecting you on your way to your destination. But the key to get there is found within yourself. Become a warrior and start challenging yourself and practice your self discipline. Figure out your weaknesses and start bettering them. You will not become a master in one night, but that’s just more of a reason to begin the journey today.",
+      "Money": "You are finally meeting your goals in work life! Perhaps your money issues will also be solved soon. This card also symbolizes traveling, so it might be the time to book the flight or buy the car. Hard work requires treating yourself too.",
+      "Love": "The chariot is not very romantic card. In this context, it most likely means that you will have to work for your relationship. Meaning, if you have issues with your significant other, it is time to search for solutions and fix the issue. Sometimes this card might also be a sign that you are proceeding too fast in your relationship. If they are the one for you, you shouldn’t have to hurry. For the single ones this might mean that you are still bothered about the issues in your past relationships. This is now your sign to let go of old grudges and move on.",
+      "Image": "./assets/images/Tarot/the_chariot.jpg",
+      "Keywords": "Determination, goals, will power, winning"
+    },
+    {
+      "id": "The Devil",
+      "Name": "The Devil",
+      "Desc": "Represents the darkness within each of us. It’s time to focus on your obsessions and dark side. What is standing between you and your dream life? Most likely the problem is found in yourself. For example, self-hatred and addictions can ruin your chances of being happy. Remind yourself that the you have the power to take control to get rid of things that aren’t good for you. Obviously, it is ok to randomly give in, drink too much and perhaps make some sin with someone unknown, that won’t be a problem. The Devil also reminds you to be able to laugh at yourself and have some fun.",
+      "Money": "You are probably too chill with your money. Try avoiding shopping and any kind of gambling. It is not wise to trust anyone else with your financial things right now, and if you end up investing money now, you might not get it back. Materialism is also a central theme of this card. Try to figure out are you just trying to buy happiness, or are the things you want truly necessary.",
+      "Love": "This is the most sexual card of the whole deck and has nothing to do with romance. You should let yourself enjoy the physical aspects of life and maybe try something new between the sheets. If you have casual fun with certain person, this is not the time to start planning a wedding. If you noticed that you have feelings for them, be careful, it might be one-sided. Are you too keen to your partner? If so, this card suggests you to take a bit of a distance and remember that you should have life outside the relationship. The Devil might also be telling of insane jealousy and even controlling behavior in a relationship.",
+      "Image": "./assets/images/Tarot/the_devil.jpg",
+      "Keywords": "Addiction, obsession, powerlessness, sexuality"
+    },
+    {
+      "id": "The Moon",
+      "Name": "The Moon",
+      "Desc": "The moon might seem intimidating, but in all its beauty it represents feminine energies and intuition. This mystical card does connect with fear, illusions and secrets, but truly we are just afraid of our own subconsciousness and the power of our intuitions. Now you should start trusting your intuition and as you are feeling oddly energetic, you should take advantage of that and be spontaneous! Especially if you feel like you are too strictly tied in your routines, it is time to change them a bit. Just remember balance, if you let go too hard, you might slip in a very difficult stage of life.",
+      "Money": "You should also listen to your intuition in work life. If you are offered something that seems too good to be true, it might be exactly that. You should also be mindful of your spending, don’t start wasting your money scrolling online shops at dark hours.",
+      "Love": "Take advantage of the wild energy this card offers and spice up your relationship. The restless nights on a full moon are a great time to do something magical between the sheets, together or alone. If you are dating casually, trust your gut. Your subconscious mind might notice something in the way they act, that your conscious mind hasn’t yet figured out. Be careful, if you continue seeing them even if the vibes are slightly off.",
+      "Image": "./assets/images/Tarot/the_moon.jpg",
+      "Keywords": "Illusion, mystery, secrets, complexity"
+    },
+    {
+      "id": "Temperance",
+      "Name": "Temperance",
+      "Desc": "You are in a situation where you have everything you need. Maybe you’re doing multiple projects at the time and switching between multiple roles, but you are absolutely killing it! Still, it is not the time to scrape any new projects since your cups are already full. Temperance is good at putting together the recourses it already has and creating something concrete out of it. This card might also be about spiritual healing and transformation. Do not rely on medication, instead get to the root of the issue and fix it. Remember, you are not alone, Temperance also guarantees that you are protected.",
+      "Money": "You shouldn’t take financial risks right now. Focus on keeping your bank account balanced, don’t by anything unnecessary, but remember to enjoy life too.",
+      "Love": "If you’ve been missing a person from the past, this might actually be the time to try again with them. Do not to get your expectations up thought and proceed slowly. For the ones in relationship, this card is very positive. It’s telling of balanced relationship with a soulmate. You respect each other and even if you feel like somethings not right, it will soon be. Just remember to be patient, kind and understanding and expect the same towards yourself.",
+      "Image": "./assets/images/Tarot/temperance.jpg",
+      "Keywords": "Harmony, balance, healing, serenity"
+    },
+    {
+      "id": "The Hanged man",
+      "Name": "The Hanged man",
+      "Desc": "it’s time for a change of perspective. Whatever is the issue you are dealing with, could you approach it from another point of view? It is not time for action whatsoever, you just need to start seeing your life in a different light. This card might also mean that you should start putting effort on your minds wellbeing and taking a break, calming down. If going to a therapy to deal with the traumas isn’t an option, perhaps try meditating. It may seem boring, but its effects will be noticeable with time. You are supposed to deal with uncomfort to finally heal and feel better.",
+      "Money": "Your financial status probably feels more serious than it is because you are stressing about it all the time. Start focusing on other important things in your life other than money and try to keep your perspective positive.",
+      "Love": "Are you feeling unhappy in your relationship? You should focus on your partners good features, and wonder if it is just a phase. No relationship is sunshine and rainbows all the time, so don’t do anything you will regret. Singles should set themselves free from their old patterns to find the right one. Start breaking all the emotional boundaries which trouble your relationships. If you already have someone in mind, do not rush. Get to know each other throughout. If you are meant to be, you’ll have time to announce your relationship to the public.",
+      "Image": "./assets/images/Tarot/the_hanged_man.jpg",
+      "Keywords": "Sacrifice, surrender, uncertainty, perspective"
+    },
+    {
+      "id": "The World",
+      "Name": "The World",
+      "Desc": "You are where you’re supposed to be. You’ve found your calling, a job or a hobby you are good at and truly enjoy. The World can also represent spiritual growth, which shows as setting boundaries and living by your own values. Maybe you are able to live the life that you’ve wanted to live, since you’ve grown to be smarter and more mature. The World also represents end of a cycle. If your journey’s still unfinished, keep going because soon it will be over. You are at the top of the mountain, but unfortunately you can’t stop there, if you want to keep accomplishing things in life. Concretely The World could mean changing scenery or graduating from school. You’ve accomplished something big and deserve to treat yourself but yet you should keep going and use what you’ve learnt to get forward in life.",
+      "Money": "Your long-lasting toil will be rewarded. If you feel like you’ve found a job you love, you are probably the most successful you’ve ever been. Money is not an issue anymore, so you deserve to finally buy yourself everything you’ve desired.",
+      "Love": "If you are single, nothing is now stopping you. You’ve grown in your solitude and negative experiences in the past doesn’t affect you anymore. You now know that happiness comes from inside. If you desire love, perhaps your future partner lives in another country? Your relationship is evolving to next level. You and your partner have been through a lot, but the hard times are finally behind you. Maybe this card means marriage, or just in it’s simplicity you’ll finally sailed to calmer seas.",
+      "Image": "./assets/images/Tarot/the_world.jpg",
+      "Keywords": "Fulfilment, achiviement, calling, wholeness"
+    },
+    {
+      "id": "Wheel of fortune",
+      "Name": "Wheel of fortune",
+      "Desc": "Reminds you of the circle of life, and that nothing lasts forever, not the good but also not the bad. It is time to surrender to your destiny. Something you’ve been dreaming of is most likely about to happen. You just need to be patient and trust the journey. Wait for good opportunities, they can be anywhere now. But remember to do your part! Because just like manifestation won’t work, if you don’t do what you need to, before sitting back to wait what universe has in store for you. If you are a control freak, this is your moment to learn to surrender and let things roll on their own.",
+      "Money": "Your money situation might be changing drastically, or even turn around. If you can, remember to save some money",
+      "Love": "Even in your love life, wheel of fortune is suggesting you to accept your fate. You won’t be gaining very fruitful relationship by only listening to your brain. Your heart will show you the way. Singles are reminded that the one comes to you when the time is right. Just remember, the prince or princess of your dreams won’t pick you up from home, you’ll need to go out or perhaps make a Tinder profile to meet new people. For taken ones, your relationship needs to change for you guys to be happy. Even if it means a break up, it’s time to make a change.",
+      "Image": "./assets/images/Tarot/wheel_of_fortune.jpg",
+      "Keywords": "Fate, cycles, decisions, fortune"
+    }
+  ]
+}
