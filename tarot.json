@@ -197,6 +197,405 @@
       "Love": "Even in your love life, wheel of fortune is suggesting you to accept your fate. You won’t be gaining very fruitful relationship by only listening to your brain. Your heart will show you the way. Singles are reminded that the one comes to you when the time is right. Just remember, the prince or princess of your dreams won’t pick you up from home, you’ll need to go out or perhaps make a Tinder profile to meet new people. For taken ones, your relationship needs to change for you guys to be happy. Even if it means a break up, it’s time to make a change.",
       "Image": "./assets/images/Tarot/wheel_of_fortune.jpg",
       "Keywords": "Fate, cycles, decisions, fortune"
+    },
+    {
+      "id": "Ace of Pentacles",
+      "Name": "Ace of Pentacles",
+      "Desc": "You will be offered a new, quite concrete opportunity. Could be a new source of money or a switch in living situation. This card often represents an investment that brings long-term value. Try and remember if you have planted some seeds in this fruitful soil. The opportunity is most likely connected to the manifestations you have done beforehand. Even if the offer seems minor, accept it—it could open doors you can’t yet imagine.",
+      "Image": "./assets/images/Tarot/ace_of_pentacles.jpg",
+      "Keywords": "New opportunities, money, resources, matter, fertility"
+    },
+    {
+      "id": "Two of Pentacles",
+      "Name": "Two of Pentacles",
+      "Desc": "Are you juggling multiple responsibilities at once? You’re needed in every area of your life, and keeping everything afloat requires careful balance and prioritization. This card might also represent someone who has a day job and a “side hustle”. Remember to have free time too, since even the most enjoyable things can feel like obligations if you don’t allow yourself to rest. Balancing things is normal part of life, but we shouldn’t take life too seriously. Struggling with balance doesn’t mean you are incapable.",
+      "Image": "./assets/images/Tarot/two_of_pentacles.jpg",
+      "Keywords": "Managing everyday life, prioritization, balancing"
+    },
+    {
+      "id": "Three of Pentacles",
+      "Name": "Three of Pentacles",
+      "Desc": "This card signifies cooperation. You’ll soon be a part of creating something concrete. This project isn’t something to just wing overnight, instead you’ll have to make a detailed plan and stick to it. Think about your role in the group, and do not belittle yourself. If you feel your potential isn’t fully utilized, speak up. The outcome will be strongest when everyone’s skills are balanced and valued. If you find yourself starting a project alone, you should consider reaching out for help. While letting go of control can be challenging, remember that you don’t have to do it all alone—allowing others to support you may help you reach your dreams faster.",
+      "Image": "./assets/images/Tarot/three_of_pentacles.jpg",
+      "Keywords": "Mentoring, cooperation, construction"
+    },
+    {
+      "id": "Four of Pentacles",
+      "Name": "Four of Pentacles",
+      "Desc": "Managing your finances, budgeting, and saving are essential practices for everyone. This card encourages you to build a stable financial foundation—if you don’t already have a savings account, now is a great time to start. Small, daily choices, like making coffee at home instead of buying it from a coffee shop, can add up over time. However, remember that saving can have its downsides. Watching your balance grow might lead to becoming overly frugal or even greedy. If you notice that you are saying no to your friends’ suggestions like going to movies cause you don’t want to spend that money, take a step back. Life is meant to be enjoyed too.",
+      "Image": "./assets/images/Tarot/four_of_pentacles.jpg",
+      "Keywords": "Saving, budgeting, sprucing up"
+    },
+    {
+      "id": "Five of Pentacles",
+      "Name": "Five of Pentacles",
+      "Desc": "This card shows up when your life simply sucks. You could be going through a bigger tragedy, like losing your job or home. Or maybe your health is crumbling. But it could also mean stress about money or housing, or just facing feelings of loneliness. Your faith in universe might be tested but try and hold on to it. Ask for help and remember you don’t have to go through things alone. Even if it feels humbling, there is truly no shame in needing help. Stop being a martyr and accept it.",
+      "Image": "./assets/images/Tarot/five_of_pentacles.jpg",
+      "Keywords": "Money worries, feeling like an outsider, getting sick, shame"
+    },
+    {
+      "id": "Six of Pentacles",
+      "Name": "Six of Pentacles",
+      "Desc": "This card is advancing you to help others. Is there a close person in the need of help? Help doesn’t have to be financial; your time and presence are valuable too. If everyone seems to be doing fine, consider volunteering or giving money to organizations. Reflect on your intentions, though. If you’re seeking some kind of prize, you are doing this for a wrong reason. If you truly want to help people, the good feeling that comes from helping, should be enough.",
+      "Image": "./assets/images/Tarot/six_of_pentacles.jpg",
+      "Keywords": "Generosity, helping, balance, charity"
+    },
+    {
+      "id": "Seven of Pentacles",
+      "Name": "Seven of Pentacles",
+      "Desc": "We’re living the times of over satisfaction. We get everything we want effortlessly, and now that stuff is online, we do not even have to leave the house to get food and products delivered to us. So, this card suggests starting a long-term project in order to feel real satisfaction, not just quick dopamine you get from notifications. The project could be growing a plant or building a dollhouse. Anything that takes time and proper planning. In the end you realize that the more you put effort to things, the happier it will make you.",
+      "Image": "./assets/images/Tarot/seven_of_pentacles.jpg",
+      "Keywords": "Patience, long-term work, growing, planning, goals"
+    },
+    {
+      "id": "Eight of Pentacles",
+      "Name": "Eight of Pentacles",
+      "Desc": "It’s time to get to work. Get into something that could put you in a perfect flow state. Something you get to enjoy and learn from. It is hard to get started, but soon you’ll be over learning the basics and get to really dive into it. Develop yourself and don’t let yourself get tired of it. Put money and time into learning new things. All this hard work will not only build concrete skills but also boost your confidence. You’ll discover your own voice, unique style, and way of expressing yourself.",
+      "Image": "./assets/images/Tarot/eight_of_pentacles.jpg",
+      "Keywords": "Joy of work, development, productivity, practice makes perfect"
+    },
+    {
+      "id": "Nine of Pentacles",
+      "Name": "Nine of Pentacles",
+      "Desc": "You’ve worked hard so it is time to relax, enjoy and start living your life in your own way. You’ve got time and resources; how can you use them to better the quality of your life? Focus on yourself and adding value to your life instead of trying to flex to others. Cut off things that no longer serve you. This card is telling of independence, so focus on personal accomplishments. Family life is most like far in the future, so focus on loving yourself and building good self-esteem and maybe a career?",
+      "Image": "./assets/images/Tarot/nine_of_pentacles.jpg",
+      "Keywords": "Abundance, success, independence, relaxation"
+    },
+    {
+      "id": "Ten of Pentacles",
+      "Name": "Ten of Pentacles",
+      "Desc": "We’re finally moving past a career-focused phase. Your work remains important, but you may feel a growing desire to rest and spend time at home with loved ones. Financial stability now allows you to create a home that serves as a true haven at the end of each day. The goal is to find a fulfilling balance between work and personal life. This card signifies achieving long-term goals, making it a meaningful time to reflect on the legacy you wish to leave behind. Take a moment to acknowledge what has brought you to this point, and give yourself gratitude for the journey.",
+      "Image": "./assets/images/Tarot/ten_of_pentacles.jpg",
+      "Keywords": "Stability, home and family, sense of security, heritage"
+    },
+    {
+      "id": "Page of Pentacles",
+      "Name": "Page of Pentacles",
+      "Desc": "The Page of Pentacles is a dedicated worker who turns ideas into real projects, refining details and focusing on practical growth. Unlike the variety-seeking Page of Swords, he devotes himself fully to one goal, needing concrete plans and hands-on effort. This card urges commitment—if you've started a project, hobby, or job aligned with your dreams, consider diving deeper. Set clear priorities, study, and seek guidance to grow. Enjoy the journey without needing a rigid plan, and remember: your progress comes from action, not just ideas.",
+      "Image": "./assets/images/Tarot/page_of_pentacles.jpg",
+      "Keywords": "Diligence, conscientiousness, practicality, investing"
+    },
+    {
+      "id": "Knight of Pentacles",
+      "Name": "Knight of Pentacles",
+      "Desc": "This Knight isn’t the most exciting figure; he lacks the speed and thrill of other knights, relying on endurance rather than bold risks. This card encourages you to slow down and focus on steady routines. Are your life’s foundations solid? Are you eating, sleeping, and moving regularly? To grow, start by addressing these basic needs. The Knight knows that building something new requires a stable foundation. By preparing carefully, following rules, and avoiding shortcuts, you can steer clear of major setbacks. His strength lies in patience and commitment, urging you to stay the course even if progress seems slow. Small, consistent efforts ultimately lead to big results.",
+      "Image": "./assets/images/Tarot/knight_of_pentacles.jpg",
+      "Keywords": "Patience, practicality, routines, following rules"
+    },
+    {
+      "id": "Queen of Pentacles",
+      "Name": "Queen of Pentacles",
+      "Desc": "This Queen knows that luxury doesn’t require a large budget and that one can enjoy material comfort without being materialistic. She suggests you to save up, since savings bring her peace and security: She also willingly uses them to help others, so have you considered finding joy in giving? Make sure you understand the importance of caring for yourself before others. Focus on tending to your own well-being; you have much to offer, but only if you keep your foundation fertile and strong.",
+      "Image": "./assets/images/Tarot/queen_of_pentacles.jpg",
+      "Keywords": "Abundance, generosity, fertility, nurturing, entrepreneurship"
+    },
+    {
+      "id": "King of Pentacles",
+      "Name": "King of Pentacles",
+      "Desc": "When you draw this card, it’s time to embody the King of Pentacles. Turn your dreams into concrete plans, and don’t get discouraged if results aren’t immediate. Invest wisely and explore ways to create financial stability. If you’re considering entrepreneurship, this card encourages it—but prepare carefully rather than leaping impulsively. If possible, seek a mentor with the wisdom of the King of Pentacles to guide you through the complexities of the business world.",
+      "Image": "./assets/images/Tarot/king_of_pentacles.jpg",
+      "Keywords": "Prosperity, success, prudence, patience, investment"
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
+    },
+    {
+      "id": "",
+      "Name": "",
+      "Desc": "",
+      "Image": "./assets/images/Tarot/",
+      "Keywords": ""
     }
   ]
 }
