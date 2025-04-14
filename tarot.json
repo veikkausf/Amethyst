@@ -297,102 +297,102 @@
       "Keywords": "Prosperity, success, prudence, patience, investment"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ace of Swords",
+      "Name": "Ace of Swords",
+      "Desc": "If there will ever be time to make concrete changes in your life, it is now. This card reflects a truth you can feel flowing in your veins. It could be new idea, goal or a plan. Even if it might feel like nothing, in long term it could give a new course to your life. Your job is to remove every obstacle that could stop you from reaching your goal. Stop waiting around and start doing things.",
+      "Image": "./assets/images/Tarot/ace_of_swords.jpg",
+      "Keywords": "Clarity, truth, visions, ideas"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Two of Swords",
+      "Name": "Two of Swords",
+      "Desc": "This card represents hard choices. Perhaps there’s two options which both feel as good. You are convinced that there is a choice to be made, but you simply cannot. You might have closed your eyes from the whole picture. There might be another way, if you just opened your eyes. In your heart, you know the truth but are simply not accepting it. What’s the point of all this analyzing and asking for advice, if you won’t listen? You will find peace only by making the choice. It’s rare that things in life are completely reversable, so stop overthinking.",
+      "Image": "./assets/images/Tarot/two_of_swords.jpg",
+      "Keywords": "Difficult choices, hesitation, indecision"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Three of Swords",
+      "Name": "Three of Swords",
+      "Desc": "You have been betrayed or abandoned. The pain you’re feeling is crushing since it’s still very new. Your heart is pierced by lies and rejection. And since it’s a third card, it could be about triangle drama. As harsh as it is, sometimes we can only blame ourselves about the heartbreak. Sometimes we allow ourselves to build castles on the clouds. Of course it doesn’t make what they’ve done to you right, but only you can make the sadness go away. Be honest of your own feelings, analyze them. Sometimes anger can be shame in disguise. When you understand why you are feeling certain feelings, you can start fixing it. Even if it doesn’t feel like it now, you will heal.",
+      "Image": "./assets/images/Tarot/three_of_swords.jpg",
+      "Keywords": "Heartbreak, suffering, loss, rejection"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Four of Swords",
+      "Name": "Four of Swords",
+      "Desc": "You have been very busy and due to that you’ve been neglecting your own well-being. Stress levels are high even if you don’t realize it. Focus on basic needs. When was the last time you slept well? Are you eating enough nutritious and healthy food or drink enough water? Take a break from what you are doing and get some alone time to rest. If you can’t, try at least to take shorter pauses to do anything unrelated to your work. Sometimes it could really be laying down and staring at the ceiling. Boredom is sometimes good, so minimize media usage too. It is dangerous to think that you can rest when your dead, since this thought model could truly lead you to an early grave.",
+      "Image": "./assets/images/Tarot/four_of_swords.jpg",
+      "Keywords": "Rest, reflection, recovery, meditation"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Five of Swords",
+      "Name": "Five of Swords",
+      "Desc": "Someone has put their needs above anyone else’s. This could be seen as control, understatement, arrogance, bullying or even exploitation. You need to reflect if you are the one doing this, or maybe starting to act the way the conflict starter is. Either way, try to put things in order of importance and start being a better person. All of us make mistakes, but we need to learn from them. Admit your wrongs or you might even lose your friends. If you know that you are the one exploited, walk away and let the situation cool down.",
+      "Image": "./assets/images/Tarot/five_of_swords.jpg",
+      "Keywords": "Conflict, disagreement, selfishness, arrogance"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Six of Swords",
+      "Name": "Six of Swords",
+      "Desc": "It’s time to move on. Whether its unhappy relationship or complex work situation, it’s time to leave it behind and go towards something completely new. This decision should be made with reason and logic rather than intuition. It’s because you might have an emotional connection to the person, or job or whatever, but deep down you know it is better to leave before it is too late. This card could also mean literal change of scenery. If you live in your birth town, it is not going to be easy to move but it is what you need right now.",
+      "Image": "./assets/images/Tarot/six_of_swords.jpg",
+      "Keywords": "Change, transition, letting go"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Seven of Swords",
+      "Name": "Seven of Swords",
+      "Desc": "Something suspicious is going on. Are you hiding something, or is there a manipulative and dishonest person in your life? Try and reflect why is it that you have to hide things, or something is kept from you? Sometimes it is necessary for survival to not tell everything but be prepared that everything will rise to the surface soon. If there’s no acceptable reason for the lies and manipulation, karma will be the one fixing things.",
+      "Image": "./assets/images/Tarot/seven_of_swords.jpg",
+      "Keywords": "Manipulation, betrayal, dishonesty"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Eight of Swords",
+      "Name": "Eight of Swords",
+      "Desc": "You are stuck and might feel alone, anxious, helpless or maybe scared. In some cases, the situation might involve abuse and oppression. Or maybe you just haven’t learnt from the past and drove yourself into a bad situation. You have probably given up on trying to fic things since you cannot see your opinions from your fear. Unfortunately, no one’s going to come and rescue you. You must make decisions despite the fear. But even though you are the only one who can fix this, doesn’t mean you have to deal with it alone. It is also brave to seek for help.",
+      "Image": "./assets/images/Tarot/eight_of_swords.jpg",
+      "Keywords": "Anxiety, fear, helplessness"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Nine of Swords",
+      "Name": "Nine of Swords",
+      "Desc": "Are you struggling with prolonged stress, intrusive thoughts, or anxiety? When these thoughts won’t leave you alone, they can start impacting your physical health too, especially since you can’t sleep. It’s time to stop being hard on yourself. Reach out to someone you trust to talk about your feelings and explore activities that help quiet your mind. If anxiety feels familiar from past, don’t hesitate to seek professional support. Remember, those harsh thoughts aren’t the truth—they’re just thoughts.",
+      "Image": "./assets/images/Tarot/nine_of_swords.jpg",
+      "Keywords": "Obsessiveness, stress, anxiety, insomnia"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ten of Swords",
+      "Name": "Ten of Swords",
+      "Desc": "A chapter in your life has concluded. Even if you don’t want that, there is nothing you can do but to accept the pain. Reflect on the journey and all the warning signs you may have ignored, since they have been clearly on display. It urges you to listen to your intuition to prevent repeating these painful cycles. Even that your experiences have been difficult and painful, know that healing is possible and that the only way forward is up.",
+      "Image": "./assets/images/Tarot/ten_of_swords.jpg",
+      "Keywords": "Ruin, backstabbing, failure, betrayal"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Page of Swords",
+      "Name": "Page of Swords",
+      "Desc": "Now is the perfect time to dive into something new, whether it’s a hobby or even a career path. Sign up for classes, explore different courses, and fully embrace your curiosity. Share your interests with anyone who’s willing to listen and try to enjoy the learning process. The Page of this house is sharp and quick to absorb information, so harness that energy. Even if you’re not sure where all this new knowledge will lead, don’t let uncertainty hold you back—you never know where your curiosity might take you!",
+      "Image": "./assets/images/Tarot/page_of_swords.jpg",
+      "Keywords": "Curiosity, thirst for knowledge, learning new things, determination"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Knight of Swords",
+      "Name": "Knight of Swords",
+      "Desc": "Things are picking up speed, and quick reflexes will be essential. Forget about perfecting every detail—the key is to keep moving forward. Dare to take paths few have traveled, because that’s how you’ll reach your destination first. While it may seem impulsive to others, you’re simply in a heightened state where you can think and problem-solve faster than before. Trust your instincts and don’t be afraid to prioritize your own goals. Taking risks is safe right now, so reach for your dreams!",
+      "Image": "./assets/images/Tarot/knight_of_swords.jpg",
+      "Keywords": "Quick decisions, impulsiveness, risk-taking, rush"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Queen of Swords",
+      "Name": "Queen of Swords",
+      "Desc": "Where in your life could you use the Queen of Swords' determination and clarity? What are the choices will bring you closer to your goal? Observe things with criticism and don’t let your feelings blur your vision. You should also put effort in yourself and therefore hold on to your limits and values in relationships too. If you need advice, seek out that friend who isn’t afraid to be honest. After all they do mean well. Or maybe you should share your wisdom to others?",
+      "Image": "./assets/images/Tarot/queen_of_swords.jpg",
+      "Keywords": "Intelligence, honesty, independence, authority, mentorship"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "King of Swords",
+      "Name": "King of Swords",
+      "Desc": "This card urges you to approach decisions with reason. Can you adopt this straightforward role, or do you need advice from someone with these traits? You might have to make hard decisions and maybe some kind of ruthlessness is expected of you. Avoid emotional influences and make choices based on logic. Take time to process them too, and do not make any rushed choices.",
+      "Image": "./assets/images/Tarot/king_of_swords.jpg",
+      "Keywords": "Wisdom, truth, logical thinking, discretion, difficult decisions"
     },
     {
       "id": "",
