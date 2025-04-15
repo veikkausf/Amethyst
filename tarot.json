@@ -395,102 +395,102 @@
       "Keywords": "Wisdom, truth, logical thinking, discretion, difficult decisions"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ace of cups",
+      "Name": "Ace of cups",
+      "Desc": "This card is telling about fertility, but not only in a reproduction way. This card brings new things to any aspect of your life. The card leans heavily on love life, so perhaps a new crush is coming your way. Whether it’s a significant other or a friend, some relationship brings you much joy either way. Creativity is also a big theme of this card. You might be surprising yourself with ideas for a new project or maybe you have something to bring a forgotten idea back to life. Whatever sparks up your creativity, do it and don’t hesitate. Just remember to take care of yourself and not to get lost in the new excitements.",
+      "Image": "./assets/images/Tarot/ace_of_cups.jpg",
+      "Keywords": "Inspiration, new relationships, love, creativit"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Two of cups",
+      "Name": "Two of cups",
+      "Desc": "The card has traditionally represented marriage. Nowadays we are wise enough to realize any relationship can be important. Perhaps everything works like magic with one of your friends or colleague? Whoever it is, your values match and you clearly respect each other so hold on to them. And if you don’t have anyone like this, they’re yet to come. Keep your eyes open.",
+      "Image": "./assets/images/Tarot/two_of_cups.jpg",
+      "Keywords": "Soulmate, attraction, love"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Three of Cups",
+      "Name": "Three of Cups",
+      "Desc": "It is time for celebration, in your way of course. If you don’t want to invite tons of people and eat cake at fancy places, you might as well throw a celebration picnic to your closest few. The point is to take a break from everyday duties and appreciate yourselves of your accomplishments. This time you should really be present and enjoy your company to the fullest.",
+      "Image": "./assets/images/Tarot/three_of_cups.jpg",
+      "Keywords": "Friendship, carelessness, celebration, collabration"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Four of Cups",
+      "Name": "Four of Cups",
+      "Desc": "You might be tired of your life. Maybe you’ve turned into a pessimistic and cynical version of yourself and feel like everything and everyone is against you. Have you thought of the possibility that you are not this upset, but bored instead. The four cups represent things that you have in your life, the fourth one being full potential of how things can be. When you start seeing possibilities instead of threats, you’ll accomplish more in your life.",
+      "Image": "./assets/images/Tarot/four_of_cups.jpg",
+      "Keywords": "Dissatisfaction, boredom, pessimism, cynicism"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Five of Cups",
+      "Name": "Five of Cups",
+      "Desc": "If something bad has happened, give yourself time to grieve. Even if it feels like you will never be happy again, it is healthy to be sad sometimes. You are allowed to cry in the corner of couch and have your fav foods delivered to you, but don’t let the sadness deepen into depression. Sometimes this card might also be telling of self-pity which you want to dwell in. Stop focusing on the bad side of things and be willing to let go and heal.",
+      "Image": "./assets/images/Tarot/five_of_cups.jpg",
+      "Keywords": "Sadness, disappointment, failure, self-pity, sacrifice"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Six of Cups",
+      "Name": "Six of Cups",
+      "Desc": "Happy memories of your childhood are rising to the surface. Have you visited your childhood home or met an old friend recently which sparked the memories? You may long for the old times that feel safe and comforting. Even though you can’t go back, you should start listening to your inner child. Stop feeling quilty about not being diligent, since spontaneous activities feed our creativity and intuition. Play that video game, color a coloring book and let your inner child be happy!",
+      "Image": "./assets/images/Tarot/six_of_cups.jpg",
+      "Keywords": "Simple joys, nostalgia, nonchalance, childhood"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Seven of Cups",
+      "Name": "Seven of Cups",
+      "Desc": "There’s a lot of paths to choose from. You are struggling to make choices and opinions of your close ones aren’t helping. The solution comes from within, so listen to your intuition. You should be careful though, since everything is not what it seems. You might romanticize things too much and can’t see the forest for the trees. Stop to ask yourself is this too good to be true and give yourself time to get to know the options throughout. Even though listening to intuition is important, things should be considered trough facts too.",
+      "Image": "./assets/images/Tarot/seven_of_cups.jpg",
+      "Keywords": "Choices, opportunity, dreaming, wishful thinking"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Eight of Cups",
+      "Name": "Eight of Cups",
+      "Desc": "Everything is well in a sense, but you don’t have your whole heart in something anymore. It could be your job, relationship or hobby. Really anything that you have emotional connection to. You’ve spent much time and recourses and that makes it hard to let it go. But you should really move on. You have wasted your time, but you will if you stay in situation that doesn’t serve you no more. We need to learn that time is not wasted if you enjoyed the thing at some point. It is not a reason to hold on to it though. It was fun while it lasted, but it’s time to focus your energy elsewhere.",
+      "Image": "./assets/images/Tarot/eight_of_cups.jpg",
+      "Keywords": "Abandonment, giving up, letting go"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Nine of Cups",
+      "Name": "Nine of Cups",
+      "Desc": "You are finally living your dream. Every aspect of your life seems to be good. With hard work, you have accomplished what you dreamt of and that has strengthened your self-esteem. But things in life tend to be temporary, and you might get tired of things in any point. Even though that is normal and healthy, you should really stop and celebrate where you are now. Treat yourself and take a getaway from everyday things.",
+      "Image": "./assets/images/Tarot/nine_of_cups.jpg",
+      "Keywords": "Satisfaction, happiness, confidence, achievements"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ten of Cups",
+      "Name": "Ten of Cups",
+      "Desc": "You’ve reached happiness. This has nothing to do with material possessions or status or anything like that. Most likely we are talking about family, or people close to you. What fills your heart with joy and warmth? Before all, it’s about living your truth. You’ve found purpose and it makes you wake up smiling. This card also represents community. You now value nature and all life around you. On top of that, surround yourself with people that you can be yourself with and you will continue to feel satisfied within your heart.",
+      "Image": "./assets/images/Tarot/ten_of_cups.jpg",
+      "Keywords": "Happy relationships, family, love, harmony"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Page of Cups",
+      "Name": "Page of Cups",
+      "Desc": "Be open for surprises and new possibilities! Anything can happen if you let yourself dream and manifest. This card represents creativity, so let it flow. Even if you are beginner in art or anything creative, don’t let it stop you. Just create for yourself. Be open for new romantic adventures and friendships. Have fun without commitment. Being yourself might lure interesting, real persons around you, but remember to be honest if you don’t want things to get serious.",
+      "Image": "./assets/images/Tarot/page_of_cups.jpg",
+      "Keywords": "Daydreaming, playfulness, kindness"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Knight of Cups",
+      "Name": "Knight of Cups",
+      "Desc": "The knights are the move makers of the pack. This card suggests you to follow your heart and start making things happen. Take risks and keep your heart open. What is the worst that could happen? If things go wrong, there will be plenty of new opportunities in life. Without trying, you won’t accomplish anything, after all. Since the Knight of Cups is a huge seducer, stay alerted if you are making moves in the dating area. The person you’ve met might be a player. Or… are you the player?",
+      "Image": "./assets/images/Tarot/knight_of_cups.jpg",
+      "Keywords": "Romance, charm, seduction"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Queen of Cups",
+      "Name": "Queen of Cups",
+      "Desc": "This queen is an intuitive empathic. She feels deeply and goes through the whole range of emotions. But she is ok with it and trusts herself and others. You should do that too. This card tells you to be more present with your closest people and listen to them with empathy. If you are already doing this, could you be using it in worklife? Perhaps you’d success as therapist, nurse or as a singing bowl healer? Your good heart and kidness is your power, use it well.",
+      "Image": "./assets/images/Tarot/queen_of_cups.jpg",
+      "Keywords": "Empathy, compassion, gentleness, kindness, intuition, creativity"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "King of Cups",
+      "Name": "King of Cups",
+      "Desc": "This king is a calm leader. Loyal, loving and family oriented. He’s ready to settle down and you can trust him. So perhaps, if you are dating someone, they could truly be the one. Might not be the most romantic person, but they truly love you as you are. Or maybe you are just getting to know your King of Cups, and they seem shy. You should take the initiative, as they are probably just quiet observer. If you approach them with your heart open, they’ll be ready to get to know you, and you’ll see that they truly are one of a kind. Grown, wise, and trustworthy.",
+      "Image": "./assets/images/Tarot/king_of_cups.jpg",
+      "Keywords": "Emotional intelligence, calmness, reliability, compassion"
     },
     {
       "id": "",
