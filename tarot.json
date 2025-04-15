@@ -172,8 +172,8 @@
       "Keywords": "Harmony, balance, healing, serenity"
     },
     {
-      "id": "The Hanged man",
-      "Name": "The Hanged man",
+      "id": "The Hanged Man",
+      "Name": "The Hanged Man",
       "Desc": "it’s time for a change of perspective. Whatever is the issue you are dealing with, could you approach it from another point of view? It is not time for action whatsoever, you just need to start seeing your life in a different light. This card might also mean that you should start putting effort on your minds wellbeing and taking a break, calming down. If going to a therapy to deal with the traumas isn’t an option, perhaps try meditating. It may seem boring, but its effects will be noticeable with time. You are supposed to deal with uncomfort to finally heal and feel better.",
       "Money": "Your financial status probably feels more serious than it is because you are stressing about it all the time. Start focusing on other important things in your life other than money and try to keep your perspective positive.",
       "Love": "Are you feeling unhappy in your relationship? You should focus on your partners good features, and wonder if it is just a phase. No relationship is sunshine and rainbows all the time, so don’t do anything you will regret. Singles should set themselves free from their old patterns to find the right one. Start breaking all the emotional boundaries which trouble your relationships. If you already have someone in mind, do not rush. Get to know each other throughout. If you are meant to be, you’ll have time to announce your relationship to the public.",
@@ -190,8 +190,8 @@
       "Keywords": "Fulfilment, achiviement, calling, wholeness"
     },
     {
-      "id": "Wheel of fortune",
-      "Name": "Wheel of fortune",
+      "id": "Wheel of Fortune",
+      "Name": "Wheel of Fortune",
       "Desc": "Reminds you of the circle of life, and that nothing lasts forever, not the good but also not the bad. It is time to surrender to your destiny. Something you’ve been dreaming of is most likely about to happen. You just need to be patient and trust the journey. Wait for good opportunities, they can be anywhere now. But remember to do your part! Because just like manifestation won’t work, if you don’t do what you need to, before sitting back to wait what universe has in store for you. If you are a control freak, this is your moment to learn to surrender and let things roll on their own.",
       "Money": "Your money situation might be changing drastically, or even turn around. If you can, remember to save some money",
       "Love": "Even in your love life, wheel of fortune is suggesting you to accept your fate. You won’t be gaining very fruitful relationship by only listening to your brain. Your heart will show you the way. Singles are reminded that the one comes to you when the time is right. Just remember, the prince or princess of your dreams won’t pick you up from home, you’ll need to go out or perhaps make a Tinder profile to meet new people. For taken ones, your relationship needs to change for you guys to be happy. Even if it means a break up, it’s time to make a change.",
@@ -395,15 +395,15 @@
       "Keywords": "Wisdom, truth, logical thinking, discretion, difficult decisions"
     },
     {
-      "id": "Ace of cups",
-      "Name": "Ace of cups",
+      "id": "Ace of Cups",
+      "Name": "Ace of Cups",
       "Desc": "This card is telling about fertility, but not only in a reproduction way. This card brings new things to any aspect of your life. The card leans heavily on love life, so perhaps a new crush is coming your way. Whether it’s a significant other or a friend, some relationship brings you much joy either way. Creativity is also a big theme of this card. You might be surprising yourself with ideas for a new project or maybe you have something to bring a forgotten idea back to life. Whatever sparks up your creativity, do it and don’t hesitate. Just remember to take care of yourself and not to get lost in the new excitements.",
       "Image": "./assets/images/Tarot/ace_of_cups.jpg",
       "Keywords": "Inspiration, new relationships, love, creativit"
     },
     {
-      "id": "Two of cups",
-      "Name": "Two of cups",
+      "id": "Two of Cups",
+      "Name": "Two of Cups",
       "Desc": "The card has traditionally represented marriage. Nowadays we are wise enough to realize any relationship can be important. Perhaps everything works like magic with one of your friends or colleague? Whoever it is, your values match and you clearly respect each other so hold on to them. And if you don’t have anyone like this, they’re yet to come. Keep your eyes open.",
       "Image": "./assets/images/Tarot/two_of_cups.jpg",
       "Keywords": "Soulmate, attraction, love"
@@ -493,109 +493,102 @@
       "Keywords": "Emotional intelligence, calmness, reliability, compassion"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ace of Wands",
+      "Name": "Ace of Wands",
+      "Desc": "There’s a flame burning inside you. You’ve found something that makes you passionate and feeds your soul. It might be a hobby or creative project, but you find it hard to focus on ordinary things like eating. Or perhaps you are in a middle of a very passionate relationship with someone? An adventurous person who lights you up like no-one else. Even if the relationship might not evolve to anything lasting, enjoy the ride. Whatever is keeping you lit, don’t let it burn you out. Remember to take care of yourself.",
+      "Image": "./assets/images/Tarot/ace_of_wands.jpg",
+      "Keywords": "Passion, spark, new opportunities, creativity"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Two of Wands",
+      "Name": "Two of Wands",
+      "Desc": "You are in between of your future plans and current life. It’s time to start planning for the future. What do you want to do next? This card is very calculative, so you should also take every risk into consideration and look at the world in every perspective. Dream big and make concrete plans. As all of twos in Tarot, this card also represent dichotomy. It is great time to reflect past and what you’ve gone through. Since those things have got you were you are now.",
+      "Image": "./assets/images/Tarot/two_of_wands.jpg",
+      "Keywords": "Dreams, planning, taking risks, reflecting"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Three of Wands",
+      "Name": "Three of Wands",
+      "Desc": "Is about adventure and trying of new things. Get out of your comfort zone and throw yourself to the unknown. You don’t care about others’ opinions anymore and you’ve been doing things that you’ve truly wanted to do. As you thought that you’ve achieved your dreams, you realize it’s time to spread your wings and change scenery. Adventure might mean traveling or even moving to a new place. Whichever feels right, forget the fear of failing. Adventures aren’t always meant to be successful, but it will bring you closer to new achievements.",
+      "Image": "./assets/images/Tarot/three_of_wands.jpg",
+      "Keywords": "Growth, adventure, change, travel"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Four of Wands",
+      "Name": "Four of Wands",
+      "Desc": "It’s time to stop and appreciate your own achievements. Is there something worth celebrating? It doesn’t have to be something big like getting promoted, for it could be accomplishing something like staying on a strict -ish diet or perhaps keeping an old addiction away. This card might also represent reunions. Are you finally back from your adventure abroad, or perhaps you finally reconnected with an old friend. These days most of us feels quilt of having free time. But remember, it is important to have fun and relax from time to time and celebrate things you are grateful about.",
+      "Image": "./assets/images/Tarot/four_of_wands.jpg",
+      "Keywords": "Celebration, joy, accomplishment, reunions"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Five of Wands",
+      "Name": "Five of Wands",
+      "Desc": "You are in a middle of some kind of conflict. Each one of you are certain of being right and none of you wants to hear what others have to say. Even if you are right, it doesn’t really matter anymore. It is more important to be empathic and start listening, so this situation could cool down. Take the role of mediator and give everyone a chance to be heard. Figure out where you are going with this together and steer the conversation in a constructive direction. Only that way you will be able to finish whatever the project is you are working on.",
+      "Image": "./assets/images/Tarot/five_of_wands.jpg",
+      "Keywords": "Tension, contradictions, avoidance, conflict"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Six of Wands",
+      "Name": "Six of Wands",
+      "Desc": "Get ready for a bunch of positive attention! You’ve been through a conflict and survived it as a winner. Now you’ll be given a prize for it, recognition or even a pay rice or promotion. You might also be seen as a leader for now on and people want to learn from you. Use your influence on good things and inspire people to make better choices.",
+      "Image": "./assets/images/Tarot/six_of_wands.jpg",
+      "Keywords": "Success, pride, recognition, triumph"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Seven of Wands",
+      "Name": "Seven of Wands",
+      "Desc": "Get ready for your position to be undermined. You’ll be faced with critique and questioning. You’ve done a lot of work and got to high position, but jealous people want to bring you down. You must be ready to fight for your position. It could also mean that your own thoughts are standing on your way, and the biggest critique is you. Whichever it is, you need to learn to stand behind your principles and believing in yourself. If no-one would judge you, what kind of person would you be and what would you love to do?",
+      "Image": "./assets/images/Tarot/seven_of_wands.jpg",
+      "Keywords": "Determination, protectiveness, strong will"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Eight of Wands",
+      "Name": "Eight of Wands",
+      "Desc": "Busy times are ahead. You have so much on your plate right now, that you might have to take time off from other things in life. Do not worry thought, this phase won’t last too long. You should start acting fast and rely on your intuition, since now it’s not the time to consider things too much. Also focus on prioritizing tasks and don’t waste your energy on nonsense so this busy time will go past easily.",
+      "Image": "./assets/images/Tarot/eight_of_wands.jpg",
+      "Keywords": "Rush, action, progress, excitement"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Nine of Wands",
+      "Name": "Nine of Wands",
+      "Desc": "After working hard for quite long, you are probably feeling tired and had enough. Don’t give up just yet, since the work is almost done. It doesn’t matter how broken you are, you are ready to finish the job. Believe in yourself and your abilities, after all you have the strength to stand behind your actions. You know that this is the right path and there’s no turning back, so why would you stop now?",
+      "Image": "./assets/images/Tarot/nine_of_wands.jpg",
+      "Keywords": "Resilience, inner power, backbone, grit"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Ten of Wands",
+      "Name": "Ten of Wands",
+      "Desc": "You are feeling very overloaded. You have hoarded tasks that you did not need to do alone in the first place. You may be at the peak of your career, but at the cost of other important things in life. You’ve set your goals high, and even if you think this is only temporary, are you sure you can stop when you are finished? Start thinking realistically what you are able to do. You don’t need to carry ten wands at a time, you can carry half and do the rest later, or perhaps ask for help to carry half of them.",
+      "Image": "./assets/images/Tarot/ten_of_wands.jpg",
+      "Keywords": "Burnout, responsibility, obligation, stress"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Page of Wands",
+      "Name": "Page of Wands",
+      "Desc": "It is time to try something new. Harness the curiosity of a child and bravery of a bear and take a leap to the unknown. What are your passions? If you don’t know, trying things is how you figure it out. It doesn’t matter if you don’t know what you are doing, since you’ll learn while doing. The most important thing is to start doing.",
+      "Image": "./assets/images/Tarot/page_of_wands.jpg",
+      "Keywords": "Cheerfulness, new ideas, energy, spontaneousness, adventure"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Knight of Wands",
+      "Name": "Knight of Wands",
+      "Desc": "Be brave as you make decisions and chase your dreams. When you are being yourself and do what you love to do, others will find you inspiring. Just remember to keep your tasks -list versatile so you won’t be stuck. The point is to bring things forward and let focusing on honing details for later. Start seeking adventures and bringing versatility in every aspect of your life.",
+      "Image": "./assets/images/Tarot/knight_of_wands.jpg",
+      "Keywords": "Bravery, charisma, impulsiveness, confidence"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "Queen of Wands",
+      "Name": "Queen of Wands",
+      "Desc": "There’s some work to do to start being the most confident and influencing version of yourself. Even though you want to be confident and strong, do not put others down. Use your power for good and be empathic. You are feeling strong passion towards your doing but remember not to rush and try get everything at once. Things that are meant for you will come for you.",
+      "Image": "./assets/images/Tarot/queen_of_wands.jpg",
+      "Keywords": "Determination, passion, ambition, vivaciousness"
     },
     {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
-    },
-    {
-      "id": "",
-      "Name": "",
-      "Desc": "",
-      "Image": "./assets/images/Tarot/",
-      "Keywords": ""
+      "id": "King of Wands",
+      "Name": "King of Wands",
+      "Desc": "Take responsibility of your own life. Don’t be afraid of the challenges, you should start seeing them as opportunities to learn things in life. Later on, you could help others by sharing your wisdom, and perhaps realize that you don’t have to do everything by yourself. After all you might be in a situation where your wisdom and skills allow you to be a leader. You are confident as ever, so remember to enjoy life, but be adult enough to remember your responsibility.",
+      "Image": "./assets/images/Tarot/king_of_wands.jpg",
+      "Keywords": "Authority, charisma, passion, leadership, boldness, vision"
     }
   ]
 }
