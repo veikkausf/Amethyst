@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
-//import Teksti from '@/components/Textbox';
 import AnimoituTeksti from '@/components/AnimatedTextbox';
 import { ScrollView } from 'react-native-gesture-handler';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Loader from '@/components/loading';
 import FlipCard from 'react-native-flip-card';
 import { Collapsible } from '@/components/Collapsible';
 import * as Animatable from 'react-native-animatable';
+import tarotData from '../../tarot.json'; // Import the JSON file
 
 type TarotCard = {
   id: string;
@@ -21,6 +19,87 @@ type TarotCard = {
   Keywords: string;
 } | null;
 
+// Map card IDs to their images using require()
+const imageMap: { [key: string]: any } = {
+  'The Empress': require('../../assets/images/Tarot/the_empress.jpg'),
+  'The Sun': require('../../assets/images/Tarot/the_sun.jpg'),
+  "Death" : require('../../assets/images/Tarot/the_death.jpg'),
+  'The Tower': require('../../assets/images/Tarot/the_tower.jpg'),
+  "Strength" : require('../../assets/images/Tarot/the_strength.jpg'),
+  'The Star': require('../../assets/images/Tarot/the_star.jpg'),
+  "Judgement" : require('../../assets/images/Tarot/judgement.jpg'),
+  'The Hermit': require('../../assets/images/Tarot/the_hermit.jpg'),
+  "Justice" : require('../../assets/images/Tarot/justice.jpg'),
+  'The Hierophant': require('../../assets/images/Tarot/the_hierophant.jpg'),
+  'The Emperor': require('../../assets/images/Tarot/the_empreror.jpg'),
+  'The Fool': require('../../assets/images/Tarot/the_fool.jpg'),
+  'The Lovers': require('../../assets/images/Tarot/the_lovers.jpg'),
+  'The Magician': require('../../assets/images/Tarot/the_magician.jpg'),
+  'The High Priestess': require('../../assets/images/Tarot/the_high_priestess.jpg'),
+  'The Chariot': require('../../assets/images/Tarot/the_chariot.jpg'),
+  'The Devil': require('../../assets/images/Tarot/the_devil.jpg'),
+  'The Moon': require('../../assets/images/Tarot/the_moon.jpg'),
+  "Temperance" : require('../../assets/images/Tarot/temperance.jpg'),
+  'The Hanged Man': require('../../assets/images/Tarot/the_hanged_man.jpg'),
+  'The World': require('../../assets/images/Tarot/the_world.jpg'),
+  'Wheel of Fortune': require('../../assets/images/Tarot/wheel_of_fortune.jpg'),
+  'Ace of Pentacles': require('../../assets/images/Tarot/ace_of_pentacles.jpg'),
+  'Two of Pentacles': require('../../assets/images/Tarot/two_of_pentacles.jpg'),
+  'Three of Pentacles': require('../../assets/images/Tarot/three_of_pentacles.jpg'),
+  'Four of Pentacles': require('../../assets/images/Tarot/four_of_pentacles.jpg'),
+  'Five of Pentacles': require('../../assets/images/Tarot/five_of_pentacles.jpg'),
+  'Six of Pentacles': require('../../assets/images/Tarot/six_of_pentacles.jpg'),
+  'Seven of Pentacles': require('../../assets/images/Tarot/seven_of_pentacles.jpg'),
+  'Eight of Pentacles': require('../../assets/images/Tarot/eight_of_pentacles.jpg'),
+  'Nine of Pentacles': require('../../assets/images/Tarot/nine_of_pentacles.jpg'),
+  'Ten of Pentacles': require('../../assets/images/Tarot/ten_of_pentacles.jpg'),
+  'Page of Pentacles': require('../../assets/images/Tarot/page_of_pentacles.jpg'),
+  'Knight of Pentacles': require('../../assets/images/Tarot/knight_of_pentacles.jpg'),
+  'Queen of Pentacles': require('../../assets/images/Tarot/queen_of_pentacles.jpg'),
+  'King of Pentacles': require('../../assets/images/Tarot/king_of_pentacles.jpg'),
+  'Ace of Swords': require('../../assets/images/Tarot/ace_of_swords.jpg'),
+  'Two of Swords': require('../../assets/images/Tarot/two_of_swords.jpg'),
+  'Three of Swords': require('../../assets/images/Tarot/three_of_swords.jpg'),
+  'Four of Swords': require('../../assets/images/Tarot/four_of_swords.jpg'),
+  'Five of Swords': require('../../assets/images/Tarot/five_of_swords.jpg'),
+  'Six of Swords': require('../../assets/images/Tarot/six_of_swords.jpg'),
+  'Seven of Swords': require('../../assets/images/Tarot/seven_of_swords.jpg'),
+  'Eight of Swords': require('../../assets/images/Tarot/eight_of_swords.jpg'),
+  'Nine of Swords': require('../../assets/images/Tarot/nine_of_swords.jpg'),
+  'Ten of Swords': require('../../assets/images/Tarot/ten_of_swords.jpg'),
+  'Page of Swords': require('../../assets/images/Tarot/page_of_swords.jpg'),
+  'Knight of Swords': require('../../assets/images/Tarot/knight_of_swords.jpg'),
+  'Queen of Swords': require('../../assets/images/Tarot/queen_of_swords.jpg'),
+  'King of Swords': require('../../assets/images/Tarot/king_of_swords.jpg'),
+  'Ace of Cups': require('../../assets/images/Tarot/ace_of_cups.jpg'),
+  'Two of Cups': require('../../assets/images/Tarot/two_of_cups.jpg'),
+  'Three of Cups': require('../../assets/images/Tarot/three_of_cups.jpg'),
+  'Four of Cups': require('../../assets/images/Tarot/four_of_cups.jpg'),
+  'Five of Cups': require('../../assets/images/Tarot/five_of_cups.jpg'),
+  'Six of Cups': require('../../assets/images/Tarot/six_of_cups.jpg'),
+  'Seven of Cups': require('../../assets/images/Tarot/seven_of_cups.jpg'),
+  'Eight of Cups': require('../../assets/images/Tarot/eight_of_cups.jpg'),
+  'Nine of Cups': require('../../assets/images/Tarot/nine_of_cups.jpg'),
+  'Ten of Cups': require('../../assets/images/Tarot/ten_of_cups.jpg'),
+  'Page of Cups': require('../../assets/images/Tarot/page_of_cups.jpg'),
+  'Knight of Cups': require('../../assets/images/Tarot/knight_of_cups.jpg'),
+  'Queen of Cups': require('../../assets/images/Tarot/queen_of_cups.jpg'),
+  'King of Cups': require('../../assets/images/Tarot/king_of_cups.jpg'),
+  'Ace of Wands': require('../../assets/images/Tarot/ace_of_wands.jpg'),
+  'Two of Wands': require('../../assets/images/Tarot/two_of_wands.jpg'),
+  'Three of Wands': require('../../assets/images/Tarot/three_of_wands.jpg'),
+  'Four of Wands': require('../../assets/images/Tarot/four_of_wands.jpg'),
+  'Five of Wands': require('../../assets/images/Tarot/five_of_wands.jpg'),
+  'Six of Wands': require('../../assets/images/Tarot/six_of_wands.jpg'),
+  'Seven of Wands': require('../../assets/images/Tarot/seven_of_wands.jpg'),
+  'Eight of Wands': require('../../assets/images/Tarot/eight_of_wands.jpg'),
+  'Nine of Wands': require('../../assets/images/Tarot/nine_of_wands.jpg'),
+  'Ten of Wands': require('../../assets/images/Tarot/ten_of_wands.jpg'),
+  'Page of Wands': require('../../assets/images/Tarot/page_of_wands.jpg'),
+  'Knight of Wands': require('../../assets/images/Tarot/knight_of_wands.jpg'),
+  'Queen of Wands': require('../../assets/images/Tarot/queen_of_wands.jpg'),
+  'King of Wands': require('../../assets/images/Tarot/king_of_wands.jpg'),
+};
 const Tarot: React.FC = () => {
   const [tarotCards, setTarotCards] = useState<TarotCard[]>([]); // Store cards
   const [tarotCard, setTarotCard] = useState<TarotCard>(null); // Displayed card state
@@ -38,18 +117,16 @@ const Tarot: React.FC = () => {
   const imageHeight = (imageWidth / 330) * 650; // Maintain the original aspect ratio
 
   const getCurrentDate = () => {
-    //lisää Date() sisään numeroita jos haluat vaihtaa päivää
     const today = new Date();
     return today.toISOString().split('T')[0]; // Date in YYYY-MM-DD format
   };
-  //Tallennetaan päivän random kortti AsyncStorageen
-  //Kortti saadaan randomIndex joka tulee fetchRandomCard funktiosta
+
   const storeRandomCardIndex = async (randomIndex: number) => {
     const today = getCurrentDate();
     await AsyncStorage.setItem('tarotCardIndex', JSON.stringify(randomIndex));
     await AsyncStorage.setItem('tarotDate', today);
   };
-  //ladataan tallenettu kortti
+
   const loadStoredTarotCard = async (tarotCards: TarotCard[]) => {
     try {
       const storedIndex = await AsyncStorage.getItem('tarotCardIndex');
@@ -69,34 +146,20 @@ const Tarot: React.FC = () => {
       setLoading(false);
     }
   };
-  //Random numero database pituuden mukaan
+
   const fetchRandomCard = (tarotCards: TarotCard[]) => {
     const randomIndex = Math.floor(Math.random() * tarotCards.length);
     setTarotCard(tarotCards[randomIndex]);
     storeRandomCardIndex(randomIndex);
   };
-  //Database query korteille
+
   useEffect(() => {
-    const tarotCollection = collection(db, 'Tarot');
-
-    const unsubscribe = onSnapshot(tarotCollection, (querySnapshot) => {
-      if (!querySnapshot.empty) {
-        const cards = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as TarotCard[];
-
-        setTarotCards(cards);
-        loadStoredTarotCard(cards);
-      } else {
-        console.log('No Tarot cards found.');
-        setLoading(false);
-      }
-    });
-
-    return () => unsubscribe();
+    // Load tarot cards from the JSON file
+    const cards = tarotData.Tarot as TarotCard[];
+    setTarotCards(cards);
+    loadStoredTarotCard(cards);
   }, []);
-  //Lataus ruutu
+
   if (loading) {
     return <Loader />;
   }
@@ -104,13 +167,15 @@ const Tarot: React.FC = () => {
   const handleFlipStart = () => {
     setFlipped((prev) => !prev); // Toggle flipped state
   };
-  // Collapsible function
+
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index); // Close current and open new collapsible
   };
+
   const handleAnimationEnd = () => {
     setAnim(true); // Anim -> true että tekstin animaatio vaihtuu
   };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {tarotCard ? (
@@ -156,9 +221,7 @@ const Tarot: React.FC = () => {
 
             {/* Front side of the card */}
             <Animatable.Image
-              source={{
-                uri: tarotCard.Image,
-              }}
+              source={imageMap[tarotCard.id]} // Use the image map
               style={[
                 styles.image,
                 { width: imageWidth, height: imageHeight },
