@@ -218,7 +218,9 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
             }
           />
         ))}
-        <Button title="Reset Horoscope" onPress={handleResetHoroscope} />
+        <TouchableOpacity style={styles.reset} onPress={handleResetHoroscope}>
+          <Text style={styles.resettext}>Reset Your Horoscope</Text>
+        </TouchableOpacity>
       </ScrollView>
 
       {/* Modal to select horoscope */}
@@ -261,6 +263,26 @@ const styles = StyleSheet.create({
     width: '80%',
     padding: 20,
     borderRadius: 10,
+  },
+  reset: {
+    backgroundColor: '#3F3154',
+    width: '95%',
+    padding: 20,
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#918998',
+    borderWidth: 2,
+  },
+  resettext: {
+    fontFamily: 'Kadwa_400Regular',
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 20,
+    textAlign: 'center',
   },
   header: {
     fontSize: 30,
