@@ -232,16 +232,12 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
               data={data}
               keyExtractor={(item) => item.id}
               renderItem={({ item }) => (
-                <TouchableOpacity
-                  style={[
-                    styles.horoscopeItem,
-                    selectedHoroscope?.id === item.id && styles.selectedItem,
-                  ]}
+                <HoroscopeButton
+                  key={item.id}
+                  title={item.id}
+                  img={item.image}
                   onPress={() => handleSelectHoroscope(item)}
-                >
-                  <Image source={item.image} style={styles.horoscopeImage} />
-                  <Text style={styles.horoscopeText}>{item.id}</Text>
-                </TouchableOpacity>
+                />
               )}
             />
           </View>
@@ -259,10 +255,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    backgroundColor: '#918998',
+    backgroundColor: '#3F3154',
     width: '80%',
     padding: 20,
     borderRadius: 10,
+    fontFamily: 'Kadwa_400Regular',
+    marginBottom: screenHeight * 0.1,
+    marginTop: screenHeight * 0.1,
   },
   reset: {
     backgroundColor: '#3F3154',
