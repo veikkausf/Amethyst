@@ -1,21 +1,7 @@
-// This must be at the top if present
-// buildscript {
-//     repositories {
-//         google()
-//         mavenCentral()
-//     }
-//     dependencies {
-//         classpath "com.android.tools.build:gradle:8.1.0" // or your Gradle plugin version
-//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10" // or your Kotlin version
-//         classpath "com.google.gms:google-services:4.3.15" // or your Google services version
-//     }
-// }
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.facebook.react")
-    id("com.google.gms.google-services")
 }
 
 def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
@@ -37,38 +23,21 @@ def getRNVersion() {
 }
 def rnVersion = getRNVersion()
 
-/**
- * This is the configuration block to customize your React Native Android app.
- * By default, you don't need to apply any configuration, just uncomment the lines you need.
- */
 react {
     entryFile = file(["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute(null, rootDir).text.trim())
     reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
     hermesCommand = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/sdks/hermesc/%OS-BIN%/hermesc"
     codegenDir = new File(["node", "--print", "require.resolve('@react-native/codegen/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
 
-    // Use Expo CLI to bundle the app, this ensures the Metro config
-    // works correctly with Expo projects.
     cliFile = new File(["node", "--print", "require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })"].execute(null, rootDir).text.trim())
     bundleCommand = "export:embed"
 
     if (rnVersion >= versionToNumber(0, 75, 0)) {
-        /* Autolinking */
         autolinkLibrariesWithApp()
     }
 }
 
-/**
- * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
- */
 def enableProguardInReleaseBuilds = (findProperty('android.enableProguardInReleaseBuilds') ?: false).toBoolean()
-
-/**
- * The preferred build flavor of JavaScriptCore (JSC)
- *
- * For example, to use the international variant, you can use:
- * `def jscFlavor = 'org.webkit:android-jsc-intl:+'`
- */
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
@@ -87,19 +56,17 @@ android {
     
 signingConfigs {
     release {
-        storeFile file("../keystores/@amethystproject__Amethyst.jks") // Use relative path to your keystore
-        storePassword '27b316cf8a45841f7d78013f51b293bb' // Your keystore password
-        keyAlias '01b2fdc1f14885bb7c5e7dc1a2b4ee08' // Your key alias (from the keystore)
-        keyPassword '7925d6f4c9d2eb98d1fae5e8cc9f6930' // The password for your alias
+        storeFile file("../keystores/@amethystproject__Amethyst.jks")
+        storePassword '27b316cf8a45841f7d78013f51b293bb'
+        keyAlias '01b2fdc1f14885bb7c5e7dc1a2b4ee08'
+        keyPassword '7925d6f4c9d2eb98d1fae5e8cc9f6930'
     }
 }
     
     buildTypes {
-        debug {
-            // Use default debug signing (optional)
-        }
+        debug {}
         release {
-            signingConfig signingConfigs.release // Use the release signing configuration
+            signingConfig signingConfigs.release
             shrinkResources (findProperty('android.enableShrinkResourcesInReleaseBuilds')?.toBoolean() ?: false)
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -114,31 +81,8 @@ signingConfigs {
     }
 }
 
-// Apply static values from `gradle.properties` to the `android.packagingOptions`
-["pickFirsts", "excludes", "merges", "doNotStrip"].each { prop ->
-    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",");
-    options = options.collect { it.trim() }.findAll { it } // Trim and remove empty strings
-
-    if (options) {
-        println "android.packagingOptions.$prop += $options ($options.size())"
-        options.each { android.packagingOptions[prop] += it }
-    }
-}
-
 dependencies {
-    // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-
-    // Add Firebase Analytics dependency
-    implementation("com.google.firebase:firebase-analytics")
-
-    // Add any other Firebase dependencies you wish to use
-    // For example, to use Firebase Authentication, you can add:
-    // implementation("com.google.firebase:firebase-auth")
-    
-    // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-    // Google Sign-In dependency
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true"
