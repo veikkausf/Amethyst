@@ -20,7 +20,16 @@
         "foregroundImage": "./assets/images/amethyst_icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.tiko.amethyst"
+      "package": "com.tiko.amethyst",
+      "permissions": [
+        "INTERNET",
+        "MODIFY_AUDIO_SETTINGS",
+        "READ_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "SYSTEM_ALERT_WINDOW",
+        "VIBRATE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "bundler": "metro",
