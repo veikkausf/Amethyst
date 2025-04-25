@@ -15,12 +15,10 @@ import Teksti from '../../components/Textbox';
 type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 
 function MenuScreen({ navigation, route }: MenuScreenProps) {
-  const { givenName, userBirthday } = route.params;
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>
-        <Text style={styles.headerbold}>{givenName || 'Guest'}</Text>, choose a
-        way to calm your mind...
+      <Text style={styles.headerbold}>
+        Choose<Text style={styles.header}> a way to calm your mind...</Text>
       </Text>
       {/* Tarot  */}
       <Pressable
@@ -43,7 +41,7 @@ function MenuScreen({ navigation, route }: MenuScreenProps) {
       {/* Horoscope */}
       <Pressable
         style={styles.containerRight}
-        onPress={() => navigation.navigate('Horoscope', { userBirthday })}
+        onPress={() => navigation.navigate('Horoscope')}
       >
         <Teksti style={styles.textBoxRight}>
           <View style={styles.borderRight}>

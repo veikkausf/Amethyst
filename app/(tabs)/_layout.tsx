@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Image, Text, StyleSheet } from 'react-native';
+import { Image, Text, StyleSheet, View } from 'react-native';
 import {
   createStackNavigator,
   TransitionPresets,
@@ -24,6 +24,8 @@ import {
 } from '@expo-google-fonts/kadwa';
 import * as SplashScreen from 'expo-splash-screen';
 
+SplashScreen.preventAutoHideAsync(); // Ensure splash screen doesn't auto-hide
+
 const Stack = createStackNavigator<RootStackParamList>();
 
 function MyStack() {
@@ -32,23 +34,33 @@ function MyStack() {
     Kadwa_700Bold,
   });
 
-  // Splash screen piilotetaan, kun fontit ovat ladattu a
+  // Debugging font loading
+  useEffect(() => {
+    console.log('Fonts loaded:', fontsLoaded);
+  }, [fontsLoaded]);
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
+      console.log('Hiding splash screen');
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
-  //
-  if (!fontsLoaded) {
-    return null;
-  }
+  useEffect(() => {
+    onLayoutRootView();
+  }, [onLayoutRootView]);
 
-  // Esimerkki
+  if (!fontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Menu"
       screenOptions={{
         headerStyle: {
           backgroundColor: '#3F3154',
@@ -56,7 +68,7 @@ function MyStack() {
         },
         headerTitle: '',
         animationEnabled: true,
-        ...TransitionPresets.SlideFromRightIOS, // Sivusuuunnasta liikkuva animaatio
+        ...TransitionPresets.SlideFromRightIOS, // Slide animation
         headerBackImage: () => (
           <Image
             source={require('../../assets/images/backbt.png')}
@@ -91,13 +103,11 @@ function MyStack() {
         component={MineralData}
         options={{ headerTransparent: true }}
       />
-
       <Stack.Screen
         name="DreamDiary"
         component={DreamDiary}
         options={{ headerTransparent: true }}
       ></Stack.Screen>
-
       <Stack.Screen
         name="DreamSymbols"
         component={DreamSymbols}
@@ -106,9 +116,7 @@ function MyStack() {
           headerTitleAlign: 'center',
         }}
       ></Stack.Screen>
-
       <Stack.Screen name="NewDiary" component={NewDiary}></Stack.Screen>
-
       <Stack.Screen
         name="diaryPrevious"
         component={diaryPrevious}
@@ -127,6 +135,17 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     textAlign: 'center', // Center-align text to fit better on screen
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#3F3154',
+  },
+  loadingText: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontFamily: 'Kadwa_400Regular',
   },
 });
 

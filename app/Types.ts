@@ -1,9 +1,9 @@
 export type RootStackParamList = {
   Home: undefined;
-  Menu: { givenName?: string; userBirthday?: undefined | null };
+  Menu: undefined;
   Tarot: undefined;
   Minerals: undefined;
-  Horoscope: { userBirthday?: string | null };
+  Horoscope: undefined;
   Login: undefined;
   DreamDiary: undefined;
   DreamSymbols: undefined;
