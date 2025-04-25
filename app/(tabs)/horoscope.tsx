@@ -8,9 +8,12 @@ import {
   Dimensions,
   Vibration,
   Image,
+  FlatList,
+  TouchableOpacity,
+  Button,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import HoroscopeButton from '@/components/HoroscopeButton';
-import Teksti from '@/components/Textbox';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
 
@@ -68,7 +71,7 @@ const data: BoxItem[] = [
       startDate: { day: 20, month: 4 },
       endDate: { day: 20, month: 5 },
     },
-    date: 'March 21 - April 19',
+    date: 'April 20 - May 20',
   },
   {
     id: 'Gemini',
@@ -141,89 +144,40 @@ const { height: screenHeight } = Dimensions.get('window'); // Get screen height
 type HoroscopeProps = StackScreenProps<RootStackParamList, 'Horoscope'>;
 
 const Horoscope = ({ route, navigation }: HoroscopeProps) => {
-  const { userBirthday } = route.params || {}; // Safely access route params
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedHoroscope, setSelectedHoroscope] = useState<BoxItem | null>(
     null
   );
-  const [modalPosition, setModalPosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
-  const [horoscopeText, setHoroscopeText] = useState<string>(''); // State for the horoscope text
-  const [horoscopeImage, setHoroscopeImage] = useState<any>(
-    require('../../assets/images/virgo.png') //placeholder image
-  );
 
-  const closeModal = () => {
-    setIsModalVisible(false);
-  };
-
-  // Check if userBirthday is valid
-  if (!userBirthday) {
-    console.error('User birthday data is missing');
-    return (
-      <View>
-        <Text>Error: Missing birthday data.</Text>
-      </View>
-    );
-  }
-
-  // Safely handle userBirthday before destructuring
-  let birthday = { day: 0, month: 0 }; // Default values if userBirthday is invalid
-
-  if (userBirthday) {
-    if (typeof userBirthday === 'string') {
-      // If it's a string (e.g., "1998-05-20"), parse it into a Date object
-      const date = new Date(userBirthday);
-      birthday = { day: date.getDate(), month: date.getMonth() + 1 }; // Convert to day and month
-    } else {
-      // If it's already an object with day and month
-      birthday = userBirthday;
-    }
-  }
-
-  const { day, month } = birthday;
-
-  // Function to check if the user's birthday is within the date range
-  const isBirthdayInRange = (
-    startDate: { day: number; month: number },
-    endDate: { day: number; month: number }
-  ): boolean => {
-    if (
-      startDate.month < endDate.month ||
-      (startDate.month === endDate.month && startDate.day <= endDate.day)
-    ) {
-      return (
-        (month > startDate.month ||
-          (month === startDate.month && day >= startDate.day)) &&
-        (month < endDate.month ||
-          (month === endDate.month && day <= endDate.day))
-      );
-    }
-
-    return (
-      month > startDate.month ||
-      (month === startDate.month && day >= startDate.day) ||
-      month < endDate.month ||
-      (month === endDate.month && day <= endDate.day)
-    );
-  };
-
-  // Find the matching horoscope based on the user's birthday
-  // Find the matching horoscope based on the user's birthday
   useEffect(() => {
-    const matchingHoroscope = data.find((item) =>
-      isBirthdayInRange(item.dates.startDate, item.dates.endDate)
-    );
-    if (matchingHoroscope) {
-      setHoroscopeText(matchingHoroscope.id);
-      setHoroscopeImage(matchingHoroscope.image);
-    } else {
-      setHoroscopeText('No matching horoscope found');
-      setHoroscopeImage(null);
-    }
-  }, [day, month]);
+    const checkFirstTime = async () => {
+      const hasSeenPopup = await AsyncStorage.getItem('hasSeenPopup');
+      if (!hasSeenPopup) {
+        setIsModalVisible(true); // Show the modal if it's the first time
+      } else {
+        const savedHoroscope = await AsyncStorage.getItem('selectedHoroscope');
+        if (savedHoroscope) {
+          const parsedHoroscope = JSON.parse(savedHoroscope);
+          setSelectedHoroscope(parsedHoroscope);
+        }
+      }
+    };
+    checkFirstTime();
+  }, []);
+
+  const handleSelectHoroscope = async (horoscope: BoxItem) => {
+    setSelectedHoroscope(horoscope);
+    await AsyncStorage.setItem('selectedHoroscope', JSON.stringify(horoscope));
+    await AsyncStorage.setItem('hasSeenPopup', 'true'); // Set flag
+    setIsModalVisible(false); // Close the modal
+  };
+
+  const handleResetHoroscope = async () => {
+    await AsyncStorage.removeItem('selectedHoroscope');
+    await AsyncStorage.removeItem('hasSeenPopup');
+    setSelectedHoroscope(null);
+    setIsModalVisible(true); // Show the modal again
+  };
 
   return (
     <View style={styles.background}>
@@ -231,17 +185,19 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
         <Text style={styles.header}>
           Your <Text style={styles.normalFont}>sun sign:</Text>
         </Text>
-        <HoroscopeButton
-          key={horoscopeText}
-          title={horoscopeText} // Passing the ID of the matched horoscope
-          img={horoscopeImage} // Passing the image of the matched horoscope
-          onPress={() =>
-            navigation.navigate('HoroscopeData', {
-              itemId: horoscopeText, // Pass the ID to the next screen
-              itemImage: horoscopeImage, // Pass the image to the next screen
-            })
-          }
-        />
+        {selectedHoroscope && (
+          <HoroscopeButton
+            key={selectedHoroscope.id}
+            title={selectedHoroscope.id}
+            img={selectedHoroscope.image}
+            onPress={() =>
+              navigation.navigate('HoroscopeData', {
+                itemId: selectedHoroscope.id,
+                itemImage: selectedHoroscope.image,
+              })
+            }
+          />
+        )}
         <View style={[styles.rowContainer]}>
           <Text style={styles.smallheader}>Other signs:</Text>
           <Image
@@ -260,34 +216,32 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
                 itemImage: item.image,
               })
             }
-            onLongPress={(event) => {
-              const { pageX, pageY } = event.nativeEvent;
-
-              // Laskelmoidaan modaalin position, ettei overlappaa "ruudun ohi"
-              const modalX = Math.min(pageX - 40, screenWidth - 210);
-              const modalY = Math.min(pageY - 175, screenHeight - 110);
-
-              Vibration.vibrate(100);
-
-              setSelectedHoroscope(item);
-              setModalPosition({ x: modalX, y: modalY });
-              setIsModalVisible(true);
-            }}
-            onPressOut={closeModal} // Kun käyttäjä ei pidä nappia phjassa modaali sulkeutuu
           />
         ))}
+        <Button title="Reset Horoscope" onPress={handleResetHoroscope} />
       </ScrollView>
 
-      {/* Moddaali joka näyttää päivämäärän */}
-      <Modal transparent={true} visible={isModalVisible} animationType="fade">
-        <View style={[{ top: modalPosition.y, left: modalPosition.x }]}>
-          <View>
-            {selectedHoroscope && (
-              <Teksti style={styles.box}>
-                <Text>{selectedHoroscope.id}</Text>
-                <Text>{selectedHoroscope.date}</Text>
-              </Teksti>
-            )}
+      {/* Modal to select horoscope */}
+      <Modal transparent={true} visible={isModalVisible} animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={styles.box}>
+            <Text style={styles.header}>Select your horoscope:</Text>
+            <FlatList
+              data={data}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={[
+                    styles.horoscopeItem,
+                    selectedHoroscope?.id === item.id && styles.selectedItem,
+                  ]}
+                  onPress={() => handleSelectHoroscope(item)}
+                >
+                  <Image source={item.image} style={styles.horoscopeImage} />
+                  <Text style={styles.horoscopeText}>{item.id}</Text>
+                </TouchableOpacity>
+              )}
+            />
           </View>
         </View>
       </Modal>
@@ -304,13 +258,14 @@ const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: '#918998',
-    width: '50%',
+    width: '80%',
+    padding: 20,
+    borderRadius: 10,
   },
   header: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    marginLeft: 10,
     marginBottom: 10,
   },
   smallheader: {
@@ -328,13 +283,34 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  horoscopeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+  },
+  selectedItem: {
+    backgroundColor: '#FFD700',
+  },
+  horoscopeImage: {
+    width: 40,
+    height: 40,
+    marginRight: 10,
+  },
+  horoscopeText: {
+    fontSize: 18,
+    fontFamily: 'Kadwa_400Regular',
   },
   image: {
     alignSelf: 'flex-end',
   },
   rowContainer: {
-    flexDirection: 'row', // Arrange items in a row
-    alignItems: 'center', // Align items vertically in the center
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
