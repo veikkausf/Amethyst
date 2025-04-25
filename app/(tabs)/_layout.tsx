@@ -9,7 +9,7 @@ import { RootStackParamList } from '../Types';
 import Horoscope from './horoscope';
 import Tarot from './tarot';
 import Minerals from './minerals';
-import LoginScreen from './Login';
+
 import MenuScreen from './menu';
 import HoroscopeData from './horoscope-data';
 import MineralData from './mineral-data';
@@ -80,11 +80,6 @@ function MyStack() {
         ),
       }}
     >
-      <Stack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{ headerShown: false }}
-      />
       <Stack.Screen
         name="Menu"
         component={MenuScreen}
