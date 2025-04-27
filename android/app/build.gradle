@@ -83,7 +83,6 @@ signingConfigs {
 
 dependencies {
     implementation("com.facebook.react:react-android")
-    implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true"
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true"

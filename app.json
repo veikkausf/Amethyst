@@ -28,7 +28,8 @@
         "RECORD_AUDIO",
         "SYSTEM_ALERT_WINDOW",
         "VIBRATE",
-        "WRITE_EXTERNAL_STORAGE"
+        "WRITE_EXTERNAL_STORAGE",
+        "REMOVE_AD_ID"
       ]
     },
     "web": {
