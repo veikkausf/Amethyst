@@ -99,7 +99,7 @@ const data: BoxItem[] = [
     image: require('../../assets/images/Minerals/obsidian.png'),
   },
   {
-    chakra: 'Root Chakra"',
+    chakra: 'Root Chakra',
     desc: 'A stone of power, protection, and self-confidence. Onyx enhances inner strength, offering protection from negative energies and helping maintain mental balance during stress. It fosters determination, self-discipline, and the perseverance needed to overcome obstacles.',
     horoscope: 'Leo, Scorpion, Virgo, Capricorn, Libra',
     name: 'Onyx',
