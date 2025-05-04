@@ -7,6 +7,7 @@ import {
   ViewStyle,
   Image,
   View,
+  StatusBar,
 } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../Types';
@@ -17,6 +18,12 @@ type MenuScreenProps = StackScreenProps<RootStackParamList, 'Menu'>;
 function MenuScreen({ navigation, route }: MenuScreenProps) {
   return (
     <View style={styles.container}>
+      <StatusBar
+        translucent={false} // ei läpinäkyvä
+        backgroundColor="#3F3154" // palkin väri
+        barStyle="light-content" // iconeiden väri
+        // light-content = valkoinen, dark-content = musta
+      />
       <Text style={styles.headerbold}>
         Choose<Text style={styles.header}> a way to calm your mind...</Text>
       </Text>
