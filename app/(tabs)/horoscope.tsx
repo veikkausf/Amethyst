@@ -222,21 +222,25 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
           <Text style={styles.resettext}>Reset Your Horoscope</Text>
         </TouchableOpacity>
       </ScrollView>
-
       {/* Modal to select horoscope */}
       <Modal transparent={true} visible={isModalVisible} animationType="slide">
+        {/* Overlay to dim the background */}
         <View style={styles.modalOverlay}>
+          {/* Box containing the modal content */}
           <View style={styles.box}>
+            {/* Header text for the modal */}
             <Text style={styles.header}>Select your horoscope:</Text>
+            {/* FlatList to render the list of horoscopes */}
             <FlatList
-              data={data}
-              keyExtractor={(item) => item.id}
+              data={data} // Data source for the list
+              keyExtractor={(item) => item.id} // Unique key for each item
               renderItem={({ item }) => (
+                // Render each horoscope as a button
                 <HoroscopeButton
-                  key={item.id}
-                  title={item.id}
-                  img={item.image}
-                  onPress={() => handleSelectHoroscope(item)}
+                  key={item.id} // Unique key for the button
+                  title={item.id} // Horoscope name
+                  img={item.image} // Horoscope image
+                  onPress={() => handleSelectHoroscope(item)} // Function to handle selection
                 />
               )}
             />
