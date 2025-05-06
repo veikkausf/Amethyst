@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    top: 0,
+    top: '-1%',
     position: 'absolute',
   },
   date: {
