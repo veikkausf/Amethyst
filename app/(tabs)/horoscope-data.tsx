@@ -122,16 +122,16 @@ const styles = StyleSheet.create({
   },
   box: {
     margin: 15,
-    top: '16%',
+    top: '19%',
     position: 'absolute',
-    height: '80%',
+    height: '78%',
     justifyContent: 'center',
   },
   image: {
     marginBottom: 20,
     marginTop: 20,
     position: 'absolute',
-    top: '6%',
+    top: '5%',
   },
 });
 
