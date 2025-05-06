@@ -3,6 +3,8 @@ import { View, Image, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import Teksti from '@/components/Textbox';
 import Loader from '@/components/loading';
+import { ScrollView } from 'react-native-gesture-handler';
+
 // Parametri-lista tälle komponentille
 type RootStackParamList = {
   HoroscopeData: { itemId: string; itemImage: any };
@@ -64,18 +66,20 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   }
 
   return (
-    <View style={styles.background}>
-      {data && (
-        <>
-          <Text style={styles.header}>{itemId}</Text>
-          <Image source={itemImage} style={styles.image}></Image>
-          <Teksti style={styles.box}>
-            <Text style={styles.date}>{data.date}</Text>
-            <Text style={styles.text}>{data.horoscope_data}</Text>
-          </Teksti>
-        </>
-      )}
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.background}>
+        {data && (
+          <>
+            <Text style={styles.header}>{itemId}</Text>
+            <Image source={itemImage} style={styles.image}></Image>
+            <Teksti style={styles.box}>
+              <Text style={styles.date}>{data.date}</Text>
+              <Text style={styles.text}>{data.horoscope_data}</Text>
+            </Teksti>
+          </>
+        )}
+      </View>
+    </ScrollView>
   );
 };
 
@@ -117,14 +121,18 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
+
   box: {
     margin: 15,
+    top: '16%',
+    position: 'absolute',
+    height: '80%',
   },
   image: {
     marginBottom: 20,
     marginTop: 20,
     position: 'absolute',
-    top: '7%',
+    top: '6%',
   },
 });
 
