@@ -43,7 +43,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
 
       const response = await fetch(
         // Use the formatted date in the API call
-        `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${itemId}&day=${formattedDate}`,
+        `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${itemId}&day=TODAY`,
         {
           headers: {
             accept: 'application/json',
@@ -96,6 +96,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
+    top: 0,
+    position: 'absolute',
   },
   date: {
     fontSize: 30,
@@ -118,7 +120,12 @@ const styles = StyleSheet.create({
   box: {
     margin: 15,
   },
-  image: {},
+  image: {
+    marginBottom: 20,
+    marginTop: 20,
+    position: 'absolute',
+    top: '7%',
+  },
 });
 
 export default HoroscopeData;
