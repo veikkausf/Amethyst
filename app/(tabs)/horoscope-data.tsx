@@ -121,12 +121,11 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
-
   box: {
     margin: 15,
     top: '16%',
     position: 'absolute',
-    height: '80%',
+    height: '70%',
   },
   image: {
     marginBottom: 20,
