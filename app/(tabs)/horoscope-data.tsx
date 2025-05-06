@@ -96,14 +96,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    marginHorizontal: 40,
-    height: '20%',
   },
   date: {
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    marginHorizontal: 40,
     height: '20%',
     textShadowColor: 'black',
     textShadowOffset: { width: -1, height: 1 },
@@ -120,11 +117,8 @@ const styles = StyleSheet.create({
   },
   box: {
     margin: 15,
-    bottom: 40,
   },
-  image: {
-    bottom: 75,
-  },
+  image: {},
 });
 
 export default HoroscopeData;
