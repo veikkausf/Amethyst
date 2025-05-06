@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Kadwa_700Bold',
     color: 'white',
-    height: '20%',
     textShadowColor: 'black',
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 7,
@@ -125,7 +124,8 @@ const styles = StyleSheet.create({
     margin: 15,
     top: '16%',
     position: 'absolute',
-    height: '70%',
+    height: '80%',
+    justifyContent: 'center',
   },
   image: {
     marginBottom: 20,
