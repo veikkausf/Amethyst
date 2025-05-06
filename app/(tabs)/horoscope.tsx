@@ -165,20 +165,21 @@ const Horoscope = ({ route, navigation }: HoroscopeProps) => {
     checkFirstTime();
   }, []);
 
+  // Function to handle the selection of a horoscope
   const handleSelectHoroscope = async (horoscope: BoxItem) => {
-    setSelectedHoroscope(horoscope);
-    await AsyncStorage.setItem('selectedHoroscope', JSON.stringify(horoscope));
-    await AsyncStorage.setItem('hasSeenPopup', 'true'); // Set flag
-    setIsModalVisible(false); // Close the modal
+    setSelectedHoroscope(horoscope); // Update the state with the selected horoscope
+    await AsyncStorage.setItem('selectedHoroscope', JSON.stringify(horoscope)); // Save the selected horoscope to AsyncStorage
+    await AsyncStorage.setItem('hasSeenPopup', 'true'); // Set a flag in AsyncStorage to indicate the popup has been seen
+    setIsModalVisible(false); // Close the modal after selection
   };
 
+  // Function to reset the selected horoscope
   const handleResetHoroscope = async () => {
-    await AsyncStorage.removeItem('selectedHoroscope');
-    await AsyncStorage.removeItem('hasSeenPopup');
-    setSelectedHoroscope(null);
-    setIsModalVisible(true); // Show the modal again
+    await AsyncStorage.removeItem('selectedHoroscope'); // Remove the saved horoscope from AsyncStorage
+    await AsyncStorage.removeItem('hasSeenPopup'); // Remove the popup flag from AsyncStorage
+    setSelectedHoroscope(null); // Reset the state to indicate no horoscope is selected
+    setIsModalVisible(true); // Reopen the modal to allow the user to select a new horoscope
   };
-
   return (
     <View style={styles.background}>
       <ScrollView>
