@@ -33,9 +33,17 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
   // Haetaan API:sta propsin avulla dataa, tarkalleen ottaen horoskooppi kuvaukset tai "ennustukset"
   const fetchHoroscope = async () => {
     try {
+      // Get the current date in YY-MM-DD format
+      const today = new Date();
+      const year = today.getFullYear().toString(); // Full 4-digit year
+      const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Ensure two digits
+      const day = today.getDate().toString().padStart(2, '0'); // Ensure two digits
+      const formattedDate = `${year}-${month}-${day}`;
+      console.log('Formatted date:', formattedDate); // Debugging log
+
       const response = await fetch(
-        // Käytetään tuotua id-propsia api-fetchin kanssa
-        `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${itemId}&day=TODAY`,
+        // Use the formatted date in the API call
+        `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${itemId}&day=${formattedDate}`,
         {
           headers: {
             accept: 'application/json',
@@ -43,7 +51,7 @@ const HoroscopeData: React.FC<HoroscopeDataProps> = ({ route }) => {
         }
       );
       const result = await response.json();
-      setData(result.data); // Otetaan data talteen
+      setData(result.data); // Save the data
     } catch (error) {
       console.error('Error fetching horoscope:', error);
     } finally {
